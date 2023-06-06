@@ -1,0 +1,31 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+import Image from 'next/image'
+import img1 from './adv-desk-1-dark.webp'
+import img2 from './adv-desk-1-light.webp'
+import img3 from './adv-desk-2-light.webp'
+import img4 from './adv-desk-3-light.webp'
+
+export const meta = {
+  author: 'Angelica Moberg Skoglund',
+  image: img1,
+  keys: ['Next.js', 'TypeScript', 'Mantine.dev'],
+  date: '2022-10-27',
+  title: 'Business Adventure Hero',
+  description:
+    'Built a landing page from scratch for their booking site/service Adventure Hero to attract more users. I did this together with two other LIAs. We built the page with Next.js and Mantine (css library)',
+}
+
+export default (props) => <ArticleLayout meta={meta} {...props} />
+
+Built a landing page from scratch for their booking site/service Adventure Hero to attract more users. I did this together with two other LIAs. We built the page with Next.js and Mantine (css library).
+
+Link to page:
+
+<a href="https://business.adventurehero.se/">Adventure Hero - Business</a>
+
+##
+
+<Image src={img1} alt="" />
+<Image src={img2} alt="" />
+<Image src={img3} alt="" />
+<Image src={img4} alt="" />
