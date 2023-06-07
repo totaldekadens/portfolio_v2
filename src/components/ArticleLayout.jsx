@@ -38,7 +38,7 @@ export function ArticleLayout({
       </Head>
       <Container className="mt-16 lg:mt-32">
         <div className="xl:relative">
-          <div className="mx-auto max-w-2xl">
+          <div className="mx-auto max-w-7xl">
             {previousPathname && (
               <button
                 type="button"
@@ -65,8 +65,11 @@ export function ArticleLayout({
               </header>
 
               <div className="flex flex-wrap gap-2">
-                {meta.keys.map((key) => (
-                  <div className="z-20 mt-4 rounded-full bg-zinc-200 bg-light-300/60 px-2  py-1 text-[10px]   text-light-50 dark:bg-zinc-800 dark:bg-dark-300/60  dark:text-light-200 md:py-0 md:text-xs ">
+                {meta.keys.map((key, i) => (
+                  <div
+                    key={i}
+                    className="z-20 mt-4 rounded-full bg-zinc-200 bg-light-300/60 px-2  py-1 text-[10px]   text-light-50 dark:bg-zinc-800 dark:bg-dark-300/60  dark:text-light-200 md:py-0 md:text-xs "
+                  >
                     {key}
                   </div>
                 ))}
