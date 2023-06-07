@@ -3,12 +3,13 @@ import CVButton from '@/components/CVButton'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import { formatDate } from '@/lib/formatDate'
-import { getAllArticles } from '@/lib/getAllArticles'
 import Image from 'next/image'
 import logoAtria from '@/images/logos/atria.png'
 import logoH5 from '@/images/logos/h5.png'
 import logoWallmander from '@/images/logos/logo-black-transparant.png'
+import logoWallmanderWhite from '@/images/logos/logo-white-transparant.png'
 import logoIngram from '@/images/logos/ingram.png'
+
 function BriefcaseIcon(props) {
   return (
     <svg
@@ -32,40 +33,44 @@ function BriefcaseIcon(props) {
   )
 }
 
-function Resume() {
+function Resume({ isDark }) {
   let resume = [
     {
       company: 'Wallmander & Co',
       title: 'Web developer - Internship',
-      logo: logoWallmander,
+      logoDark: logoWallmanderWhite,
+      logoLight: logoWallmander,
       start: '2023',
       end: '2023',
     },
     {
       company: 'H5 Förnyelsebyrå AB',
       title: 'Web developer - Internship',
-      logo: logoH5,
+      logoDark: logoH5,
+      logoLight: logoH5,
       start: '2022',
       end: '2022',
     },
     {
       company: 'Atria Sweden',
       title: 'Production Coordinator',
-      logo: logoAtria,
+      logoDark: logoAtria,
+      logoLight: logoAtria,
       start: '2021',
       end: '2021',
     },
     {
       company: 'Ingram Micro Logistics AB',
       title: 'Group leader / Specialist ',
-      logo: logoIngram,
+      logoDark: logoIngram,
+      logoLight: logoIngram,
       start: '2011',
       end: '2021',
     },
   ]
 
   return (
-    <div className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700/40">
+    <div className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700/40 xl:min-w-[466px] xl:max-w-[466px]">
       <h2 className="flex text-sm font-semibold text-dark-200 dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none " />
         <span className="ml-3">Work</span>
@@ -75,7 +80,7 @@ function Resume() {
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50  dark:ring-0">
               <Image
-                src={role.logo}
+                src={isDark ? role.logoDark : role.logoLight}
                 alt=""
                 className="h-7 w-7 object-contain"
                 unoptimized
@@ -164,7 +169,7 @@ function Article({ article }) {
   )
 }
 
-export default function ArticlesIndex({ articles }) {
+export default function ArticlesIndex({ isDark }) {
   return (
     <>
       <Head>
@@ -172,23 +177,15 @@ export default function ArticlesIndex({ articles }) {
         <meta name="description" content="Some of my merits." />
       </Head>
       <SimpleLayout title="Merits / Resumé" intro="">
-        <div className="flex flex-col gap-24 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40 xl:flex-row">
-          <div className="flex  flex-col space-y-16 xl:max-w-lg">
+        <div className="flex flex-col gap-24 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40 xl:max-w-[1500px] xl:flex-row xl:justify-between">
+          <div className="xl:min-w-xl  x flex flex-col space-y-16">
             {list.map((article, i) => (
               <Article key={i} article={article} />
             ))}
           </div>
-          <Resume />
+          <Resume isDark={isDark} />
         </div>
       </SimpleLayout>
     </>
   )
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
-    },
-  }
 }

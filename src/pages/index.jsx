@@ -1,39 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
 import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-import { formatDate } from '@/lib/formatDate'
-import { generateRssFeed } from '@/lib/generateRssFeed'
-import { getAllArticles } from '@/lib/getAllArticles'
-import { ChevronRightIcon } from '@/components/Card'
-import CVButton from '@/components/CVButton'
-import Badges from '@/components/Badges'
-
-const variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-}
-
-const images = {
-  hidden: {
-    opacity: 0,
-    x: 30,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-}
 
 export function ArrowRight(props) {
   return (
@@ -89,8 +57,8 @@ function MailIcon(props) {
   )
 }
 
-import { projects } from '@/lib/data'
-export default function Home({ articles }) {
+import Projects from '@/components/Projects'
+export default function Home() {
   return (
     <>
       <Head>
@@ -108,91 +76,40 @@ export default function Home({ articles }) {
           content="https://mobergskoglund.se/newlogo.png"
         />
       </Head>
-      <Container className={'mt-24 md:mt-44'}>
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl">
-            <span className="text-dark-200 dark:text-light-100">
-              Web developer,{' '}
-            </span>
-            cat mom and a hobby-ish carpenter.
-          </h1>
-          <p className="mt-6 text-base text-dark-100 dark:text-dark-50">
-            Hello! I’m Angelica, a newly graduated web developer based in
-            Sweden´s little Tuscany, Skene in Marks kommun.
-          </p>
-          <div className="mt-6 flex gap-6">
-            <SocialLink
-              href="https://github.com/totaldekadens"
-              aria-label="Follow on GitHub"
-              icon={GitHubIcon}
-            />
-            <SocialLink
-              href="https://www.linkedin.com/in/angelica-moberg-skoglund-012aa2212/"
-              aria-label="Follow on LinkedIn"
-              icon={LinkedInIcon}
-            />
-            <SocialLink
-              href="mailto:angelica.moberg@hotmail.com"
-              icon={MailIcon}
-              aria-label="Contact by mail"
-            />
+      <div>
+        <Container className={'mt-24 md:mt-44'}>
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl">
+              <span className="text-dark-200 dark:text-light-100">
+                Web developer,{' '}
+              </span>
+              cat mom and a hobby-ish carpenter.
+            </h1>
+            <p className="mt-6 text-base text-dark-100 dark:text-dark-50">
+              Hello! I’m Angelica, a newly graduated web developer based in
+              Sweden´s little Tuscany, Skene in Marks kommun.
+            </p>
+            <div className="mt-6 flex gap-6">
+              <SocialLink
+                href="https://github.com/totaldekadens"
+                aria-label="Follow on GitHub"
+                icon={GitHubIcon}
+              />
+              <SocialLink
+                href="https://www.linkedin.com/in/angelica-moberg-skoglund-012aa2212/"
+                aria-label="Follow on LinkedIn"
+                icon={LinkedInIcon}
+              />
+              <SocialLink
+                href="mailto:angelica.moberg@hotmail.com"
+                icon={MailIcon}
+                aria-label="Contact by mail"
+              />
+            </div>
           </div>
-        </div>
-      </Container>
-      <Container className="mt-24 md:mt-28">
-        <div className="mx-auto max-w-xl  lg:max-w-none ">
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={variants}
-            className="mx-auto grid max-w-xl grid-cols-1 gap-20 lg:max-w-none lg:grid-cols-2"
-          >
-            {projects.map((article, i) => (
-              <Link key={i} href={'/projects/' + article.slug}>
-                <div className="relative rounded-lg">
-                  <motion.img
-                    src={article.image.src}
-                    alt="bild"
-                    className="rounded-lg"
-                    variants={images}
-                  />
-
-                  <div className="absolute top-0 right-0 left-0 bottom-0 flex cursor-pointer flex-col rounded-lg bg-black/70 opacity-0 transition duration-300 ease-in-out hover:opacity-100">
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
-                      <h2 className="text-2xl font-medium text-white">
-                        {article.title}
-                      </h2>
-
-                      <Badges keys={article.keys} />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </motion.div>
-          <Link
-            href={'/projects'}
-            className="mt-10 flex w-full items-center justify-end text-sm font-semibold text-dark-200 dark:text-light-100 "
-          >
-            Go to all projects
-            <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
-          </Link>
-        </div>
-      </Container>
+        </Container>
+        <Projects />
+      </div>
     </>
   )
-}
-
-export async function getStaticProps() {
-  if (process.env.NODE_ENV === 'production') {
-    await generateRssFeed()
-  }
-
-  return {
-    props: {
-      articles: (await getAllArticles())
-        .slice(0, 4)
-        .map(({ component, ...meta }) => meta),
-    },
-  }
 }

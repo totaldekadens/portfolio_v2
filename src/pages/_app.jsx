@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import '@/styles/tailwind.css'
@@ -17,15 +17,19 @@ function usePrevious(value) {
 export default function App({ Component, pageProps, router }) {
   let previousPathname = usePrevious(router.pathname)
 
+  const [isDark, setIsDark] = useState()
+
   return (
-    <>
-      <div className={'relative'}>
-        <Header />
-        <main>
-          <Component previousPathname={previousPathname} {...pageProps} />
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className={'relative'}>
+      <Header setIsDark={setIsDark} />
+      <main>
+        <Component
+          isDark={isDark}
+          previousPathname={previousPathname}
+          {...pageProps}
+        />
+      </main>
+      <Footer />
+    </div>
   )
 }

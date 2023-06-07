@@ -58,7 +58,6 @@ Card.Cta = function CardCta({ children }) {
       className="relative z-10 mt-4 flex w-full items-center justify-end text-sm font-medium text-dark-50 dark:text-light-300/60"
     >
       {children}
-      {/*  <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" /> */}
       <ArrowRight />
     </div>
   )
@@ -75,7 +74,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-light-300/70 dark:text-light-300/70',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-light-300/80 dark:text-light-300/70',
         decorate && 'pl-3.5'
       )}
       {...props}

@@ -1,10 +1,9 @@
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState, useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
-
 import { Container } from '@/components/Container'
 import avatarImage from '@/images/newlogo.png'
 
@@ -161,7 +160,7 @@ function DesktopNavigation(props) {
   )
 }
 
-function ModeToggle() {
+function ModeToggle({ setIsDark }) {
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
@@ -174,6 +173,8 @@ function ModeToggle() {
     let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     let isSystemDarkMode = darkModeMediaQuery.matches
     let isDarkMode = document.documentElement.classList.toggle('dark')
+
+    setIsDark(isDarkMode)
 
     if (isDarkMode === isSystemDarkMode) {
       delete window.localStorage.isDarkMode
@@ -229,7 +230,7 @@ function Avatar({ large = false, className, ...props }) {
   )
 }
 
-export function Header() {
+export function Header({ setIsDark }) {
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef()
@@ -331,7 +332,7 @@ export function Header() {
               </div>
               <div className=" hidden justify-end md:flex md:flex-1">
                 <div className="pointer-events-auto">
-                  <ModeToggle />
+                  <ModeToggle setIsDark={setIsDark} />
                 </div>
               </div>
             </div>
