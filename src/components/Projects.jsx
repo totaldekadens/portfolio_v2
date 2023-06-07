@@ -47,7 +47,7 @@ const Projects = () => {
                 <motion.img
                   src={project.image.src}
                   alt="bild"
-                  className="h-full rounded-lg object-cover"
+                  className=" rounded-lg object-contain"
                   variants={images}
                 />
 
