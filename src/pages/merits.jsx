@@ -115,12 +115,8 @@ function Resume({ isDark }) {
         ))}
       </ol>
       <CVButton
-        title="Download CV - Light"
-        href="/cv/Angelica_Moberg_Skoglund_CV_Light1.pdf"
-      />
-      <CVButton
-        title="Download CV - Dark"
-        href="/cv/Angelica_Moberg_Skoglund_CV_Dark.pdf"
+        title="Download CV"
+        href="/cv/Angelica_Moberg_Skoglund_CV.pdf"
       />
     </div>
   )
