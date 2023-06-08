@@ -10,6 +10,7 @@ import { Container } from '@/components/Container'
 import { ChevronRightIcon } from '@/components/Card'
 import { projects } from '@/lib/data'
 import Projects from '@/components/Projects'
+import FadeInPage from '@/components/FadeInPage'
 const variants = {
   hidden: { opacity: 0 },
   show: {
@@ -44,13 +45,13 @@ export default function ArticlesIndex({ articles }) {
           content="Some of my projects. Please check out my Github for more."
         />
       </Head>
-      <div>
+      <FadeInPage>
         <SimpleLayout
           title="Projects"
           intro="This page is under construction. Please checkout all my projects on my Github-page"
         />
         <Projects />
-      </div>
+      </FadeInPage>
     </>
   )
 }
