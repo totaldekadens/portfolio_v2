@@ -6,10 +6,11 @@ import { formatDate } from '@/lib/formatDate'
 import Image from 'next/image'
 import logoAtria from '@/images/logos/atria.png'
 import logoH5 from '@/images/logos/h5.png'
-import logoWallmander from '@/images/logos/logo-black-transparant.png'
+import logoWallmander from '@/images/logos/wallmander.png'
 import logoWallmanderWhite from '@/images/logos/logo-white-transparant.png'
 import logoIngram from '@/images/logos/ingram.png'
-
+import { motion } from 'framer-motion'
+import FadeInPage from '@/components/FadeInPage'
 function BriefcaseIcon(props) {
   return (
     <svg
@@ -33,7 +34,7 @@ function BriefcaseIcon(props) {
   )
 }
 
-function Resume({ isDark }) {
+function Resume() {
   let resume = [
     {
       company: 'Wallmander & Co',
@@ -80,7 +81,7 @@ function Resume({ isDark }) {
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50  dark:ring-0">
               <Image
-                src={isDark ? role.logoDark : role.logoLight}
+                src={role.logoLight}
                 alt=""
                 className="h-7 w-7 object-contain"
                 unoptimized
@@ -165,23 +166,25 @@ function Article({ article }) {
   )
 }
 
-export default function ArticlesIndex({ isDark }) {
+export default function ArticlesIndex() {
   return (
     <>
       <Head>
         <title>Merits / Resumé - Angelica Moberg Skoglund</title>
         <meta name="description" content="Some of my merits." />
       </Head>
-      <SimpleLayout title="Merits / Resumé" intro="">
-        <div className="flex flex-col gap-24 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40 xl:max-w-[1500px] xl:flex-row xl:justify-between">
-          <div className="xl:min-w-xl  x flex flex-col space-y-16">
-            {list.map((article, i) => (
-              <Article key={i} article={article} />
-            ))}
+      <FadeInPage>
+        <SimpleLayout title="Merits / Resumé" intro="">
+          <div className="flex flex-col gap-24 md:border-l md:border-zinc-100 md:pl-6 md:dark:border-zinc-700/40 xl:max-w-[1500px] xl:flex-row xl:justify-between">
+            <div className="xl:min-w-xl  x flex flex-col space-y-16">
+              {list.map((article, i) => (
+                <Article key={i} article={article} />
+              ))}
+            </div>
+            <Resume />
           </div>
-          <Resume isDark={isDark} />
-        </div>
-      </SimpleLayout>
+        </SimpleLayout>
+      </FadeInPage>
     </>
   )
 }

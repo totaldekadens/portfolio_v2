@@ -150,7 +150,7 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
   return (
     <nav {...props}>
-      <ul className="flex rounded-lg px-3 text-sm font-medium text-light-300 backdrop-blur  dark:text-light-100   ">
+      <ul className="flex rounded-lg px-3 text-sm font-medium text-light-300 backdrop-blur dark:text-light-100  md:text-base   ">
         <NavItem href="/about">About</NavItem>
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/tech">Tech</NavItem>
@@ -160,7 +160,7 @@ function DesktopNavigation(props) {
   )
 }
 
-function ModeToggle({ setIsDark }) {
+function ModeToggle() {
   function disableTransitionsTemporarily() {
     document.documentElement.classList.add('[&_*]:!transition-none')
     window.setTimeout(() => {
@@ -173,8 +173,6 @@ function ModeToggle({ setIsDark }) {
     let darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     let isSystemDarkMode = darkModeMediaQuery.matches
     let isDarkMode = document.documentElement.classList.toggle('dark')
-
-    setIsDark(isDarkMode)
 
     if (isDarkMode === isSystemDarkMode) {
       delete window.localStorage.isDarkMode
@@ -190,7 +188,7 @@ function ModeToggle({ setIsDark }) {
       className="group rounded-full  px-3 py-2 shadow-lg  backdrop-blur transition  dark:ring-white/10 dark:hover:ring-white/20"
       onClick={toggleMode}
     >
-      <SunIcon className="h-6 w-6 fill-light-300  stroke-zinc-400  transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden md:fill-zinc-100 [@media(prefers-color-scheme:dark)]:fill-teal-50 [@media(prefers-color-scheme:dark)]:stroke-light-100 [@media(prefers-color-scheme:dark)]:group-hover:fill-teal-50 [@media(prefers-color-scheme:dark)]:group-hover:stroke-dark-300  [@media(prefers-color-scheme:dark)]:md:stroke-light-300" />
+      <SunIcon className="h-6 w-6 fill-light-300   stroke-light-200   transition group-hover:fill-teal-50 group-hover:stroke-zinc-700 dark:hidden md:fill-zinc-100 md:stroke-light-300  md:group-hover:stroke-dark-300" />{' '}
       <MoonIcon className="hidden h-6 w-6  stroke-light-200 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-light-300 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
     </button>
   )
@@ -230,7 +228,7 @@ function Avatar({ large = false, className, ...props }) {
   )
 }
 
-export function Header({ setIsDark }) {
+export function Header() {
   let isHomePage = useRouter().pathname === '/'
 
   let headerRef = useRef()
@@ -332,7 +330,7 @@ export function Header({ setIsDark }) {
               </div>
               <div className=" hidden justify-end md:flex md:flex-1">
                 <div className="pointer-events-auto">
-                  <ModeToggle setIsDark={setIsDark} />
+                  <ModeToggle />
                 </div>
               </div>
             </div>

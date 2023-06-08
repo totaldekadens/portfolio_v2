@@ -58,6 +58,7 @@ function MailIcon(props) {
 }
 
 import Projects from '@/components/Projects'
+import FadeInPage from '@/components/FadeInPage'
 export default function Home() {
   return (
     <>
@@ -76,7 +77,7 @@ export default function Home() {
           content="https://mobergskoglund.se/newlogo.png"
         />
       </Head>
-      <div>
+      <FadeInPage>
         <Container className={'mt-24 md:mt-44'}>
           <div className="max-w-3xl">
             <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl">
@@ -109,7 +110,7 @@ export default function Home() {
           </div>
         </Container>
         <Projects />
-      </div>
+      </FadeInPage>
     </>
   )
 }

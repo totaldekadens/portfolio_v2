@@ -3,7 +3,7 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import '@/styles/tailwind.css'
 import 'focus-visible'
-
+import { motion } from 'framer-motion'
 function usePrevious(value) {
   let ref = useRef()
 
@@ -17,19 +17,19 @@ function usePrevious(value) {
 export default function App({ Component, pageProps, router }) {
   let previousPathname = usePrevious(router.pathname)
 
-  const [isDark, setIsDark] = useState()
-
   return (
     <div className={'relative'}>
-      <Header setIsDark={setIsDark} />
-      <main>
-        <Component
-          isDark={isDark}
-          previousPathname={previousPathname}
-          {...pageProps}
-        />
-      </main>
-      <Footer />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Header />
+        <main>
+          <Component previousPathname={previousPathname} {...pageProps} />
+        </main>
+        <Footer />
+      </motion.div>
     </div>
   )
 }
