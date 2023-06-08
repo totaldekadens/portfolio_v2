@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import { getAllArticles } from '@/lib/getAllArticles'
 import Image from 'next/image'
 import Link from 'next/link'
 import Badges from '@/components/Badges'
@@ -35,7 +34,7 @@ const images = {
   },
 }
 
-export default function ArticlesIndex({ articles }) {
+export default function ArticlesIndex() {
   return (
     <>
       <Head>
@@ -54,12 +53,4 @@ export default function ArticlesIndex({ articles }) {
       </FadeInPage>
     </>
   )
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      articles: (await getAllArticles()).map(({ component, ...meta }) => meta),
-    },
-  }
 }

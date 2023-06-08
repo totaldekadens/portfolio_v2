@@ -9,7 +9,7 @@ import logoH5 from '@/images/logos/h5.png'
 import logoWallmander from '@/images/logos/wallmander.png'
 import logoWallmanderWhite from '@/images/logos/logo-white-transparant.png'
 import logoIngram from '@/images/logos/ingram.png'
-import { motion } from 'framer-motion'
+
 import FadeInPage from '@/components/FadeInPage'
 function BriefcaseIcon(props) {
   return (
