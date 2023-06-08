@@ -79,14 +79,14 @@ export default function Home() {
       </Head>
       <FadeInPage>
         <Container className={'mt-24 md:mt-44'}>
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl">
+          <div className="max-w-3xl xl:max-w-4xl ">
+            <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl xl:text-6xl ">
               <span className="text-dark-200 dark:text-light-100">
                 Web developer,{' '}
               </span>
               cat mom and a hobby-ish carpenter.
             </h1>
-            <p className="mt-6 text-base text-dark-100 dark:text-dark-50">
+            <p className="mt-6 text-base text-dark-100 dark:text-dark-50 xl:text-lg">
               Hello! I’m Angelica, a newly graduated web developer based in
               Sweden´s little Tuscany, Skene in Marks kommun.
             </p>
