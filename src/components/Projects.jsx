@@ -92,33 +92,61 @@ const Projects = () => {
             variants={variants}
             className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2"
           >
-            {projects.map((project, i) => (
-              <Link key={i} href={'/projects/' + project.slug}>
-                <div className="relative rounded-lg ">
-                  <motion.img
-                    src={project.image.src}
-                    alt="bild"
-                    className=" rounded-lg object-contain"
-                    variants={images}
-                  />
+            {pathname == '/'
+              ? projects.slice(0, 4).map((project, i) => (
+                  <Link key={i} href={'/projects/' + project.slug}>
+                    <div className="relative rounded-lg ">
+                      <motion.img
+                        src={project.image.src}
+                        alt="bild"
+                        className=" rounded-lg object-contain"
+                        variants={images}
+                      />
 
-                  <div
-                    style={{
-                      backgroundColor: project.accentColor,
-                      inset: '-2px',
-                    }}
-                    className={`absolute flex cursor-pointer flex-col rounded-lg bg-light-100 opacity-0 transition duration-300 ease-in-out dark:bg-dark-300 md:hover:opacity-100`}
-                  >
-                    <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
-                      <h2 className="text-2xl font-medium text-dark-200 dark:text-light-100">
-                        {project.title}
-                      </h2>
-                      <Badges keys={project.keys} />
+                      <div
+                        style={{
+                          backgroundColor: project.accentColor,
+                          inset: '-2px',
+                        }}
+                        className={`absolute flex cursor-pointer flex-col rounded-lg bg-light-100 opacity-0 transition duration-300 ease-in-out dark:bg-dark-300 md:hover:opacity-100`}
+                      >
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+                          <h2 className="text-2xl font-medium text-dark-200 dark:text-light-100">
+                            {project.title}
+                          </h2>
+                          <Badges keys={project.keys} />
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                  </Link>
+                ))
+              : projects.map((project, i) => (
+                  <Link key={i} href={'/projects/' + project.slug}>
+                    <div className="relative rounded-lg ">
+                      <motion.img
+                        src={project.image.src}
+                        alt="bild"
+                        className=" rounded-lg object-contain"
+                        variants={images}
+                      />
+
+                      <div
+                        style={{
+                          backgroundColor: project.accentColor,
+                          inset: '-2px',
+                        }}
+                        className={`absolute flex cursor-pointer flex-col rounded-lg bg-light-100 opacity-0 transition duration-300 ease-in-out dark:bg-dark-300 md:hover:opacity-100`}
+                      >
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+                          <h2 className="text-2xl font-medium text-dark-200 dark:text-light-100">
+                            {project.title}
+                          </h2>
+                          <Badges keys={project.keys} />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
           </motion.div>
           {pathname == '/' ? (
             <Link
@@ -137,9 +165,13 @@ const Projects = () => {
       <Container className="s mt-24 md:mt-28 md:hidden">
         <div className="mx-auto max-w-xl  lg:max-w-none ">
           <div className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">
-            {projects.map((project, i) => (
-              <Project key={i} project={project} />
-            ))}
+            {pathname == '/'
+              ? projects
+                  .slice(0, 4)
+                  .map((project, i) => <Project key={i} project={project} />)
+              : projects.map((project, i) => (
+                  <Project key={i} project={project} />
+                ))}
           </div>
           {pathname == '/' ? (
             <Link

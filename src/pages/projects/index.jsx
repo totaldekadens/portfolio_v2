@@ -1,38 +1,7 @@
 import Head from 'next/head'
-import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import Image from 'next/image'
-import Link from 'next/link'
-import Badges from '@/components/Badges'
-import { motion } from 'framer-motion'
-import { Container } from '@/components/Container'
-import { ChevronRightIcon } from '@/components/Card'
-import { projects } from '@/lib/data'
 import Projects from '@/components/Projects'
 import FadeInPage from '@/components/FadeInPage'
-const variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-}
-
-const images = {
-  hidden: {
-    opacity: 0,
-    x: 30,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-}
 
 export default function ArticlesIndex() {
   return (

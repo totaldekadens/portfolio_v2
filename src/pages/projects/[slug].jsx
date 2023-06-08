@@ -5,7 +5,17 @@ import { formatDate } from '@/lib/formatDate'
 import FadeInPage from '@/components/FadeInPage'
 import { projects } from '@/lib/data'
 import { useEffect, useState } from 'react'
+import { GitHubIcon, LinkIcon } from '@/components/SocialIcons'
 import Image from 'next/image'
+import Link from 'next/link'
+
+function SocialLink({ icon: Icon, ...props }) {
+  return (
+    <Link className="group -m-1 ml-6 p-1" target="_blank" {...props}>
+      <Icon className=" h-6 w-6 fill-dark-50 transition group-hover:fill-light-300 dark:fill-zinc-400 dark:group-hover:fill-light-300 md:h-10 md:w-10" />
+    </Link>
+  )
+}
 function ArrowLeftIcon(props) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
@@ -19,7 +29,7 @@ function ArrowLeftIcon(props) {
   )
 }
 
-function ArticleLayout({ children, previousPathname }) {
+function ArticleLayout({ previousPathname }) {
   let router = useRouter()
 
   const [project, setProject] = useState()
@@ -29,7 +39,6 @@ function ArticleLayout({ children, previousPathname }) {
     try {
       if (slug) {
         const foundProject = projects.find((proj) => proj.slug == slug)
-        console.log(foundProject)
         setProject(foundProject)
       }
     } catch (err) {
@@ -67,10 +76,28 @@ function ArticleLayout({ children, previousPathname }) {
                       </h1>
                       <time
                         dateTime={project.date}
-                        className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
+                        className="order-first flex items-center  text-base text-zinc-400 dark:text-zinc-500"
                       >
-                        <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                        <span className="ml-3">{formatDate(project.date)}</span>
+                        <div className=" w-full border-l-2 border-zinc-200 dark:border-zinc-500 ">
+                          <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+                          <span className="ml-3">
+                            {formatDate(project.date)}
+                          </span>
+                        </div>
+                        {project.website ? (
+                          <SocialLink
+                            href={project.website}
+                            aria-label=""
+                            icon={LinkIcon}
+                          />
+                        ) : null}
+                        {project.github ? (
+                          <SocialLink
+                            href={project.github}
+                            aria-label=""
+                            icon={GitHubIcon}
+                          />
+                        ) : null}
                       </time>
                     </header>
 
@@ -85,9 +112,20 @@ function ArticleLayout({ children, previousPathname }) {
                       ))}
                     </div>
                     <div className="mt-8">
-                      <p className="my-7 mb-20 leading-relaxed text-dark-200/80 dark:text-dark-50">
+                      <p
+                        className={
+                          project.description2
+                            ? 'my-7 leading-relaxed text-dark-200/80 dark:text-dark-50'
+                            : 'my-7 mb-20 leading-relaxed text-dark-200/80 dark:text-dark-50'
+                        }
+                      >
                         {project.description}
                       </p>
+                      {project.description2 ? (
+                        <p className=" mb-10 leading-relaxed text-dark-200/80 dark:text-dark-50">
+                          {project.description2}
+                        </p>
+                      ) : null}
                       {project.sections.map((section, i) => {
                         return (
                           <div className="font-semibold text-dark-200 dark:text-light-100">

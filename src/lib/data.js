@@ -1,7 +1,6 @@
 import poll from '../../public/poll.png'
 import poll2 from '../../public/pollmobile.png'
 import poll3 from '../../public/result.png'
-import img1 from '../../public/make-desk-1.webp'
 import img11 from '../../public/wallnew1.png'
 import wall1 from '../../public/wallnew1.png'
 import wall2 from '../../public/wallnew2.png'
@@ -35,6 +34,15 @@ import adv1 from '../../public/adv-desk-1-dark.webp'
 import adv2 from '../../public/adv-desk-1-light.webp'
 import adv3 from '../../public/adv-desk-2-light.webp'
 import adv4 from '../../public/adv-desk-3-light.webp'
+import port1 from '../../public/port1.webp'
+import port2 from '../../public/port2.webp'
+import sad1 from '../../public/sad1.webp'
+import sad2 from '../../public/sad2.webp'
+import zeon1 from '../../public/zeon-desk-1.webp'
+import zeon2 from '../../public/zeon-desk-2.webp'
+import zeon3 from '../../public/zeon-desk-3.webp'
+import zeon4 from '../../public/zeon-desk-6.webp'
+import zeon5 from '../../public/zeon-desk-8.webp'
 
 export const projects = [
   {
@@ -76,7 +84,7 @@ export const projects = [
     shortDescription:
       'Project for Wallmander & Co. Created a Boilerplate with Next.js for future E- commerce use.',
     description:
-      'Project for Wallmander & Co. Created a Boilerplate with Next.js for future E- commerce use. I integrated BigCommerce and created dynamic component blocks suited to be customized from WordPress.',
+      'Project for Wallmander & Co. Created a Boilerplate with Next.js for future E- commerce use. I integrated BigCommerce and created dynamic component blocks suited to be customized from WordPress. ',
     sections: [
       {
         title: '',
@@ -105,7 +113,7 @@ export const projects = [
   },
   {
     author: 'Angelica Moberg Skoglund',
-    github: '',
+    github: 'https://github.com/totaldekadens/MakeupByS',
     website: '',
     slug: 'master-thesis',
     image: img2,
@@ -116,6 +124,8 @@ export const projects = [
       'MakeUpByS is a new and innovative e-commerce platform that offers makeup products categorized by seasons.',
     description:
       'MakeUpByS is a new and innovative e-commerce platform that offers makeup products categorized by seasons. The unique selling point of this website is the quiz that helps customers determine which season they match the best with, and then suggests makeup products that will suit their specific features.',
+    description2:
+      'I created the whole backend, the quiz, the cart, the checkout, the admin panel with order and product handling, the search function, the category page and the product page. ',
     sections: [
       {
         title: '',
@@ -209,6 +219,84 @@ export const projects = [
           { src: adv2, alt: 'bild på projekt' },
           { src: adv3, alt: 'bild på projekt' },
           { src: adv4, alt: 'bild på projekt' },
+        ],
+        video: { format: '', src: '' },
+      },
+    ],
+  },
+  {
+    author: 'Angelica Moberg Skoglund',
+    github: 'https://github.com/totaldekadens/portfolio-assignment',
+    website: '',
+    slug: 'portfolio-assignment',
+    image: port1,
+    keys: ['React.js', 'TypeScript', 'Node.js', 'Mantine.dev'],
+    date: '2022-12-22',
+    title: 'Portfolio assignment',
+    shortDescription: '',
+    description:
+      'Group project done with focus on working with agile methods. I created the member page, profile page and the whole backend part.',
+    sections: [
+      {
+        title: '',
+        subTitle: '',
+        description: '',
+        images: [
+          { src: port1, alt: 'bild på projekt' },
+          { src: port2, alt: 'bild på projekt' },
+        ],
+        video: { format: '', src: '' },
+      },
+    ],
+  },
+  {
+    author: 'Angelica Moberg Skoglund',
+    github: 'https://github.com/totaldekadens/Wordpress---Webshop',
+    website: '',
+    slug: 'sad-active',
+    image: sad1,
+    keys: ['WordPress', 'WooCommerce', 'PHP', 'MySQL'],
+    date: '2022-05-04',
+    title: 'SAD Active E-Commerce',
+    shortDescription: '',
+    description:
+      'Group project focused on creating a child theme in Wordpress. Please go to repo for further info.',
+    sections: [
+      {
+        title: '',
+        subTitle: '',
+        description: '',
+        images: [
+          { src: sad1, alt: 'bild på projekt' },
+          { src: sad2, alt: 'bild på projekt' },
+        ],
+        video: { format: '', src: '' },
+      },
+    ],
+  },
+  {
+    author: 'Angelica Moberg Skoglund',
+    github: 'https://github.com/totaldekadens/Webshop',
+    website: '',
+    slug: 'zeon-milo',
+    image: zeon1,
+    keys: ['JavaScript', 'PHP', 'MySQL'],
+    date: '2022-03-03',
+    title: 'ZEON MILO E-Commerce',
+    shortDescription: '',
+    description:
+      'Group project focused on creating a complete full stack project. My focus was mainly the backend part with MySQL and the REST-API. But I also did the category page, the cart and the checkout.',
+    sections: [
+      {
+        title: '',
+        subTitle: '',
+        description: '',
+        images: [
+          { src: zeon1, alt: 'bild på projekt' },
+          { src: zeon2, alt: 'bild på projekt' },
+          { src: zeon3, alt: 'bild på projekt' },
+          { src: zeon4, alt: 'bild på projekt' },
+          { src: zeon5, alt: 'bild på projekt' },
         ],
         video: { format: '', src: '' },
       },
