@@ -5,6 +5,10 @@ import logoWallmanderWhite from '@/images/logos/logo-white-transparant.png'
 import logoIngram from '@/images/logos/ingram.png'
 import { GitHubIcon, LinkedInIcon } from '@/components/Icons'
 
+
+// Will be moved to MongoDB eventually
+
+
 export const meritPage = {
   slug: 'merits',
   title: 'Merits / Resumé',
