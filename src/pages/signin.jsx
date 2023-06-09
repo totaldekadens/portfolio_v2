@@ -1,15 +1,12 @@
-import Head from "next/head";
+import Head from 'next/head'
 
 export default function SignIn() {
   return (
-
     <>
-    <Head>
-         <title>
-         Sign in - Angelica Moberg Skoglund
-        </title>
-    </Head>
-      <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 lg:px-8 md:mt-20">
+      <Head>
+        <title>Sign in - Angelica Moberg Skoglund</title>
+      </Head>
+      <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 md:mt-20 lg:px-8">
         <div className="w-full max-w-sm space-y-10">
           <div>
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-dark-200 dark:text-light-200">
@@ -18,10 +15,10 @@ export default function SignIn() {
           </div>
           <form className="space-y-6" action="#" method="POST">
             <div className="relative -space-y-px rounded-md ">
-              <div className="pointer-events-none absolute inset-0 z-10 rounded-md  ring-inset ring-0 "/>
+              <div className="pointer-events-none absolute inset-0 z-10 rounded-md  ring-0 ring-inset " />
               <div>
                 <label htmlFor="email-address" className="sr-only">
-                 Username
+                  Username
                 </label>
                 <input
                   id="email-address"
@@ -29,7 +26,7 @@ export default function SignIn() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative h-11 md:h-auto bg-dark-50/20 block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-light-50 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 dark:placeholder:text-gray-600  focus:ring-2 focus:ring-inset focus:ring-light-300 sm:text-sm sm:leading-6 mb-2"
+                  className="relative mb-2 block h-11 w-full rounded-md border-0 bg-dark-50/20 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset  focus:ring-light-300 dark:text-light-50 dark:placeholder:text-gray-600 sm:text-sm sm:leading-6 md:h-auto"
                   placeholder="Username"
                 />
               </div>
@@ -43,7 +40,7 @@ export default function SignIn() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block bg-dark-50/20 h-11 md:h-auto w-full rounded-md border-0 py-1.5 dark:text-light-50  text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600  focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light-300 sm:text-sm sm:leading-6"
+                  className="relative block h-11 w-full rounded-md border-0 bg-dark-50/20 py-1.5 text-gray-900 ring-1  ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset  focus:ring-light-300 dark:text-light-50 dark:placeholder:text-gray-600 sm:text-sm sm:leading-6 md:h-auto"
                   placeholder="Password"
                 />
               </div>

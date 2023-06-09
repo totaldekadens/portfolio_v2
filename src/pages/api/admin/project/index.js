@@ -1,42 +1,39 @@
-import dbConnect from "@/lib/dbConnect";
-import Project from "@/models/ProjectModel";
+import dbConnect from '@/lib/dbConnect'
+import Project from '@/models/ProjectModel'
 
-export default async function handler(
-req, res
-) {
-  const { method } = req;
+export default async function handler(req, res) {
+  const { method } = req
 
-  await dbConnect();
+  await dbConnect()
 
   if (!req.body) {
-    return res.status(400).json({ success: false, data: "Check body" });
+    return res.status(400).json({ success: false, data: 'Check body' })
   }
 
   switch (method) {
-    case "POST":
+    case 'POST':
       try {
-
         // Fix Validation of slug
 
-        let newProject = new Project(req.body);
+        let newProject = new Project(req.body)
 
-        const project = await Project.create(newProject);
-        res.status(201).json({ success: true, data: project });
+        const project = await Project.create(newProject)
+        res.status(201).json({ success: true, data: project })
       } catch (error) {
-        res.status(400).json({ success: false, message: error });
+        res.status(400).json({ success: false, message: error })
       }
-      break;
+      break
 
-    case "PUT":
+    case 'PUT':
       try {
         // Fix update
-        res.status(200).json({ success: true, data: "project" });
+        res.status(200).json({ success: true, data: 'project' })
       } catch (error) {
-        res.status(400).json({ success: false, data: error });
+        res.status(400).json({ success: false, data: error })
       }
-      break;
+      break
     default:
-      res.status(400).json({ success: false, data: "Break error" });
-      break;
+      res.status(400).json({ success: false, data: 'Break error' })
+      break
   }
 }

@@ -1,0 +1,13 @@
+POST  http://localhost:3000/api/open/user
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "name": "Angelica Moberg Skoglund",
+  "email": "angelica.moberg@hotmail.com",
+  "phone": "+46767106199",
+  "password": "Sigge&Greger2023",
+  "github": "https://github.com/totaldekadens",
+  "linkedin": "https://www.linkedin.com/in/angelica-moberg-skoglund-012aa2212/"
+}
+

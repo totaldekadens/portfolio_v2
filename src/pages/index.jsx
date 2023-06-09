@@ -15,7 +15,7 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-export default function Home({projects}) {
+export default function Home({ projects }) {
   return (
     <>
       <Head>
@@ -65,7 +65,7 @@ export default function Home({projects}) {
             </div>
           </div>
         </Container>
-        {projects ?  <Projects projects={projects} /> : null}
+        {projects ? <Projects projects={projects} /> : null}
       </FadeIn>
     </>
   )
@@ -76,6 +76,5 @@ export const getStaticProps = async () => {
 
   const projects = await Project.find({})
 
-  return { props: { projects : JSON.parse(JSON.stringify(projects))}}
-
+  return { props: { projects: JSON.parse(JSON.stringify(projects)) } }
 }

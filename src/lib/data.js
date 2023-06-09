@@ -3,10 +3,10 @@ import logoH5 from '@/images/logos/h5.png'
 import logoWallmander from '@/images/logos/wallmander.png'
 import logoWallmanderWhite from '@/images/logos/logo-white-transparant.png'
 import logoIngram from '@/images/logos/ingram.png'
-import { MailIcon, GitHubIcon, LinkedInIcon } from '@/components/Icons'
+import { GitHubIcon, LinkedInIcon } from '@/components/Icons'
 
 export const meritPage = {
-  slug: "merits",
+  slug: 'merits',
   title: 'Merits / Resumé',
   intro: '',
   merits: [
@@ -61,7 +61,7 @@ export const resume = [
 ]
 
 export const aboutPage = {
-  slug: "about",
+  slug: 'about',
   title: 'Hi! I’m Angelica :)',
   intro:
     'Something I´ve always liked since I was a kid is problem solving. Not like how it is with a Rubik´s cube, more like: "Oh crap, this happened and we need to fix it!" And with the odds against us, ofc. I guess I got that from my soccer years. My coach always told us. "It´s not over until it´s over, and a lot can happen if you want to." Some people quit, I don´t. Challenges motivates me. I´m stubborn and positive. :)',
@@ -97,12 +97,3 @@ export const aboutPage = {
   ],
   email: 'angelica.moberg@hotmail.com',
 }
-
-/* export const pages = [
-  { slug: '/', component: Home },
-  { slug: '404', component: NotFound },
-  { slug: 'merits', component: Merits },
-  { slug: 'about', component: About },
-  { slug: 'tech', component: Tech },
-]
- */

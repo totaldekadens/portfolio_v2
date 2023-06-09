@@ -1,42 +1,39 @@
-import dbConnect from "@/lib/dbConnect";
-import Tech from "@/models/TechModel";
+import dbConnect from '@/lib/dbConnect'
+import Tech from '@/models/TechModel'
 
-export default async function handler(
-req, res
-) {
-  const { method } = req;
+export default async function handler(req, res) {
+  const { method } = req
 
-  await dbConnect();
+  await dbConnect()
 
   if (!req.body) {
-    return res.status(400).json({ success: false, data: "Check body" });
+    return res.status(400).json({ success: false, data: 'Check body' })
   }
 
   switch (method) {
-    case "POST":
+    case 'POST':
       try {
-
         // Fix Validation of slug
 
-        let newTech = new Tech(req.body);
+        let newTech = new Tech(req.body)
 
-        const tech = await Tech.create(newTech);
-        res.status(201).json({ success: true, data: tech });
+        const tech = await Tech.create(newTech)
+        res.status(201).json({ success: true, data: tech })
       } catch (error) {
-        res.status(400).json({ success: false, message: error });
+        res.status(400).json({ success: false, message: error })
       }
-      break;
+      break
 
-    case "PUT":
+    case 'PUT':
       try {
         // Fix update
-        res.status(200).json({ success: true, data: "tech" });
+        res.status(200).json({ success: true, data: 'tech' })
       } catch (error) {
-        res.status(400).json({ success: false, data: error });
+        res.status(400).json({ success: false, data: error })
       }
-      break;
+      break
     default:
-      res.status(400).json({ success: false, data: "Break error" });
-      break;
+      res.status(400).json({ success: false, data: 'Break error' })
+      break
   }
 }

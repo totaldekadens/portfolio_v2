@@ -1,44 +1,77 @@
 {
-  "github": "https://github.com/totaldekadens/Webshop",
-  "website": "",
-  "slug": "zeon-milo",
-  "image": {
-    "src": "zeon-desk-1.webp",
-    "alt": "bild på projekt"
-  },
-  "keys": ["JavaScript", "PHP", "MySQL"],
-  "date": "2022-03-03",
-  "title": "ZEON MILO E-Commerce",
-  "shortDescription": "",
-  "description": "Group project focused on creating a complete full stack project. My focus was mainly the backend part with MySQL and the REST-API. But I also did the category page, the cart and the checkout.",
-  "sections": [
+  "slug": "tech",
+  "title": "Tech / Stack",
+  "intro": "",
+  "categories": [
     {
-      "title": "",
-      "subTitle": "",
-      "description": "",
-      "images": [
+      "title": "Frontend",
+      "tech": [
         {
-          "src": "zeon-desk-1.webp",
-          "alt": "bild på projekt"
+          "title": "Next.js",
+          "description": "My first choice of framework to work with. My Master Thesis is built in Next.js. It was also the main tech I worked with at both my LIA´s."
         },
         {
-          "src": "zeon-desk-2.webp",
-          "alt": "bild på projekt"
+          "title": "React.js",
+          "description": " The Javascript framework I learned in school and am very comfortable with."
         },
         {
-          "src": "zeon-desk-3.webp",
-          "alt": "bild på projekt"
+          "title": "TypeScript",
+          "description": "Most of my React.js/Next.js projects are built with Typescript. It was also a \"standard\" at both my LIA´s."
         },
         {
-          "src": "zeon-desk-6.webp",
-          "alt": "bild på projekt"
+          "title": "WordPress",
+          "description": "I learned how to create a child theme and how to build a simple WooCommerce site."
+        },
+        { "title": "WooCommerce", "description": "" }
+      ]
+    },
+    {
+      "title": "CSS-Libraries",
+      "tech": [
+        { "title": "Tailwind", "description": "" },
+        { "title": "Mantine.dev", "description": "" },
+        { "title": "Material UI", "description": "" }
+      ]
+    },
+    {
+      "title": "Backend/Database",
+      "tech": [
+        {
+          "title": "Node.js (Express.js)",
+          "description": "Node.js is my preferred language in backend and is also the one I´m most comfortable with together with Next.js"
         },
         {
-          "src": "zeon-desk-8.webp",
-          "alt": "bild på projekt"
+          "title": "PHP",
+          "description": "Learned PHP at my Worpress course and also at my system development course. This is the language I have least work experience in (LIA)."
+        },
+        {
+          "title": "MongoDB (Mongoose.js)",
+          "description": "I used MongoDB at my Master Thesis and a few other projects before that. This is the database I´m most comfortable with."
+        },
+        {
+          "title": "MySQL",
+          "description": "Learned MySQL in the beginning of my education. Did one E-commerce project with it together with PHP."
         }
-      ],
-      "video": { "format": "", "src": "" }
+      ]
+    },
+    {
+      "title": "Other good things!",
+      "tech": [
+        {
+          "title": "Stripe.js",
+          "description": "Used Stripe.js at my Master Thesis and also another project before that. The parts I touched was \"create customer\", \"create order\", \"payment\" and \"verification of payment\""
+        },
+        {
+          "title": "Cypress.io",
+          "description": "I learned Cypress at my LIA 1 very briefly. I can do simple tests"
+        },
+        {
+          "title": "BigCommerce",
+          "description": "At my second LIA I learned how to integrate BigCommerce with a Next.js project."
+        },
+        { "title": "Git", "description": "" },
+        { "title": "Agile Methods", "description": "" }
+      ]
     }
   ]
 }
