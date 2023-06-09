@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import { useRouter } from 'next/router'
 import { Container } from '@/components/Layout/containers/Container'
 
 function NavLink({ href, children }) {
@@ -14,8 +14,12 @@ function NavLink({ href, children }) {
 }
 
 export function Footer() {
-  // test
+ const {pathname } = useRouter()
+
   return (
+    <>
+    {pathname == "/signin" ? null : (
+
     <footer className="mt-32">
       <Container.Outer>
         <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
@@ -35,5 +39,8 @@ export function Footer() {
         </div>
       </Container.Outer>
     </footer>
+    )}
+
+    </>
   )
 }
