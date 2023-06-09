@@ -1,0 +1,48 @@
+POST  http://localhost:3000/api/admin/project
+Content-Type: application/json
+
+{
+  "github": "https://github.com/totaldekadens/Webshop",
+  "website": "",
+  "slug": "zeon-milo",
+  "image": {
+    "src": "zeon-desk-1.webp",
+    "alt": "bild på projekt"
+  },
+  "keys": ["JavaScript", "PHP", "MySQL"],
+  "date": "2022-03-03",
+  "title": "ZEON MILO E-Commerce",
+  "shortDescription": "",
+  "description": "Group project focused on creating a complete full stack project. My focus was mainly the backend part with MySQL and the REST-API. But I also did the category page, the cart and the checkout.",
+  "sections": [
+    {
+      "title": "",
+      "subTitle": "",
+      "description": "",
+      "images": [
+        {
+          "src": "zeon-desk-1.webp",
+          "alt": "bild på projekt"
+        },
+        {
+          "src": "zeon-desk-2.webp",
+          "alt": "bild på projekt"
+        },
+        {
+          "src": "zeon-desk-3.webp",
+          "alt": "bild på projekt"
+        },
+        {
+          "src": "zeon-desk-6.webp",
+          "alt": "bild på projekt"
+        },
+        {
+          "src": "zeon-desk-8.webp",
+          "alt": "bild på projekt"
+        }
+      ],
+      "video": { "format": "", "src": "" }
+    }
+  ]
+}
+

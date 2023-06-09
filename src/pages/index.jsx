@@ -4,6 +4,8 @@ import { Container } from '@/components/Layout/containers/Container'
 import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/SocialIcons'
 import Projects from '@/components/Projects'
 import FadeIn from '@/components/Layout/containers/FadeIn'
+import Project from '@/models/ProjectModel'
+import dbConnect from '@/lib/dbConnect'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -13,7 +15,7 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-export default function Home() {
+export default function Home({projects}) {
   return (
     <>
       <Head>
@@ -63,8 +65,17 @@ export default function Home() {
             </div>
           </div>
         </Container>
-        <Projects />
+        {projects ?  <Projects projects={projects} /> : null}
       </FadeIn>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  await dbConnect()
+
+  const projects = await Project.find({})
+
+  return { props: { projects : JSON.parse(JSON.stringify(projects))}}
+
 }

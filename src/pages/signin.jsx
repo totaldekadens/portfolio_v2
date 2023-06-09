@@ -29,7 +29,7 @@ export default function SignIn() {
                   type="email"
                   autoComplete="email"
                   required
-                  className="relative bg-dark-50/20 block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-light-50 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 dark:placeholder:text-gray-600  focus:ring-2 focus:ring-inset focus:ring-light-300 sm:text-sm sm:leading-6 mb-2"
+                  className="relative h-11 md:h-auto bg-dark-50/20 block w-full rounded-md border-0 py-1.5 text-gray-900 dark:text-light-50 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 dark:placeholder:text-gray-600  focus:ring-2 focus:ring-inset focus:ring-light-300 sm:text-sm sm:leading-6 mb-2"
                   placeholder="Username"
                 />
               </div>
@@ -43,7 +43,7 @@ export default function SignIn() {
                   type="password"
                   autoComplete="current-password"
                   required
-                  className="relative block bg-dark-50/20  w-full rounded-md border-0 py-1.5 dark:text-light-50  text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600  focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light-300 sm:text-sm sm:leading-6"
+                  className="relative block bg-dark-50/20 h-11 md:h-auto w-full rounded-md border-0 py-1.5 dark:text-light-50  text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-600  focus:z-10 focus:ring-2 focus:ring-inset focus:ring-light-300 sm:text-sm sm:leading-6"
                   placeholder="Password"
                 />
               </div>

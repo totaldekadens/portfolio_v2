@@ -27,6 +27,7 @@
     "feed": "^4.2.2",
     "focus-visible": "^5.2.0",
     "framer-motion": "^10.12.16",
+    "mongoose": "^7.2.2",
     "next": "13.0.2",
     "next-auth": "^4.22.1",
     "postcss-focus-visible": "^6.0.4",

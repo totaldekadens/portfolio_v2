@@ -2,12 +2,11 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { Container } from '@/components/Layout/containers/Container'
 import { formatDate } from '@/lib/formatDate'
-import FadeInPage from '@/components/Layout/containers/FadeIn'
-import { projects } from '@/lib/data'
-import { useEffect, useState } from 'react'
+import FadeIn from '@/components/Layout/containers/FadeIn'
 import { GitHubIcon, LinkIcon } from '@/components/SocialIcons'
-import Image from 'next/image'
 import Link from 'next/link'
+import dbConnect from '@/lib/dbConnect'
+import  Project  from '@/models/ProjectModel'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -29,23 +28,7 @@ function ArrowLeftIcon(props) {
   )
 }
 
-function ArticleLayout({ previousPathname }) {
-  let router = useRouter()
-
-  const [project, setProject] = useState()
-  let slug = router.query.slug
-
-  useEffect(() => {
-    try {
-      if (slug) {
-        const foundProject = projects.find((proj) => proj.slug == slug)
-        setProject(foundProject)
-      }
-    } catch (err) {
-      console.log(err)
-    }
-  }, [slug])
-
+function ArticleLayout({ previousPathname, project }) {
   return (
     <>
       {project ? (
@@ -54,7 +37,7 @@ function ArticleLayout({ previousPathname }) {
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
             <meta name="description" content={project.description} />
           </Head>
-          <FadeInPage>
+          <FadeIn>
             <Container className="mt-16 lg:mt-32">
               <div className="xl:relative">
                 <div className="mx-auto max-w-7xl">
@@ -145,14 +128,14 @@ function ArticleLayout({ previousPathname }) {
                             </p>
 
                             {section.images.map((image, i) => (
-                              <Image
+                              <img
                                 className={
                                   (section.title && i == 0) ||
                                   (section.subTitle && i == 0)
                                     ? 'my-1 rounded-2xl'
                                     : 'my-9 rounded-2xl'
                                 }
-                                src={image.src}
+                                src={"/" + image.src}
                                 alt={image.alt}
                               />
                             ))}
@@ -164,7 +147,7 @@ function ArticleLayout({ previousPathname }) {
                 </div>
               </div>
             </Container>
-          </FadeInPage>
+          </FadeIn>
         </>
       ) : null}
     </>
@@ -172,3 +155,24 @@ function ArticleLayout({ previousPathname }) {
 }
 
 export default ArticleLayout
+
+export const getStaticPaths = async () => {
+
+await dbConnect()
+  const projects = await Project.find({})
+
+  const paths = projects.map((project) => ({ params: { slug: project.slug }}))
+
+  return {
+    paths,
+    fallback: true, 
+  }
+}
+
+export const getStaticProps = async ({params}) => {
+  await dbConnect()
+
+  const project = await Project.findOne({slug: params?.slug})
+
+  return { props: { project : JSON.parse(JSON.stringify(project))  }}
+}

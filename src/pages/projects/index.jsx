@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 import Projects from '@/components/Projects'
-import FadeInPage from '@/components/Layout/containers/FadeIn'
+import FadeIn from '@/components/Layout/containers/FadeIn'
+import Project from '@/models/ProjectModel'
+import dbConnect from '@/lib/dbConnect'
 
-export default function ArticlesIndex() {
+export default function ArticlesIndex({projects}) {
   return (
     <>
       <Head>
@@ -13,13 +15,21 @@ export default function ArticlesIndex() {
           content="Some of my projects. Please check out my Github for more."
         />
       </Head>
-      <FadeInPage>
+      <FadeIn>
         <SimpleLayout
           title="Projects"
           intro="This page is under construction. Please checkout all my projects on my Github-page"
         />
-        <Projects />
-      </FadeInPage>
+         {projects ?  <Projects projects={projects}/> : null}
+      </FadeIn>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  await dbConnect()
+
+  const projects = await Project.find({})
+  
+  return { props: { projects : JSON.parse(JSON.stringify(projects))}}
 }

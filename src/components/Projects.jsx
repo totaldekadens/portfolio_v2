@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { Container } from '@/components/Layout/containers/Container'
 import { ChevronRightIcon } from '@/components/Card'
 import Badges from '@/components/Badges'
-import { projects } from '@/lib/data'
 import { useRouter } from 'next/router'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
@@ -27,7 +26,7 @@ const Project = ({ project }) => {
         <Image
           width={600}
           height={600}
-          src={project.image.src}
+          src={"/" + project.image.src}
           alt="bild"
           className=" rounded-lg object-contain"
         />
@@ -50,7 +49,7 @@ const Project = ({ project }) => {
   )
 }
 
-const Projects = () => {
+const Projects = ({projects}) => {
   const { pathname } = useRouter()
 
   const variants = {
@@ -97,7 +96,7 @@ const Projects = () => {
                   <Link key={i} href={'/projects/' + project.slug}>
                     <div className="relative rounded-lg ">
                       <motion.img
-                        src={project.image.src}
+                        src={"/" + project.image.src}
                         alt="bild"
                         className=" rounded-lg object-contain"
                         variants={images}
@@ -124,7 +123,7 @@ const Projects = () => {
                   <Link key={i} href={'/projects/' + project.slug}>
                     <div className="relative rounded-lg ">
                       <motion.img
-                        src={project.image.src}
+                        src={"/" + project.image.src}
                         alt="bild"
                         className=" rounded-lg object-contain"
                         variants={images}
