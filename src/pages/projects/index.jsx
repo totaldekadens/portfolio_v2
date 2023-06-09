@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { SimpleLayout } from '@/components/SimpleLayout'
+import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 import Projects from '@/components/Projects'
-import FadeInPage from '@/components/FadeInPage'
+import FadeInPage from '@/components/Layout/containers/FadeIn'
 
 export default function ArticlesIndex() {
   return (

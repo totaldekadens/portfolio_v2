@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Container } from '@/components/Container'
-import FadeInPage from '@/components/FadeInPage'
+import { Container } from '@/components/Layout/containers/Container'
+import FadeIn from '@/components/Layout/containers/FadeIn'
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
           content="https://mobergskoglund.se/newlogo.png"
         />
       </Head>
-      <FadeInPage>
+      <FadeIn>
         <Container className={'mt-24 md:mt-44'}>
           <div className="flex w-full justify-center">
             <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl">
@@ -26,7 +26,7 @@ export default function Home() {
             </h1>
           </div>
         </Container>
-      </FadeInPage>
+      </FadeIn>
     </>
   )
 }

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import { Footer } from '@/components/Footer'
-import { Header } from '@/components/Header'
+import { useEffect, useRef } from 'react'
+import { Footer } from '@/components/Layout/Footer'
+import { Header } from '@/components/Layout/Header'
 import '@/styles/tailwind.css'
 import 'focus-visible'
 

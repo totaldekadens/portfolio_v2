@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-const FadeInPage = ({ children }) => {
+const FadeIn = ({ children }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,4 +11,4 @@ const FadeInPage = ({ children }) => {
   )
 }
 
-export default FadeInPage
+export default FadeIn

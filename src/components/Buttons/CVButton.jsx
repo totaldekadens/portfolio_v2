@@ -1,5 +1,4 @@
-import { Button } from './Button'
-import { ArrowDownIcon } from '@/pages'
+import { ArrowDownIcon } from '../SocialIcons'
 
 const CVButton = ({ title, href }) => {
   return (

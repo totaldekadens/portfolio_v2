@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Container } from '@/components/Container'
+import { Container } from '@/components/Layout/containers/Container'
 import { ChevronRightIcon } from '@/components/Card'
 import Badges from '@/components/Badges'
 import { projects } from '@/lib/data'

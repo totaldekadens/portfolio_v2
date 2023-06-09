@@ -1,29 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Container } from '@/components/Container'
-import { GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-
-export function ArrowRight(props) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon icon-tabler icon-tabler-arrow-right"
-      width="28"
-      height="28"
-      viewBox="0 0 24 24"
-      stroke-width="2"
-      stroke="currentColor"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M5 12l14 0"></path>
-      <path d="M13 18l6 -6"></path>
-      <path d="M13 6l6 6"></path>
-    </svg>
-  )
-}
+import { Container } from '@/components/Layout/containers/Container'
+import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/SocialIcons'
+import Projects from '@/components/Projects'
+import FadeIn from '@/components/Layout/containers/FadeIn'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -33,32 +13,6 @@ function SocialLink({ icon: Icon, ...props }) {
   )
 }
 
-export function ArrowDownIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function MailIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
-      />
-    </svg>
-  )
-}
-
-import Projects from '@/components/Projects'
-import FadeInPage from '@/components/FadeInPage'
 export default function Home() {
   return (
     <>
@@ -77,7 +31,7 @@ export default function Home() {
           content="https://mobergskoglund.se/newlogo.png"
         />
       </Head>
-      <FadeInPage>
+      <FadeIn>
         <Container className={'mt-24 md:mt-44'}>
           <div className="max-w-3xl xl:max-w-4xl ">
             <h1 className="text-4xl font-semibold tracking-tight text-light-300 dark:text-light-300 sm:text-5xl xl:text-6xl ">
@@ -102,7 +56,7 @@ export default function Home() {
                 icon={LinkedInIcon}
               />
               <SocialLink
-                href="mailto:angelica.moberg@hotmail.com"
+                href={'mailto:angelica.moberg@hotmail.com'}
                 icon={MailIcon}
                 aria-label="Contact by mail"
               />
@@ -110,7 +64,7 @@ export default function Home() {
           </div>
         </Container>
         <Projects />
-      </FadeInPage>
+      </FadeIn>
     </>
   )
 }
