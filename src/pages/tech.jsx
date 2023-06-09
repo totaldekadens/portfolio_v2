@@ -27,7 +27,7 @@ function Tool({ title, href, children }) {
   )
 }
 
-export default function TechPage({page}) {
+export default function TechPage({ page }) {
   return (
     <>
       <Head>
@@ -37,13 +37,15 @@ export default function TechPage({page}) {
       <FadeIn>
         <SimpleLayout title={page[0].title} intro={page[0].intro}>
           <div className="space-y-20">
-            {page ? page[0].categories.map((category) => (
-              <ToolsSection title={category.title}>
-                {category.tech.map((object) => (
-                  <Tool title={object.title}>{object.description}</Tool>
-                ))}
-              </ToolsSection>
-            )) : null}
+            {page
+              ? page[0].categories.map((category, i) => (
+                  <ToolsSection key={i} title={category.title}>
+                    {category.tech.map((object) => (
+                      <Tool title={object.title}>{object.description}</Tool>
+                    ))}
+                  </ToolsSection>
+                ))
+              : null}
           </div>
         </SimpleLayout>
       </FadeIn>
@@ -56,6 +58,5 @@ export const getStaticProps = async () => {
 
   const page = await Tech.find({})
 
-  return { props: { page : JSON.parse(JSON.stringify(page))}}
-
+  return { props: { page: JSON.parse(JSON.stringify(page)) } }
 }

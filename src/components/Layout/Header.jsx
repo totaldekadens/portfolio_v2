@@ -6,6 +6,7 @@ import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import { Container } from '@/components/Layout/containers/Container'
 import avatarImage from '@/images/newlogo.png'
+import LogoutButton from '../Buttons/LogoutButton'
 
 function CloseIcon(props) {
   return (
@@ -333,6 +334,7 @@ export function Header() {
                   <ModeToggle />
                 </div>
               </div>
+              <LogoutButton />
             </div>
           </Container>
         </div>

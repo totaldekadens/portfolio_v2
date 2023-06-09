@@ -6,7 +6,7 @@ import FadeIn from '@/components/Layout/containers/FadeIn'
 import { GitHubIcon, LinkIcon, ArrowLeftIcon } from '@/components/Icons'
 import Link from 'next/link'
 import dbConnect from '@/lib/dbConnect'
-import  Project  from '@/models/ProjectModel'
+import Project from '@/models/ProjectModel'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -17,6 +17,7 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 function ArticleLayout({ previousPathname, project }) {
+  const router = useRouter()
   return (
     <>
       {project ? (
@@ -103,17 +104,20 @@ function ArticleLayout({ previousPathname, project }) {
                             <h2 className="mt-[80px] mb-4  text-2xl">
                               {section?.title}
                             </h2>
-                            <h3
-                              className={
-                                section.title ? ' mb-4 ' : 'mt-[40px] mb-4 '
-                              }
-                            >
-                              {section?.subTitle}
-                            </h3>
-
-                            <p className="mb-8 text-base font-normal text-dark-100/80 dark:text-dark-50">
-                              {section?.description}
-                            </p>
+                            {section.subTitle ? (
+                              <h3
+                                className={
+                                  section.title ? ' mb-4 ' : 'mt-[40px] mb-4 '
+                                }
+                              >
+                                {section.subTitle}
+                              </h3>
+                            ) : null}
+                            {section.description ? (
+                              <p className="mb-8 text-base font-normal text-dark-100/80 dark:text-dark-50">
+                                {section.description}
+                              </p>
+                            ) : null}
 
                             {section.images.map((image, i) => (
                               <img
@@ -123,7 +127,7 @@ function ArticleLayout({ previousPathname, project }) {
                                     ? 'my-1 rounded-2xl'
                                     : 'my-9 rounded-2xl'
                                 }
-                                src={"/" + image.src}
+                                src={'/' + image.src}
                                 alt={image.alt}
                               />
                             ))}
@@ -145,22 +149,21 @@ function ArticleLayout({ previousPathname, project }) {
 export default ArticleLayout
 
 export const getStaticPaths = async () => {
-
-await dbConnect()
+  await dbConnect()
   const projects = await Project.find({})
 
-  const paths = projects.map((project) => ({ params: { slug: project.slug }}))
+  const paths = projects.map((project) => ({ params: { slug: project.slug } }))
 
   return {
     paths,
-    fallback: true, 
+    fallback: true,
   }
 }
 
-export const getStaticProps = async ({params}) => {
+export const getStaticProps = async ({ params }) => {
   await dbConnect()
 
-  const project = await Project.findOne({slug: params?.slug})
+  const project = await Project.findOne({ slug: params?.slug })
 
-  return { props: { project : JSON.parse(JSON.stringify(project))  }}
+  return { props: { project: JSON.parse(JSON.stringify(project)) } }
 }

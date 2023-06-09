@@ -1,5 +1,5 @@
 import dbConnect from '@/lib/dbConnect'
-import User from '@/models/User'
+import User from '@/models/UserModel'
 
 export default async function handler(req, res) {
   const {
