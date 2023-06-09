@@ -1,5 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
-import Project from "@/models/ProjectModel";
+import Tech from "@/models/TechModel";
 
 export default async function handler(
 req, res
@@ -18,10 +18,10 @@ req, res
 
         // Fix Validation of slug
 
-        let newProject = new Project(req.body);
+        let newTech = new Tech(req.body);
 
-        const project = await Project.create(newProject);
-        res.status(201).json({ success: true, data: project });
+        const tech = await Tech.create(newTech);
+        res.status(201).json({ success: true, data: tech });
       } catch (error) {
         res.status(400).json({ success: false, message: error });
       }
@@ -30,7 +30,7 @@ req, res
     case "PUT":
       try {
         // Fix update
-        res.status(200).json({ success: true, data: "project" });
+        res.status(200).json({ success: true, data: "tech" });
       } catch (error) {
         res.status(400).json({ success: false, data: error });
       }

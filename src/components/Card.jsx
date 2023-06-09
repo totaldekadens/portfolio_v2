@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import { ArrowRight } from './SocialIcons'
+import { ArrowRight } from './Icons'
 
 export function ChevronRightIcon(props) {
   return (

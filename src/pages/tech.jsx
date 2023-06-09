@@ -3,7 +3,8 @@ import { Card } from '@/components/Card'
 import { Section } from '@/components/Layout/containers/Section'
 import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 import FadeIn from '@/components/Layout/containers/FadeIn'
-import { techPage as page } from '@/lib/data'
+import Tech from '@/models/TechModel'
+import dbConnect from '@/lib/dbConnect'
 
 function ToolsSection({ children, ...props }) {
   return (
@@ -26,7 +27,7 @@ function Tool({ title, href, children }) {
   )
 }
 
-export default function Tech() {
+export default function TechPage({page}) {
   return (
     <>
       <Head>
@@ -34,18 +35,27 @@ export default function Tech() {
         <meta name="description" content="Tech and stack I use." />
       </Head>
       <FadeIn>
-        <SimpleLayout title={page.title} intro={page.intro}>
+        <SimpleLayout title={page[0].title} intro={page[0].intro}>
           <div className="space-y-20">
-            {page.categories.map((category) => (
+            {page ? page[0].categories.map((category) => (
               <ToolsSection title={category.title}>
                 {category.tech.map((object) => (
                   <Tool title={object.title}>{object.description}</Tool>
                 ))}
               </ToolsSection>
-            ))}
+            )) : null}
           </div>
         </SimpleLayout>
       </FadeIn>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  await dbConnect()
+
+  const page = await Tech.find({})
+
+  return { props: { page : JSON.parse(JSON.stringify(page))}}
+
 }

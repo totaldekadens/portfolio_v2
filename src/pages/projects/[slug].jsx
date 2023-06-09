@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Container } from '@/components/Layout/containers/Container'
 import { formatDate } from '@/lib/formatDate'
 import FadeIn from '@/components/Layout/containers/FadeIn'
-import { GitHubIcon, LinkIcon } from '@/components/SocialIcons'
+import { GitHubIcon, LinkIcon, ArrowLeftIcon } from '@/components/Icons'
 import Link from 'next/link'
 import dbConnect from '@/lib/dbConnect'
 import  Project  from '@/models/ProjectModel'
@@ -13,18 +13,6 @@ function SocialLink({ icon: Icon, ...props }) {
     <Link className="group -m-1 ml-6 p-1" target="_blank" {...props}>
       <Icon className=" h-6 w-6 fill-dark-50 transition group-hover:fill-light-300 dark:fill-zinc-400 dark:group-hover:fill-light-300 md:h-10 md:w-10" />
     </Link>
-  )
-}
-function ArrowLeftIcon(props) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-      <path
-        d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   )
 }
 

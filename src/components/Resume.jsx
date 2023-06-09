@@ -1,5 +1,5 @@
 import CVButton from '@/components/Buttons/CVButton'
-import { BriefcaseIcon } from '@/components/SocialIcons'
+import { BriefcaseIcon } from '@/components/Icons'
 import Image from 'next/image'
 import { resume } from '@/lib/data'
 const Resume = () => {

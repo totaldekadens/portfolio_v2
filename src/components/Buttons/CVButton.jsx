@@ -1,4 +1,4 @@
-import { ArrowDownIcon } from '../SocialIcons'
+import { ArrowDownIcon } from '../Icons'
 
 const CVButton = ({ title, href }) => {
   return (

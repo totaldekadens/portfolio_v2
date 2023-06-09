@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { Container } from '@/components/Layout/containers/Container'
-import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/SocialIcons'
+import { GitHubIcon, LinkedInIcon, MailIcon } from '@/components/Icons'
 import Projects from '@/components/Projects'
 import FadeIn from '@/components/Layout/containers/FadeIn'
 import Project from '@/models/ProjectModel'
