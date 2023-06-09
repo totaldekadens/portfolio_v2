@@ -77,7 +77,7 @@ function ArticleLayout({ previousPathname, project }) {
                       {project.keys.map((key, i) => (
                         <div
                           key={i}
-                          className="z-20 mt-4 rounded-full bg-zinc-200 bg-light-300/60 px-2  py-1 text-[10px] text-light-50 dark:bg-zinc-800 dark:bg-dark-300/60  dark:text-light-200 md:py-0 md:text-xs "
+                          className="z-20 mt-4 rounded-full bg-light-300/70 px-2 py-1  text-[10px] text-light-50  dark:bg-light-300/60  dark:text-light-200 md:py-0 md:text-xs "
                         >
                           {key}
                         </div>
