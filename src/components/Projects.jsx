@@ -19,14 +19,13 @@ const Project = ({ project }) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 2 }}
-        triggerOnce
         ref={ref2}
         className="relative rounded-lg "
       >
         <Image
           width={600}
           height={600}
-          src={"/" + project.image.src}
+          src={'/' + project.image.src}
           alt="bild"
           className=" rounded-lg object-contain"
         />
@@ -49,7 +48,7 @@ const Project = ({ project }) => {
   )
 }
 
-const Projects = ({projects}) => {
+const Projects = ({ projects }) => {
   const { pathname } = useRouter()
 
   const variants = {
@@ -96,7 +95,7 @@ const Projects = ({projects}) => {
                   <Link key={i} href={'/projects/' + project.slug}>
                     <div className="relative rounded-lg ">
                       <motion.img
-                        src={"/" + project.image.src}
+                        src={'/' + project.image.src}
                         alt="bild"
                         className=" rounded-lg object-contain"
                         variants={images}
@@ -123,7 +122,7 @@ const Projects = ({projects}) => {
                   <Link key={i} href={'/projects/' + project.slug}>
                     <div className="relative rounded-lg ">
                       <motion.img
-                        src={"/" + project.image.src}
+                        src={'/' + project.image.src}
                         alt="bild"
                         className=" rounded-lg object-contain"
                         variants={images}
