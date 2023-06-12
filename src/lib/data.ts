@@ -7,7 +7,20 @@ import { GitHubIcon, LinkedInIcon } from '@/components/Icons'
 
 // Will be moved to MongoDB eventually
 
-export const meritPage = {
+export interface Merit {
+  date: string
+  title: string
+  description: string
+}
+
+export interface MeritProps {
+  slug: string
+  title: string
+  intro: string
+  merits: Merit[]
+}
+
+export const meritPage: MeritProps = {
   slug: 'merits',
   title: 'Merits / Resumé',
   intro: '',

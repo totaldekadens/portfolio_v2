@@ -2,10 +2,15 @@ import Head from 'next/head'
 import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 import Projects from '@/components/Projects'
 import FadeIn from '@/components/Layout/containers/FadeIn'
-import Project from '@/models/ProjectModel'
+import Project, { ProjectDocument } from '@/models/ProjectModel'
 import dbConnect from '@/lib/dbConnect'
+import { GetStaticProps } from 'next'
 
-export default function ArticlesIndex({projects}) {
+interface Props {
+  projects: ProjectDocument[]
+}
+
+export default function ArticlesIndex({ projects }: Props) {
   return (
     <>
       <Head>
@@ -20,16 +25,16 @@ export default function ArticlesIndex({projects}) {
           title="Projects"
           intro="This page is under construction. Please checkout all my projects on my Github-page"
         />
-         {projects ?  <Projects projects={projects}/> : null}
+        {projects ? <Projects projects={projects} /> : null}
       </FadeIn>
     </>
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   await dbConnect()
 
   const projects = await Project.find({})
-  
-  return { props: { projects : JSON.parse(JSON.stringify(projects))}}
+
+  return { props: { projects: JSON.parse(JSON.stringify(projects)) } }
 }

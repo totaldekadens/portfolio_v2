@@ -3,17 +3,17 @@ import { Container } from '@/components/Layout/containers/Container'
 interface Props {
   title: string
   intro: string
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 export function SimpleLayout({ title, intro, children }: Props) {
   return (
     <Container className="mt-16 sm:mt-32 xl:mt-40">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-semibold tracking-tight text-dark-200 dark:text-zinc-100 sm:text-5xl xl:text-6xl">
+        <h1 className="text-dark-200 text-4xl font-semibold tracking-tight dark:text-zinc-100 sm:text-5xl xl:text-6xl">
           {title}
         </h1>
-        <p className="mt-6 text-base text-dark-100 dark:text-zinc-400 xl:text-lg">
+        <p className="text-dark-100 mt-6 text-base dark:text-zinc-400 xl:text-lg">
           {intro}
         </p>
       </header>

@@ -8,7 +8,7 @@ import portraitImage from '@/images/profil.webp'
 import FadeIn from '@/components/Layout/containers/FadeIn'
 import { aboutPage as page } from '@/lib/data'
 
-interface SocialLinkProps {
+export interface SocialLinkProps {
   href: string
   icon: (props: any) => JSX.Element
   className?: string

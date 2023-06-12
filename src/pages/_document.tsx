@@ -59,7 +59,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="flex h-full flex-col bg-light-100 dark:bg-dark-300">
+      <body className="bg-light-100 dark:bg-dark-300 flex h-full flex-col">
         <Main />
         <NextScript />
       </body>

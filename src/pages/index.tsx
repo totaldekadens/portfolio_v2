@@ -6,6 +6,7 @@ import FadeIn from '@/components/Layout/containers/FadeIn'
 import Project from '@/models/ProjectModel'
 import dbConnect from '@/lib/dbConnect'
 import Link from 'next/link'
+import { GetStaticProps } from 'next'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
@@ -71,7 +72,7 @@ export default function Home({ projects }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   await dbConnect()
 
   const projects = await Project.find({})

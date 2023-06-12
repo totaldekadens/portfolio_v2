@@ -6,17 +6,29 @@ import FadeIn from '@/components/Layout/containers/FadeIn'
 import { GitHubIcon, LinkIcon, ArrowLeftIcon } from '@/components/Icons'
 import Link from 'next/link'
 import dbConnect from '@/lib/dbConnect'
-import Project from '@/models/ProjectModel'
+import Project, { ProjectDocument } from '@/models/ProjectModel'
+import { SocialLinkProps } from '../about'
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-function SocialLink({ icon: Icon, ...props }) {
+interface Props {
+  previousPathname: string
+  project: ProjectDocument
+}
+
+function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
   return (
-    <Link className="group -m-1 ml-6 p-1" target="_blank" {...props}>
-      <Icon className=" h-6 w-6 fill-dark-50 transition group-hover:fill-light-300 dark:fill-zinc-400 dark:group-hover:fill-light-300 md:h-10 md:w-10" />
+    <Link
+      href={href}
+      className="group -m-1 ml-6 p-1"
+      target="_blank"
+      {...props}
+    >
+      <Icon className=" fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 transition dark:fill-zinc-400 md:h-10 md:w-10" />
     </Link>
   )
 }
 
-function ArticleLayout({ previousPathname, project }) {
+function ArticleLayout({ previousPathname, project }: Props) {
   const router = useRouter()
   return (
     <>
@@ -35,9 +47,9 @@ function ArticleLayout({ previousPathname, project }) {
                       type="button"
                       onClick={() => router.back()}
                       aria-label="Go back to projects"
-                      className="group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition  dark:bg-light-300/10 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:mb-0 lg:-mt-2 xl:-top-1.5 xl:-left-12 xl:mt-0"
+                      className="dark:bg-light-300/10 dark:ring-white/10 dark:hover:ring-white/20 xl:-top-1.5 group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md  shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:ring-0 dark:hover:border-zinc-700 lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-left-12 xl:mt-0"
                     >
-                      <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-light-200 dark:group-hover:stroke-zinc-400" />
+                      <ArrowLeftIcon className="dark:stroke-light-200 h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
                     </button>
                   )}
 
@@ -77,7 +89,7 @@ function ArticleLayout({ previousPathname, project }) {
                       {project.keys.map((key, i) => (
                         <div
                           key={i}
-                          className="z-20 mt-4 rounded-full bg-light-300/70 px-2 py-1  text-[10px] text-light-50  dark:bg-light-300/60  dark:text-light-200 md:py-0 md:text-xs "
+                          className="bg-light-300/70 text-light-50 dark:bg-light-300/60 dark:text-light-200 z-20 mt-4  rounded-full px-2  py-1  text-[10px] md:py-0 md:text-xs "
                         >
                           {key}
                         </div>
@@ -86,35 +98,35 @@ function ArticleLayout({ previousPathname, project }) {
                     <div className="mt-8">
                       <p
                         className={
-                          project.description2
-                            ? 'my-7 leading-relaxed text-dark-200/80 dark:text-dark-50'
-                            : 'my-7 mb-20 leading-relaxed text-dark-200/80 dark:text-dark-50'
+                          /*  project.description2
+                            ? 'text-dark-200/80 dark:text-dark-50 my-7 leading-relaxed' 
+                            : */ 'text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed'
                         }
                       >
                         {project.description}
                       </p>
-                      {project.description2 ? (
-                        <p className=" mb-10 leading-relaxed text-dark-200/80 dark:text-dark-50">
+                      {/*  {project.description2 ? (
+                        <p className=" text-dark-200/80 dark:text-dark-50 mb-10 leading-relaxed">
                           {project.description2}
                         </p>
-                      ) : null}
+                      ) : null} */}
                       {project.sections.map((section, i) => {
                         return (
-                          <div className="font-semibold text-dark-200 dark:text-light-100">
-                            <h2 className="mt-[80px] mb-4  text-2xl">
+                          <div className="text-dark-200 dark:text-light-100 font-semibold">
+                            <h2 className="mb-4 mt-[80px]  text-2xl">
                               {section?.title}
                             </h2>
                             {section.subTitle ? (
                               <h3
                                 className={
-                                  section.title ? ' mb-4 ' : 'mt-[40px] mb-4 '
+                                  section.title ? ' mb-4 ' : 'mb-4 mt-[40px] '
                                 }
                               >
                                 {section.subTitle}
                               </h3>
                             ) : null}
                             {section.description ? (
-                              <p className="mb-8 text-base font-normal text-dark-100/80 dark:text-dark-50">
+                              <p className="text-dark-100/80 dark:text-dark-50 mb-8 text-base font-normal">
                                 {section.description}
                               </p>
                             ) : null}
@@ -148,7 +160,7 @@ function ArticleLayout({ previousPathname, project }) {
 
 export default ArticleLayout
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   await dbConnect()
   const projects = await Project.find({})
 
@@ -160,7 +172,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   await dbConnect()
 
   const project = await Project.findOne({ slug: params?.slug })

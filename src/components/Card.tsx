@@ -27,6 +27,7 @@ interface CardCtaProps {
 
 interface CardEyebrowProps {
   as?: keyof JSX.IntrinsicElements
+  dateTime?: string
   decorate?: boolean
   className?: string
   children?: React.ReactNode
@@ -49,7 +50,7 @@ export function Card({
 Card.Link = function CardLink({ children, ...props }: CardLinkProps) {
   return (
     <>
-      <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100  group-hover:opacity-50  dark:bg-dark-300 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="dark:bg-dark-300 absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition  group-hover:scale-100  group-hover:opacity-50 sm:-inset-x-6 sm:rounded-2xl" />
       <span className="absolute -inset-x-4 -inset-y-6   sm:-inset-x-6 sm:rounded-2xl sm:bg-transparent sm:bg-none" />
       <span className="relative z-10">{children}</span>
     </>
@@ -62,7 +63,7 @@ Card.Title = function CardTitle({
   children,
 }: CardTitleProps) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-dark-200 dark:text-light-100">
+    <Component className="text-dark-200 dark:text-light-100 text-base font-semibold tracking-tight">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -82,7 +83,7 @@ Card.Cta = function CardCta({ children }: CardCtaProps) {
   return (
     <div
       aria-hidden="true"
-      className="dark:text-light-300/60 relative z-10 mt-4 flex w-full items-center justify-end text-sm font-medium text-dark-50"
+      className="dark:text-light-300/60 text-dark-50 relative z-10 mt-4 flex w-full items-center justify-end text-sm font-medium"
     >
       {children}
       <ArrowRight />
@@ -101,7 +102,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'dark:text-light-300/70 relative z-10 order-first mb-3 flex items-center text-sm text-light-300/80',
+        'dark:text-light-300/70 text-light-300/80 relative z-10 order-first mb-3 flex items-center text-sm',
         decorate && 'pl-3.5'
       )}
       {...props}

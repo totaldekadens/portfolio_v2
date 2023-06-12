@@ -19,7 +19,7 @@ const ErrorMessage = ({ message }) => {
 }
 
 export default function SignIn() {
-  const [error, setError] = useState()
+  const [error, setError] = useState<string>('')
   const session = useSession()
 
   const router = useRouter()
@@ -72,7 +72,7 @@ export default function SignIn() {
           {session.data ? null : (
             <>
               <div>
-                <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-dark-200 dark:text-light-200">
+                <h2 className="text-dark-200 dark:text-light-200 mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
                   Sign in to your account
                 </h2>
               </div>
@@ -91,7 +91,7 @@ export default function SignIn() {
                       type="text"
                       autoComplete="username"
                       required
-                      className="relative mb-2 block h-11 w-full rounded-md border-0 bg-dark-50/20 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset  focus:ring-light-300 dark:text-light-50 dark:placeholder:text-gray-600 sm:text-sm sm:leading-6 md:h-auto"
+                      className="bg-dark-50/20 focus:ring-light-300 dark:text-light-50 relative mb-2 block h-11 w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10  focus:ring-2 focus:ring-inset dark:placeholder:text-gray-600 sm:text-sm sm:leading-6 md:h-auto"
                       placeholder="Username"
                     />
                   </div>
@@ -107,7 +107,7 @@ export default function SignIn() {
                       value={values.password}
                       onChange={handleChange}
                       required
-                      className="relative block h-11 w-full rounded-md border-0 bg-dark-50/20 py-1.5 text-gray-900 ring-1  ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset  focus:ring-light-300 dark:text-light-50 dark:placeholder:text-gray-600 sm:text-sm sm:leading-6 md:h-auto"
+                      className="bg-dark-50/20 focus:ring-light-300 dark:text-light-50 relative block h-11 w-full rounded-md border-0 py-1.5  text-gray-900 ring-1 ring-inset ring-gray-100 placeholder:text-gray-400 focus:z-10  focus:ring-2 focus:ring-inset dark:placeholder:text-gray-600 sm:text-sm sm:leading-6 md:h-auto"
                       placeholder="Password"
                     />
                     {error ? <ErrorMessage message={error} /> : null}
@@ -120,11 +120,11 @@ export default function SignIn() {
                       id="remember-me"
                       name="remember-me"
                       type="checkbox"
-                      className="h-4 w-4 rounded border-gray-300 text-light-300 focus:ring-light-300"
+                      className="text-light-300 focus:ring-light-300 h-4 w-4 rounded border-gray-300"
                     />
                     <label
                       htmlFor="remember-me"
-                      className="ml-3 block text-sm leading-6 text-dark-200 dark:text-light-100"
+                      className="text-dark-200 dark:text-light-100 ml-3 block text-sm leading-6"
                     >
                       Remember me
                     </label>
@@ -133,7 +133,7 @@ export default function SignIn() {
                   <div className="text-sm leading-6">
                     <a
                       href="#"
-                      className="font-semibold text-dark-50 hover:text-indigo-500"
+                      className="text-dark-50 font-semibold hover:text-indigo-500"
                     >
                       Forgot password?
                     </a>
@@ -143,7 +143,7 @@ export default function SignIn() {
                 <div>
                   <button
                     type="submit"
-                    className="flex w-full justify-center rounded-md bg-light-300 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-light-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-300"
+                    className="bg-light-300 hover:bg-light-400 focus-visible:outline-light-300 flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   >
                     Sign in
                   </button>
