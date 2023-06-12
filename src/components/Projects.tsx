@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Container } from '@/components/Layout/containers/Container'
-import { ChevronRightIcon } from '@/components/Card'
 import Badges from '@/components/Badges'
 import { useRouter } from 'next/router'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
+import { ChevronRightIcon } from './Icons'
 
 const Project = ({ project }) => {
   const [ref2, inView2] = useInView({

@@ -3,6 +3,8 @@ import React, {
   Ref,
   ForwardRefExoticComponent,
   RefAttributes,
+  HTMLAttributes,
+  CSSProperties,
 } from 'react'
 import clsx from 'clsx'
 
@@ -44,6 +46,7 @@ const InnerContainer = forwardRef(function InnerContainer(
 
 interface ContainerProps {
   className?: string
+  style?: HTMLAttributes<HTMLDivElement>
   children?: React.ReactNode
 }
 
