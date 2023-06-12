@@ -1,7 +1,11 @@
 import dbConnect from '@/lib/dbConnect'
-import Project from '@/models/ProjectModel'
+import Project, { ProjectDocument } from '@/models/ProjectModel'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { method } = req
 
   await dbConnect()
@@ -15,7 +19,7 @@ export default async function handler(req, res) {
       try {
         // Fix Validation of slug
 
-        let newProject = new Project(req.body)
+        let newProject: ProjectDocument = new Project(req.body)
 
         const project = await Project.create(newProject)
         res.status(201).json({ success: true, data: project })

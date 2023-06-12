@@ -1,7 +1,11 @@
 import dbConnect from '@/lib/dbConnect'
-import Tech from '@/models/TechModel'
+import Tech, { TechDocument } from '@/models/TechModel'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { method } = req
 
   await dbConnect()
@@ -15,7 +19,7 @@ export default async function handler(req, res) {
       try {
         // Fix Validation of slug
 
-        let newTech = new Tech(req.body)
+        let newTech: TechDocument = new Tech(req.body)
 
         const tech = await Tech.create(newTech)
         res.status(201).json({ success: true, data: tech })

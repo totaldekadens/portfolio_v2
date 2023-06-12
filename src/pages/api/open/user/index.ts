@@ -1,8 +1,12 @@
 import caseInsensitive from '@/lib/caseCheck'
 import dbConnect from '@/lib/dbConnect'
-import User from '@/models/UserModel'
+import User, { UserDocument } from '@/models/UserModel'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { method } = req
 
   await dbConnect()
@@ -13,7 +17,7 @@ export default async function handler(req, res) {
         if (!req.body) {
           return res.status(400).json({ success: false, data: 'Bad request' })
         }
-        const userTaken = await User.findOne({
+        const userTaken: UserDocument | undefined = await User.findOne({
           username: caseInsensitive(req.body.username),
         })
         if (userTaken) {
@@ -22,15 +26,10 @@ export default async function handler(req, res) {
             .send({ success: false, data: 'Username already exist' })
         }
 
-        let newUser = new User()
+        let newUser: UserDocument = new User(req.body)
 
-        newUser.name = req.body.name
-        newUser.username = req.body.username
-        newUser.email = req.body.email
         newUser.setPassword(req.body.password)
-        newUser.phone = req.body.phone
-        newUser.github = req.body.github
-        newUser.linkedin = req.body.linkedin
+        delete newUser.password
 
         const user = await User.create(newUser)
 

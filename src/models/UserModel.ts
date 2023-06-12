@@ -19,27 +19,30 @@ export interface UserDocument {
   name: string
   email: string
   phone: string
+  setPassword?: (password: string) => void
   github?: string
   linkedin?: string
-  password: string
+  password?: string
   hash?: string
   salt?: string
 }
 
 // Method to check the entered password is correct or not
-UserSchema.methods.validPassword = function (password) {
+UserSchema.methods.validPassword = function (password: string) {
   var hash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, `sha512`)
     .toString(`hex`)
   return this.hash === hash
 }
 // Method to set salt and hash the password for a user
-UserSchema.methods.setPassword = function (password) {
+UserSchema.methods.setPassword = function (password: string) {
   this.salt = crypto.randomBytes(16).toString('hex')
 
   this.hash = crypto
     .pbkdf2Sync(password, this.salt, 1000, 64, `sha512`)
     .toString(`hex`)
+
+  this.password = this.hash + this.salt
 }
 
 export default module.exports =

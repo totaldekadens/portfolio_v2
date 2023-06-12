@@ -1,7 +1,11 @@
 import dbConnect from '@/lib/dbConnect'
-import User from '@/models/UserModel'
+import User, { UserDocument } from '@/models/UserModel'
+import { NextApiRequest, NextApiResponse } from 'next'
 
-export default async function handler(req, res) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const {
     query: { id },
     method,
@@ -12,7 +16,7 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const user = await User.findOne({ _id: id })
+        const user: UserDocument | undefined = await User.findOne({ _id: id })
         if (!user) {
           return res
             .status(400)
@@ -29,14 +33,14 @@ export default async function handler(req, res) {
 
         res
           .status(200)
-          .json({ success: true, data: 'User is successfully deleted' })
+          .json({ success: true, data: 'User is successfully Updated' })
       } catch (error) {
         res.status(400).json({ success: false, data: error })
       }
       break
     case 'DELETE':
       try {
-        const user = await User.findOne({ _id: id })
+        const user: UserDocument | undefined = await User.findOne({ _id: id })
         if (!user) {
           return res
             .status(400)
