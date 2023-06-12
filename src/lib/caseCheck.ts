@@ -3,7 +3,7 @@
  * @param inputValue
  * @returns caseInsensitive regex string
  */
-const caseInsensitive = (inputValue) => {
+const caseInsensitive = (inputValue: string) => {
   return new RegExp(`^${inputValue}$`, 'i')
 }
 

@@ -8,14 +8,27 @@ import portraitImage from '@/images/profil.webp'
 import FadeIn from '@/components/Layout/containers/FadeIn'
 import { aboutPage as page } from '@/lib/data'
 
-function SocialLink({ className, href, children, icon: Icon }) {
+interface SocialLinkProps {
+  href: string
+  icon: (props: any) => JSX.Element
+  className?: string
+  children?: React.ReactNode
+}
+
+function SocialLink({
+  className,
+  href,
+  children,
+  icon: Icon,
+}: SocialLinkProps) {
   return (
     <li className={clsx(className, 'flex')}>
       <Link
         href={href}
-        className="group flex text-sm font-medium text-dark-100 transition hover:text-dark-200 dark:text-light-200 dark:hover:text-light-200"
+        target="_blank"
+        className="text-dark-100 hover:text-dark-200 dark:text-light-200 dark:hover:text-light-200 group flex text-sm font-medium transition"
       >
-        <Icon className="h-6 w-6 flex-none fill-dark-100 transition group-hover:fill-dark-50" />
+        <Icon className="fill-dark-100 group-hover:fill-dark-50 h-6 w-6 flex-none transition" />
         <span className="ml-4">{children}</span>
       </Link>
     </li>
@@ -31,7 +44,7 @@ export default function About() {
       </Head>
       <FadeIn>
         <Container className="mt-16 sm:mt-32 xl:mt-40">
-          <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
+          <div className="lg:grid-rows-[auto_1fr] grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12">
             <div className="flex w-full justify-center lg:pl-20 ">
               <div className="max-w-xs px-2.5 lg:max-w-none xl:max-w-lg">
                 <Image
@@ -43,10 +56,10 @@ export default function About() {
               </div>
             </div>
             <div className="lg:order-first lg:row-span-2">
-              <h1 className="text-4xl font-semibold tracking-tight text-dark-200 dark:text-light-200 sm:text-5xl xl:text-6xl">
+              <h1 className="text-dark-200 dark:text-light-200 text-4xl font-semibold tracking-tight sm:text-5xl xl:text-6xl">
                 Hi! I’m Angelica <span className="text-light-300">:)</span>
               </h1>
-              <div className="mt-6 text-base text-dark-200/80 dark:text-zinc-400 xl:mt-9 ">
+              <div className="text-dark-200/80 mt-6 text-base dark:text-zinc-400 xl:mt-9 ">
                 <p className="mb-8">{page.intro}</p>
                 {page.sections.map((section) => (
                   <>
@@ -70,7 +83,7 @@ export default function About() {
                 <SocialLink
                   href={`mailto:${page.email}`}
                   icon={MailIcon}
-                  className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+                  className="dark:border-zinc-700/40 mt-8 border-t border-zinc-100 pt-8"
                 >
                   {page.email}
                 </SocialLink>

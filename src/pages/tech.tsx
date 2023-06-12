@@ -3,12 +3,27 @@ import { Card } from '@/components/Card'
 import { Section } from '@/components/Layout/containers/Section'
 import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 import FadeIn from '@/components/Layout/containers/FadeIn'
-import Tech from '@/models/TechModel'
+import Tech, { TechCategory, TechDocument } from '@/models/TechModel'
 import dbConnect from '@/lib/dbConnect'
+import { GetStaticProps } from 'next'
 
-function ToolsSection({ children, ...props }) {
+interface ToolSectionProps {
+  title: string
+  children: React.ReactNode
+}
+
+interface ToolProps {
+  title: string
+  children: React.ReactNode
+}
+
+interface Props {
+  page: TechDocument
+}
+
+function ToolsSection({ children, title }: ToolSectionProps) {
   return (
-    <Section {...props}>
+    <Section title={title}>
       <ul role="list" className="space-y-16">
         {children}
       </ul>
@@ -16,29 +31,29 @@ function ToolsSection({ children, ...props }) {
   )
 }
 
-function Tool({ title, href, children }) {
+function Tool({ title, children }: ToolProps) {
   return (
     <Card as="li">
-      <Card.Title as="h3" href={href}>
-        {title}
-      </Card.Title>
+      <Card.Title as="h3">{title}</Card.Title>
       <Card.Description>{children}</Card.Description>
     </Card>
   )
 }
 
-export default function TechPage({ page }) {
+export default function TechPage({ page }: Props) {
   return (
     <>
       <Head>
-        <title>{`${page.title} - Angelica Moberg Skoglund`}</title>
+        <title>{`${
+          page.title ? page.title : 'Tech / Stack'
+        } - Angelica Moberg Skoglund`}</title>
         <meta name="description" content="Tech and stack I use." />
       </Head>
       <FadeIn>
         <SimpleLayout title={page[0].title} intro={page[0].intro}>
           <div className="space-y-20">
             {page
-              ? page[0].categories.map((category, i) => (
+              ? page[0].categories.map((category: TechCategory, i: number) => (
                   <ToolsSection key={i} title={category.title}>
                     {category.tech.map((object) => (
                       <Tool title={object.title}>{object.description}</Tool>
@@ -53,7 +68,7 @@ export default function TechPage({ page }) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   await dbConnect()
 
   const page = await Tech.find({})

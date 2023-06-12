@@ -2,17 +2,29 @@ import crypto from 'crypto'
 import mongoose from 'mongoose'
 const { Schema } = mongoose
 
-const UserSchema = new Schema({
+const UserSchema = new Schema<UserDocument>({
   username: { type: String, required: true },
   name: { type: String, required: true },
   email: { type: String, required: true },
   phone: String,
   github: String,
   linkedin: String,
-  password: { type: String },
+  password: { type: String, required: true },
   hash: String,
   salt: String,
 })
+
+export interface UserDocument {
+  username: string
+  name: string
+  email: string
+  phone: string
+  github?: string
+  linkedin?: string
+  password: string
+  hash?: string
+  salt?: string
+}
 
 // Method to check the entered password is correct or not
 UserSchema.methods.validPassword = function (password) {
