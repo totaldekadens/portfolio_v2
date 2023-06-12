@@ -201,7 +201,12 @@ function clamp(number, a, b) {
   return Math.min(Math.max(number, min), max)
 }
 
-function AvatarContainer({ className, ...props }) {
+/* interface AvatarContainerProps {
+  className?: string
+  children?: React.ReactNode 
+} */
+
+function AvatarContainer({ className, ...props }/* :AvatarContainerProps  */) {
   return (
     <div
       className={clsx(className, 'h-10 w-10 rounded-full p-0.5 backdrop-blur ')}
@@ -210,7 +215,12 @@ function AvatarContainer({ className, ...props }) {
   )
 }
 
-function Avatar({ large = false, className, ...props }) {
+/* interface AvatarProps {
+  className?: string
+  large?: boolean
+} */
+
+function Avatar({ large = false, className, ...props }/* : AvatarProps */) {
   return (
     <Link
       href="/"
@@ -232,8 +242,8 @@ function Avatar({ large = false, className, ...props }) {
 export function Header() {
   let isHomePage = useRouter().pathname === '/'
 
-  let headerRef = useRef()
-  let avatarRef = useRef()
+  let headerRef = useRef(null)
+  let avatarRef = useRef(null)
   let isInitial = useRef(true)
 
   useEffect(() => {
@@ -320,7 +330,7 @@ export function Header() {
           >
             <div className="relative flex justify-between gap-4 md:pt-12">
               <div className="flex flex-1 ">
-                <AvatarContainer>
+                <AvatarContainer >
                   <Avatar />
                 </AvatarContainer>
               </div>

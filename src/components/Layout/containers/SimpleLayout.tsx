@@ -1,6 +1,12 @@
 import { Container } from '@/components/Layout/containers/Container'
 
-export function SimpleLayout({ title, intro, children }) {
+interface Props {
+  title: string
+  intro: string
+  children: React.ReactNode
+}
+
+export function SimpleLayout({ title, intro, children }: Props) {
   return (
     <Container className="mt-16 sm:mt-32 xl:mt-40">
       <header className="max-w-2xl">

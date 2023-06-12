@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion'
-const FadeIn = ({ children }) => {
+
+interface Props {
+  children: React.ReactNode
+}
+const FadeIn = ({ children }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
