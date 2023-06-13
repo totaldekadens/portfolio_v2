@@ -337,7 +337,7 @@ export function Header() {
               </div>
               <div className='hidden md:flex items-center pointer-events-auto'>
                 <Link href={"/admin"} >
-                  <AdminIcon className="hover:fill-dark-200 fill-light-300 h-6 w-6 transition"  />
+                  <AdminIcon className="hover:fill-dark-200 dark:hover:fill-light-300 fill-light-300 dark:fill-light-50 h-6 w-6 transition"  />
                 </Link>
                 <LogoutButton className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 stroke-red-600 transition dark:stroke-red-600" />
               </div>

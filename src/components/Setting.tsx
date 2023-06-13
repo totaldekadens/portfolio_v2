@@ -184,9 +184,9 @@ export default function Example() {
             <button type="button" className="-m-2.5 p-2.5 text-white xl:hidden" onClick={() => setSidebarOpen(true)}>
               <span className="sr-only">Open sidebar</span>
               <div className="space-y-2">
-                <span className="block h-0.5 w-8 animate-pulse bg-light-300"></span>
-                <span className="block h-0.5 w-4 animate-pulse bg-light-300"></span>
-                <span className="block h-0.5 w-2 animate-pulse bg-light-300"></span>
+                <span className="block h-0.5 w-8 animate-pulse bg-dark-50 dark:bg-light-300"></span>
+                <span className="block h-0.5 w-4 animate-pulse bg-dark-50 dark:bg-light-300"></span>
+                <span className="block h-0.5 w-2 animate-pulse bg-dark-50 dark:bg-light-300"></span>
                 </div>
             </button>
 
@@ -240,7 +240,7 @@ export default function Example() {
                       <div>
                         <button
                           type="button"
-                          className="rounded-md bg-dark-100/80 dark:bg-white/10 px-3 py-2 text-sm font-semibold dark:text-light-50 text-light-50 shadow-sm dark:hover:bg-white/20 hover:bg-dark-100 "
+                          className="rounded-md bg-light-300/60 dark:bg-white/10 px-3 py-2 text-sm font-semibold dark:text-light-50 text-dark-100 shadow-sm dark:hover:bg-white/20 hover:bg-dark-100 "
                         >
                           Change profile picture
                         </button>
