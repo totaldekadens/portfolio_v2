@@ -1,5 +1,6 @@
 import LayoutAdmin from '@/components/Admin/LayoutAdmin'
 import Account from '@/components/Admin/Settings/Account'
+import Presentation from '@/components/Admin/Settings/Presentation'
 import {
   Cog6ToothIcon,
   FolderIcon,
@@ -154,7 +155,7 @@ const navigation: Nav[] = [
         title: 'Presentation',
         slug: 'presentation',
         path: '/settings/presentation',
-        component: '',
+        component: Presentation,
         current: false,
       },
     ],

@@ -1,14 +1,12 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { HomeIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Head from 'next/head'
 import FadeIn from '@/components/Layout/containers/FadeIn'
-import { AdminIcon } from '@/components/Icons'
+import { AdminIcon, HomeIcon } from '@/components/Icons'
 import LogoutButton from '@/components/Buttons/LogoutButton'
-
-import { useRouter } from 'next/router'
 import { Nav } from '@/pages/admin/[...slug]'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 interface Props {
   navigation: Nav[]
@@ -150,7 +148,7 @@ export default function LayoutAdmin({
             {/* Sidebar component, swap this element with another sidebar if you like */}
             <div className="bg-light-100 dark:bg-black/10 dark:ring-white/5 flex grow flex-col gap-y-5 overflow-y-auto px-6 ring-1 ring-black/5 ">
               <div className="flex h-16 shrink-0 items-center">
-                <Link href="/admin">
+                <Link href="/admin/settings/account">
                   <AdminIcon className="dark:fill-dark-50 fill-dark-100 h-8 w-8" />
                 </Link>
               </div>
@@ -183,11 +181,11 @@ export default function LayoutAdmin({
                   <li className="-mx-6 mt-auto">
                     <a
                       href="#"
-                      className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
+                      className="dark:text-light-50 text-dark-200 flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 hover:bg-gray-800"
                     >
                       <img
                         className="h-8 w-8 rounded-full bg-gray-800"
-                        src="profil.webp"
+                        src="/profil.webp"
                         alt=""
                       />
                       <span className="sr-only">Your profile</span>
@@ -220,7 +218,6 @@ export default function LayoutAdmin({
                   <HomeIcon className="stroke-dark-50 mr-2 hidden dark:block" />
                   <HomeIcon className="stroke-dark-100 mr-2 block dark:hidden" />
                 </Link>
-
                 <LogoutButton className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 stroke-red-600 transition dark:stroke-red-600" />
               </div>
             </div>

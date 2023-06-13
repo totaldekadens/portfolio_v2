@@ -21,7 +21,7 @@ const Account = () => {
                       <div>
                         <button
                           type="button"
-                          className="rounded-md bg-light-300/60 dark:bg-white/10 px-3 py-2 text-sm font-semibold dark:text-light-50 text-dark-100 shadow-sm dark:hover:bg-white/20 hover:bg-dark-100 "
+                          className="rounded-md bg-light-300/60 dark:bg-white/10 px-3 py-2 text-sm font-semibold dark:text-light-50 text-dark-100 shadow-sm dark:hover:bg-white/20 hover:bg-light-300/80 "
                         >
                           Change profile picture
                         </button>
@@ -39,7 +39,7 @@ const Account = () => {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
+                          className="block w-full  rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10  focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
