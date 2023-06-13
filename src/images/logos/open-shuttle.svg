@@ -10,8 +10,8 @@
       fill="#fff" />
     <path
       d="M13 26v-5m0 5h6m-6 0h-2.586c-.89 0-1.337-1.077-.707-1.707L13 21m0 0v-5.485c0-2.959-.228-4.866 1.24-7.435l.892-1.56a1 1 0 0 1 1.736 0l.892 1.56C19.228 10.65 19 12.556 19 15.515V21m0 5h2.586c.89 0 1.337-1.077.707-1.707L19 21m0 5v-5"
-      stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M16 13v2" stroke="#0085FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M16 13v2" stroke="#0085FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </g>
   <defs>
     <clipPath id="a">

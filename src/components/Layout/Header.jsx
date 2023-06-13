@@ -7,6 +7,7 @@ import clsx from 'clsx'
 import { Container } from '@/components/Layout/containers/Container'
 import avatarImage from '@/images/newlogo.png'
 import LogoutButton from '../Buttons/LogoutButton'
+import { AdminIcon } from '../Icons'
 
 function CloseIcon(props) {
   return (
@@ -201,12 +202,7 @@ function clamp(number, a, b) {
   return Math.min(Math.max(number, min), max)
 }
 
-/* interface AvatarContainerProps {
-  className?: string
-  children?: React.ReactNode 
-} */
-
-function AvatarContainer({ className, ...props }/* :AvatarContainerProps  */) {
+function AvatarContainer({ className, ...props }) {
   return (
     <div
       className={clsx(className, 'h-10 w-10 rounded-full p-0.5 backdrop-blur ')}
@@ -215,12 +211,7 @@ function AvatarContainer({ className, ...props }/* :AvatarContainerProps  */) {
   )
 }
 
-/* interface AvatarProps {
-  className?: string
-  large?: boolean
-} */
-
-function Avatar({ large = false, className, ...props }/* : AvatarProps */) {
+function Avatar({ large = false, className, ...props }) {
   return (
     <Link
       href="/"
@@ -344,7 +335,12 @@ export function Header() {
                   <ModeToggle />
                 </div>
               </div>
-              <LogoutButton />
+              <div className='hidden md:flex items-center pointer-events-auto'>
+                <Link href={"/admin"} >
+                  <AdminIcon className="hover:fill-dark-200 fill-light-300 h-6 w-6 transition"  />
+                </Link>
+                <LogoutButton className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 stroke-red-600 transition dark:stroke-red-600" />
+              </div>
             </div>
           </Container>
         </div>

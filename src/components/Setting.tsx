@@ -1,29 +1,13 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import {
-  ChartBarSquareIcon,
   Cog6ToothIcon,
   FolderIcon,
-  GlobeAltIcon,
   ServerIcon,
   SignalIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { Bars3Icon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import { AdminIcon, HomeIcon } from './Icons'
 import Link from 'next/link'
 import LogoutButton from './Buttons/LogoutButton'
@@ -87,15 +71,13 @@ export default function Example() {
                     <div className="absolute left-full top-0 flex w-16 justify-center pt-5"/>
                   </Transition.Child>
                   {/* Sidebar component, swap this element with another sidebar if you like */}
-                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-light-200 dark:bg-dark-300 px-6 ring-1 ring-white/10">
+                  <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-light-300 dark:bg-dark-300 px-6 ring-1 ring-white/10">
                     <div className="flex h-16 shrink-0 items-center justify-between">
-                      <AdminIcon />
-                    
+                      <AdminIcon className="dark:fill-dark-50 fill-light-100 h-8 w-8" />
                       <button type="button" className="-m-2.5 p-2.5" onClick={() => setSidebarOpen(false)}>
                         <span className="sr-only">Close sidebar</span>
                         <XMarkIcon className="h-6 w-6 text-white" aria-hidden="true" />
                       </button>
-                  
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -108,7 +90,7 @@ export default function Example() {
                                   className={classNames(
                                     item.current
                                       ? 'bg-light-400 dark:bg-light-400 text-light-50'
-                                      : 'text-dark-300 dark:text-light-100 hover:text-white hover:bg-light-400/20',
+                                      : 'text-dark-100 dark:text-dark-50 hover:text-dark-200 dark:hover:text-light-50 hover:bg-light-400/20',
                                     'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                                   )}
                                 >
@@ -147,16 +129,11 @@ export default function Example() {
         {/* Static sidebar for desktop */}
         <div className="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-black/10 px-6 ring-1 ring-white/5">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-light-100 dark:bg-black/10 px-6 ring-1 dark:ring-white/5 ring-black/5 ">
             <div className="flex h-16 shrink-0 items-center">
                 <Link href="/admin">
-                <AdminIcon />
+                <AdminIcon className="dark:fill-dark-50 fill-dark-100 h-8 w-8" />
                 </Link>
-              {/* <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt="Your Company"
-              /> */}
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -169,7 +146,7 @@ export default function Example() {
                           className={classNames(
                             item.current
                               ? 'bg-light-400 dark:bg-light-400 text-light-50'
-                              : 'text-light-100 hover:text-white hover:bg-light-400/20',
+                              : 'text-dark-100 dark:text-dark-50 hover:text-dark-200 dark:hover:text-light-50 hover:bg-light-400/20',
                             'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
                           )}
                         >
@@ -203,17 +180,23 @@ export default function Example() {
 
         <div className="xl:pl-72">
           {/* Sticky search header */}
-          <div className="sticky top-0 z-40 flex justify-between xl:justify-end h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-gray-900 dark:bg-dark-300 px-4 shadow-sm sm:px-6 lg:px-8">
+          <div className="sticky top-0 z-40 flex justify-between xl:justify-end h-16 shrink-0 items-center gap-x-6 border-b border-white/5 bg-light-200 dark:bg-dark-300 px-4 shadow-sm sm:px-6 lg:px-8">
             <button type="button" className="-m-2.5 p-2.5 text-white xl:hidden" onClick={() => setSidebarOpen(true)}>
               <span className="sr-only">Open sidebar</span>
-              <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+              <div className="space-y-2">
+                <span className="block h-0.5 w-8 animate-pulse bg-light-300"></span>
+                <span className="block h-0.5 w-4 animate-pulse bg-light-300"></span>
+                <span className="block h-0.5 w-2 animate-pulse bg-light-300"></span>
+                </div>
             </button>
 
-            <div className='flex gap-2 items-center'>
-                <Link href="/">
-                    <HomeIcon/>
+            <div className='flex items-center'>
+                <Link className='flex items-center' href="/">
+                    <HomeIcon className='dark:block hidden stroke-dark-50 mr-2'  />
+                    <HomeIcon className='dark:hidden block stroke-dark-100 mr-2'/>
                 </Link>
-                <LogoutButton/>
+                
+                <LogoutButton className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 stroke-red-600 transition dark:stroke-red-600"  />
             </div>
           </div>
 
@@ -223,11 +206,11 @@ export default function Example() {
               <nav className="flex overflow-x-auto py-4">
                 <ul
                   role="list"
-                  className="flex min-w-full flex-none gap-x-6 px-4 text-sm font-semibold leading-6 text-light-300  dark:text-light-100  sm:px-6 lg:px-8"
+                  className="flex min-w-full flex-none gap-x-6 px-4 text-sm font-semibold leading-6 text-dark-100  dark:text-light-100  sm:px-6 lg:px-8"
                 >
                   {secondaryNavigation.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className={item.current ? 'text-dark-300 dark:text-light-300' : ''}>
+                      <a href={item.href} className={item.current ? 'text-light-400 border border-b-light-300 border-x-0 border-t-0 dark:text-light-300' : ''}>
                         {item.name}
                       </a>
                     </li>
@@ -240,7 +223,7 @@ export default function Example() {
             <div className="divide-y divide-white/5">
               <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
                 <div>
-                  <h2 className="text-base font-semibold leading-7 text-white">Personal Information</h2>
+                  <h2 className="text-base font-semibold leading-7  dark:text-light-50 text-dark-200">Personal Information</h2>
                   <p className="mt-1 text-sm leading-6 text-gray-400">
                     {/* Use a permanent address where you can receive mail. */}
                   </p>
@@ -257,7 +240,7 @@ export default function Example() {
                       <div>
                         <button
                           type="button"
-                          className="rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20"
+                          className="rounded-md bg-dark-100/80 dark:bg-white/10 px-3 py-2 text-sm font-semibold dark:text-light-50 text-light-50 shadow-sm dark:hover:bg-white/20 hover:bg-dark-100 "
                         >
                           Change profile picture
                         </button>
@@ -266,7 +249,7 @@ export default function Example() {
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         First name
                       </label>
                       <div className="mt-2">
@@ -275,13 +258,13 @@ export default function Example() {
                           name="first-name"
                           id="first-name"
                           autoComplete="given-name"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
                     <div className="sm:col-span-3">
-                      <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="last-name" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Last name
                       </label>
                       <div className="mt-2">
@@ -290,17 +273,17 @@ export default function Example() {
                           name="last-name"
                           id="last-name"
                           autoComplete="family-name"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
                      <div className="col-span-full">
-                      <label htmlFor="username" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="username" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Username
                       </label>
                       <div className="mt-2">
-                        <div className="flex rounded-md bg-white/5 ring-1 ring-inset ring-white/10 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-500">
+                        <div className="flex rounded-md bg-black/5 dark:bg-white/5 ring-1 ring-inset ring-white/10 focus-within:ring-2 focus-within:ring-inset focus-within:ring-dark-50">
                           <span className="flex select-none items-center pl-3 text-gray-400 sm:text-sm">
                             example.com/
                           </span>
@@ -309,7 +292,7 @@ export default function Example() {
                             name="username"
                             id="username"
                             autoComplete="username"
-                            className="flex-1 border-0 bg-transparent py-1.5 pl-1 text-white focus:ring-0 sm:text-sm sm:leading-6"
+                            className="flex-1 border-0 bg-transparent py-1.5 pl-1 dark:text-light-50 text-dark-200 focus:ring-0 sm:text-sm sm:leading-6"
                             placeholder="janesmith"
                           />
                         </div>
@@ -317,7 +300,7 @@ export default function Example() {
                     </div>
 
                     <div className="col-span-full">
-                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="email" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Email address
                       </label>
                       <div className="mt-2">
@@ -326,13 +309,13 @@ export default function Example() {
                           name="email"
                           type="email"
                           autoComplete="email"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
                       <div className="col-span-full">
-                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="email" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Linkedin
                       </label>
                       <div className="mt-2">
@@ -341,14 +324,14 @@ export default function Example() {
                           name="email"
                           type="email"
                           autoComplete="email"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
 
-  <div className="col-span-full">
-                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
+                    <div className="col-span-full">
+                      <label htmlFor="email" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Github
                       </label>
                       <div className="mt-2">
@@ -357,13 +340,13 @@ export default function Example() {
                           name="email"
                           type="email"
                           autoComplete="email"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5 py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
                      <div className="col-span-full">
-                      <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="email" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Phone number
                       </label>
                       <div className="mt-2">
@@ -372,7 +355,7 @@ export default function Example() {
                           name="email"
                           type="email"
                           autoComplete="email"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
@@ -381,7 +364,7 @@ export default function Example() {
                   <div className="mt-8 flex">
                     <button
                       type="submit"
-                      className="rounded-md bg-light-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-light-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                      className="rounded-md bg-light-400 px-3 py-2 text-sm font-semibold dark:text-light-50 text-light-50 shadow-sm hover:bg-light-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-50"
                     >
                       Save
                     </button>
@@ -391,8 +374,8 @@ export default function Example() {
 
               <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
                 <div>
-                  <h2 className="text-base font-semibold leading-7 text-white">Change password</h2>
-                  <p className="mt-1 text-sm leading-6 text-gray-400">
+                  <h2 className="text-base font-semibold leading-7 dark:text-light-50 text-dark-200">Change password</h2>
+                  <p className="mt-1 text-sm leading-6 text-dark-100/90 dark:text-gray-400">
                     Update your password associated with your account.
                   </p>
                 </div>
@@ -400,7 +383,7 @@ export default function Example() {
                 <form className="md:col-span-2">
                   <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:max-w-xl sm:grid-cols-6">
                     <div className="col-span-full">
-                      <label htmlFor="current-password" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="current-password" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Current password
                       </label>
                       <div className="mt-2">
@@ -409,13 +392,13 @@ export default function Example() {
                           name="current_password"
                           type="password"
                           autoComplete="current-password"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5  py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
                     <div className="col-span-full">
-                      <label htmlFor="new-password" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="new-password" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         New password
                       </label>
                       <div className="mt-2">
@@ -424,13 +407,13 @@ export default function Example() {
                           name="new_password"
                           type="password"
                           autoComplete="new-password"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5 py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
 
                     <div className="col-span-full">
-                      <label htmlFor="confirm-password" className="block text-sm font-medium leading-6 text-white">
+                      <label htmlFor="confirm-password" className="block text-sm font-medium leading-6 dark:text-light-50 text-dark-200">
                         Confirm password
                       </label>
                       <div className="mt-2">
@@ -439,7 +422,7 @@ export default function Example() {
                           name="confirm_password"
                           type="password"
                           autoComplete="new-password"
-                          className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border-0 bg-black/5 dark:bg-white/5 py-1.5 dark:text-light-50 text-dark-200 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-dark-50 sm:text-sm sm:leading-6"
                         />
                       </div>
                     </div>
@@ -448,7 +431,7 @@ export default function Example() {
                   <div className="mt-8 flex">
                     <button
                       type="submit"
-                      className="rounded-md bg-light-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-light-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                      className="rounded-md bg-light-400 px-3 py-2 text-sm font-semibold dark:text-light-50 text-light-50 shadow-sm hover:bg-light-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-50"
                     >
                       Save
                     </button>
@@ -458,8 +441,8 @@ export default function Example() {
 
               <div className="grid max-w-7xl grid-cols-1 gap-x-8 gap-y-10 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
                 <div>
-                  <h2 className="text-base font-semibold leading-7 text-white">Delete account</h2>
-                  <p className="mt-1 text-sm leading-6 text-gray-400">
+                  <h2 className="text-base font-semibold leading-7 dark:text-light-50 text-dark-200">Delete account</h2>
+                  <p className="mt-1 text-sm leading-6 text-dark-100/90 dark:text-gray-400">
                     You can delete your account here. This action is not reversible.
                     All information related to this account will be deleted permanently.
                   </p>
@@ -468,7 +451,7 @@ export default function Example() {
                 <form className="flex items-start md:col-span-2">
                   <button
                     type="submit"
-                    className="rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-400"
+                    className="rounded-md bg-red-600 px-3 py-2 text-sm font-semibold dark:text-light-50 text-dark-200 shadow-sm hover:bg-red-400"
                   >
                     Yes, delete my account
                   </button>

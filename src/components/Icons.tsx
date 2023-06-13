@@ -105,11 +105,11 @@ export function ArrowRight(props) {
       width="28"
       height="28"
       viewBox="0 0 24 24"
-      stroke-width="2"
+      strokeWidth="2"
       stroke="currentColor"
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...props}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -137,21 +137,21 @@ export function LogOutIcon(props) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      className="icon icon-tabler icon-tabler-logout"
+      width="32"
+      height="32"
       viewBox="0 0 24 24"
-      id="logout"
+      stroke-width="1"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
       {...props}
     >
-      <g data-name="Layer 2">
-        <g data-name="log-out">
-          <rect
-            width="24"
-            height="24"
-            opacity="0"
-            transform="rotate(90 12 12)"
-          ></rect>
-          <path d="M7 6a1 1 0 0 0 0-2H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h2a1 1 0 0 0 0-2H6V6zM20.82 11.42l-2.82-4a1 1 0 0 0-1.39-.24 1 1 0 0 0-.24 1.4L18.09 11H10a1 1 0 0 0 0 2h8l-1.8 2.4a1 1 0 0 0 .2 1.4 1 1 0 0 0 .6.2 1 1 0 0 0 .8-.4l3-4a1 1 0 0 0 .02-1.18z"></path>
-        </g>
-      </g>
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+      <path d="M9 12h12l-3 -3"></path>
+      <path d="M18 15l3 -3"></path>
     </svg>
   )
 }
@@ -160,10 +160,9 @@ export function AdminIcon(props) {
   return (
     <svg
       style={{
-        width: '32px',
-        height: '32px',
+        // width: '32px',
+        // height: '32px',
         verticalAlign: 'middle',
-        fill: 'white',
         overflow: 'hidden',
       }}
       viewBox="0 0 1028 1028"
@@ -199,11 +198,11 @@ export function HomeIcon(props) {
       width="32"
       height="32"
       viewBox="0 0 24 24"
-      stroke-width="1"
+      strokeWidth="1"
       stroke="white"
       fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...props}
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
