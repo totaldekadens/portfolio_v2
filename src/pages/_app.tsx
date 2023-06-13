@@ -21,11 +21,13 @@ export default function App({
   router,
 }) {
   let previousPathname = usePrevious(router.pathname)
-
+  // Ta bort check if router includes test sen
   return (
     <SessionProvider session={session}>
       <div className={'relative'}>
-        {!router.pathname ? null : router.pathname.includes('/admin') ? null : (
+        {!router.pathname ? null : router.pathname.includes(
+            '/admin'
+          ) ? null : router.pathname.includes('/test') ? null : (
           <Header />
         )}
 
