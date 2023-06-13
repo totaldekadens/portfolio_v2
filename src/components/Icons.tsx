@@ -159,9 +159,14 @@ export function LogOutIcon(props) {
 export function AdminIcon(props) {
   return (
     <svg
-      class="svg-icon"
-      style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
-      viewBox="0 0 1024 1024"
+      style={{
+        width: '32px',
+        height: '32px',
+        verticalAlign: 'middle',
+        fill: 'white',
+        overflow: 'hidden',
+      }}
+      viewBox="0 0 1028 1028"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
@@ -180,6 +185,32 @@ export function ChevronRightIcon(props) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  )
+}
+
+export function HomeIcon(props) {
+  return (
+    <svg
+      xlinkTitle="Back to website"
+      aria-label="Back to website"
+      xmlns="http://www.w3.org/2000/svg"
+      className="icon icon-tabler icon-tabler-home-move ml-2"
+      width="32"
+      height="32"
+      viewBox="0 0 24 24"
+      stroke-width="1"
+      stroke="white"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      {...props}
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2"></path>
+      <path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5.5"></path>
+      <path d="M16 19h6"></path>
+      <path d="M19 16l3 3l-3 3"></path>
     </svg>
   )
 }

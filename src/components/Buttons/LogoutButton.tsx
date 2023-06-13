@@ -11,7 +11,7 @@ const LogoutButton = () => {
           className="pointer-events-auto hidden h-10 w-10 cursor-pointer items-center md:flex"
           onClick={() => signOut()}
         >
-          <LogOutIcon className="fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 transition dark:fill-zinc-400" />
+          <LogOutIcon className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 fill-red-700 transition dark:fill-red-600" />
         </div>
       ) : null}
     </>

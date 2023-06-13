@@ -1,8 +1,18 @@
 import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 import Head from 'next/head'
 import FadeIn from '@/components/Layout/containers/FadeIn'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { ArrowLeftIcon } from '@/components/Icons'
+import Example from '@/components/Setting'
 
-const Admin = () => {
+const Admin = ({ previousPathname }) => {
+  const router = useRouter()
+  const list = [
+    { title: 'Pages', slug: 'pages' },
+    { title: 'Layout', slug: 'layout' },
+    { title: 'Personal Info', slug: 'personal-info' },
+  ]
   return (
     <>
       <Head>
@@ -10,12 +20,7 @@ const Admin = () => {
         <meta name="description" content="" />
       </Head>
       <FadeIn>
-        <SimpleLayout
-          title={'Admin panel'}
-          intro={'Här kommer du kunna ändra allt sen'}
-        >
-          <h3>Dags att jobba</h3>
-        </SimpleLayout>
+        <Example />
       </FadeIn>
     </>
   )

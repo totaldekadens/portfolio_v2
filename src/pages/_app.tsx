@@ -5,7 +5,7 @@ import { SessionProvider } from 'next-auth/react'
 import { Header } from '@/components/Layout/Header'
 import { Footer } from '@/components/Layout/Footer'
 
-function usePrevious(value) {
+function usePrevious(value: any) {
   let ref = useRef()
 
   useEffect(() => {
@@ -25,11 +25,16 @@ export default function App({
   return (
     <SessionProvider session={session}>
       <div className={'relative'}>
-        <Header />
+        {!router.pathname ? null : router.pathname.includes('/admin') ? null : (
+          <Header />
+        )}
+
         <main>
           <Component previousPathname={previousPathname} {...pageProps} />
         </main>
-        <Footer />
+        {!router.pathname ? null : router.pathname.includes('/admin') ? null : (
+          <Footer />
+        )}
       </div>
     </SessionProvider>
   )
