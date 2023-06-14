@@ -7,6 +7,7 @@ import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import { ChevronRightIcon } from './Icons'
 import { ProjectDocument } from '@/models/ProjectModel'
+import { formatDate } from '@/lib/formatDate'
 
 interface ProjectsProps {
   projects: ProjectDocument[]
@@ -29,7 +30,7 @@ const Project = ({ project }: ProjectProps) => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 2 }}
         ref={ref2}
-        className="relative rounded-lg object-contain "
+        className="relative rounded-lg object-cover "
       >
         <Image
           width={600}
@@ -45,6 +46,9 @@ const Project = ({ project }: ProjectProps) => {
           className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
         >
           <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+            <span className="text-light-300/90 dark:text-light-100/50 text-sm">
+              {formatDate(project.date) ? formatDate(project.date) : 'Ongoing'}
+            </span>
             <h2 className="text-dark-200 dark:text-light-100 text-2xl font-medium">
               {project.title}
             </h2>
@@ -110,7 +114,7 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
                           <motion.img
                             src={'/' + project.image.src}
                             alt="bild"
-                            className=" rounded-lg  object-contain  dark:border dark:border-white/10"
+                            className=" rounded-lg  object-cover  dark:border dark:border-white/10"
                             variants={images}
                           />
 
@@ -121,6 +125,11 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
                             className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
                           >
                             <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+                              <span className="text-light-300/90 dark:text-light-100/50 text-sm">
+                                {formatDate(project.date)
+                                  ? formatDate(project.date)
+                                  : 'Ongoing'}
+                              </span>
                               <h2 className="text-dark-200 dark:text-light-100 text-2xl font-medium">
                                 {project.title}
                               </h2>
@@ -134,11 +143,11 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
                   ? null
                   : currentProjects.map((project, i) => (
                       <Link key={i} href={'/projects/' + project.slug}>
-                        <div className="relative rounded-lg ">
+                        <div className="relative h-full rounded-lg ">
                           <motion.img
                             src={'/' + project.image.src}
                             alt="bild"
-                            className=" rounded-lg object-contain dark:border dark:border-white/10"
+                            className=" h-full w-full rounded-lg object-cover dark:border dark:border-white/10"
                             variants={images}
                           />
 
@@ -149,6 +158,11 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
                             className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
                           >
                             <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+                              <span className="text-light-300/90 dark:text-light-100/50 text-sm">
+                                {formatDate(project.date)
+                                  ? formatDate(project.date)
+                                  : 'Ongoing'}
+                              </span>
                               <h2 className="text-dark-200 dark:text-light-100 text-2xl font-medium">
                                 {project.title}
                               </h2>

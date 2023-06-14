@@ -69,7 +69,11 @@ function ProjectLayout({ previousPathname, project }: Props) {
                           </span>
                         </div>
                         {project.website ? (
-                          <Link href={project.website} aria-label="">
+                          <Link
+                            href={project.website}
+                            aria-label=""
+                            target="_blank"
+                          >
                             <LinkIcon className=" dark:hover:stroke-light-300 stroke-dark-50 hover:stroke-light-300 transition dark:stroke-zinc-400" />
                           </Link>
                         ) : null}
