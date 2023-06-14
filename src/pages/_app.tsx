@@ -4,6 +4,7 @@ import 'focus-visible'
 import { SessionProvider } from 'next-auth/react'
 import { Header } from '@/components/Layout/Header'
 import { Footer } from '@/components/Layout/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 function usePrevious(value: any) {
   let ref = useRef()
@@ -37,6 +38,7 @@ export default function App({
         {!router.pathname ? null : router.pathname.includes('/admin') ? null : (
           <Footer />
         )}
+        <ScrollToTop />
       </div>
     </SessionProvider>
   )
