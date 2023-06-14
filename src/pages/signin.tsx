@@ -26,11 +26,7 @@ export default function SignIn() {
   // Redirect user back to the previous visited page when logged in
   useEffect(() => {
     if (session.data) {
-      if (typeof router.query.callbackUrl === 'string') {
-        router.push(router.query.callbackUrl || '/')
-      } else {
-        router.push('/')
-      }
+      router.push('/admin/setting/account')
     }
   }, [router, session.data])
 
