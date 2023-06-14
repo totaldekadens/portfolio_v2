@@ -20,6 +20,7 @@ export default function Home({ projects }) {
   return (
     <>
       <Head>
+        {/* Todo:  Make this dynamic later */}
         <title>
           Angelica Moberg Skoglund - Web developer, cat mom and a hobby-ish
           carpenter.
@@ -38,6 +39,7 @@ export default function Home({ projects }) {
         <Container className={'mt-24 md:mt-44'}>
           <div className="max-w-3xl xl:max-w-4xl ">
             <h1 className="text-light-300 dark:text-light-300 text-4xl font-semibold tracking-tight sm:text-5xl xl:text-6xl ">
+              {/* Todo:  Make this dynamic later */}
               <span className="text-dark-200 dark:text-light-100">
                 Web developer,{' '}
               </span>
@@ -77,5 +79,9 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const projects = await Project.find({})
 
-  return { props: { projects: JSON.parse(JSON.stringify(projects)) } }
+  const descendingProjects = projects.sort((a, b) => (a.date < b.date ? 1 : -1))
+
+  return {
+    props: { projects: JSON.parse(JSON.stringify(descendingProjects)) },
+  }
 }

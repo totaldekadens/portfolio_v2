@@ -4,6 +4,7 @@ import { Container } from '@/components/Layout/containers/Container'
 import { formatDate } from '@/lib/formatDate'
 import FadeIn from '@/components/Layout/containers/FadeIn'
 import { GitHubIcon, LinkIcon, ArrowLeftIcon } from '@/components/Icons'
+//import { LinkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import dbConnect from '@/lib/dbConnect'
 import Project, { ProjectDocument } from '@/models/ProjectModel'
@@ -19,11 +20,11 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
   return (
     <Link
       href={href}
-      className="group -m-1 ml-6 p-1"
+      className="group -m-1 ml-3 flex items-center p-1 sm:ml-6"
       target="_blank"
       {...props}
     >
-      <Icon className=" fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 transition dark:fill-zinc-400 md:h-10 md:w-10" />
+      <Icon className=" fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 transition dark:fill-zinc-400 md:h-10 md:w-10" />
     </Link>
   )
 }
@@ -39,7 +40,7 @@ function ArticleLayout({ previousPathname, project }: Props) {
             <meta name="description" content={project.description} />
           </Head>
           <FadeIn>
-            <Container className="mt-16 lg:mt-32">
+            <Container className="mt-16 md:mt-28 lg:mt-32">
               <div className="xl:relative">
                 <div className="mx-auto max-w-7xl">
                   {previousPathname && (
@@ -47,7 +48,7 @@ function ArticleLayout({ previousPathname, project }: Props) {
                       type="button"
                       onClick={() => router.back()}
                       aria-label="Go back to projects"
-                      className="dark:bg-light-300/10 dark:ring-white/10 dark:hover:ring-white/20 xl:-top-1.5 group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md  shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:ring-0 dark:hover:border-zinc-700 lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-left-12 xl:mt-0"
+                      className="dark:bg-light-300/10 group mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5  transition dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-left-12 xl:-top-1.5 xl:mt-0"
                     >
                       <ArrowLeftIcon className="dark:stroke-light-200 h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400" />
                     </button>
@@ -69,11 +70,9 @@ function ArticleLayout({ previousPathname, project }: Props) {
                           </span>
                         </div>
                         {project.website ? (
-                          <SocialLink
-                            href={project.website}
-                            aria-label=""
-                            icon={LinkIcon}
-                          />
+                          <Link href={project.website} aria-label="">
+                            <LinkIcon className=" dark:hover:stroke-light-300 stroke-dark-50 hover:stroke-light-300 transition dark:stroke-zinc-400" />
+                          </Link>
                         ) : null}
                         {project.github ? (
                           <SocialLink
@@ -136,8 +135,8 @@ function ArticleLayout({ previousPathname, project }: Props) {
                                 className={
                                   (section.title && i == 0) ||
                                   (section.subTitle && i == 0)
-                                    ? 'my-1 rounded-2xl'
-                                    : 'my-9 rounded-2xl'
+                                    ? 'my-1 rounded-2xl border border-black/5 dark:border-white/5 sm:dark:border-white/10'
+                                    : 'my-9 rounded-2xl border border-black/5 dark:border-white/5 sm:dark:border-white/10'
                                 }
                                 src={'/' + image.src}
                                 alt={image.alt}

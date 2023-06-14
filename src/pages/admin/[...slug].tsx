@@ -6,7 +6,10 @@ import {
   FolderIcon,
   ServerIcon,
   SignalIcon,
+  DocumentDuplicateIcon,
+  WindowIcon,
 } from '@heroicons/react/24/outline'
+import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 
@@ -93,7 +96,7 @@ const navigation: Nav[] = [
   },
   {
     title: 'Pages',
-    icon: ServerIcon,
+    icon: DocumentDuplicateIcon,
     slug: 'pages',
     path: '/pages/merits',
     current: false,
@@ -112,13 +115,20 @@ const navigation: Nav[] = [
         component: '',
         current: false,
       },
+      {
+        title: 'Presentation',
+        slug: 'presentation',
+        path: '/pages/presentation',
+        component: Presentation,
+        current: false,
+      },
     ],
   },
   {
     title: 'Layout',
     slug: 'layout',
     path: '/layout/header',
-    icon: SignalIcon,
+    icon: WindowIcon,
     current: false,
     subNavs: [
       {
@@ -150,13 +160,6 @@ const navigation: Nav[] = [
         path: '/settings/account',
         component: Account,
         current: true,
-      },
-      {
-        title: 'Presentation',
-        slug: 'presentation',
-        path: '/settings/presentation',
-        component: Presentation,
-        current: false,
       },
     ],
   },
@@ -236,3 +239,12 @@ export default function Admin() {
     </>
   )
 }
+
+/* export const getStaticProps: GetStaticProps = async ({ params }) => {
+  await dbConnect()
+
+  const user = await User.find({})
+
+  return { props: { user: JSON.parse(JSON.stringify(user)) } }
+}
+ */

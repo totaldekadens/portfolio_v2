@@ -5,12 +5,15 @@ import FadeIn from '@/components/Layout/containers/FadeIn'
 import Project, { ProjectDocument } from '@/models/ProjectModel'
 import dbConnect from '@/lib/dbConnect'
 import { GetStaticProps } from 'next'
+import Filters from '@/components/Filter'
+import { useState } from 'react'
 
 interface Props {
   projects: ProjectDocument[]
 }
 
 export default function ArticlesIndex({ projects }: Props) {
+  const [currentProjects, setCurrentProjects] = useState(projects)
   return (
     <>
       <Head>
@@ -25,7 +28,15 @@ export default function ArticlesIndex({ projects }: Props) {
           title="Projects"
           intro="This page is under construction. Please checkout all my projects on my Github-page"
         />
-        {projects ? <Projects projects={projects} /> : null}
+        {projects ? (
+          <>
+            <Filters
+              projects={projects}
+              setCurrentProjects={setCurrentProjects}
+            />
+            <Projects projects={projects} currentProjects={currentProjects} />
+          </>
+        ) : null}
       </FadeIn>
     </>
   )
@@ -35,6 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
   await dbConnect()
 
   const projects = await Project.find({})
+  const descendingProjects = projects.sort((a, b) => (a.date < b.date ? 1 : -1))
 
-  return { props: { projects: JSON.parse(JSON.stringify(projects)) } }
+  return { props: { projects: JSON.parse(JSON.stringify(descendingProjects)) } }
 }

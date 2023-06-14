@@ -6,6 +6,9 @@ import { useRouter } from 'next/router'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import { ChevronRightIcon } from './Icons'
+import Filters from './Filter'
+import { useState } from 'react'
+import { ProjectDocument } from '@/models/ProjectModel'
 
 const Project = ({ project }) => {
   const [ref2, inView2] = useInView({
@@ -20,24 +23,24 @@ const Project = ({ project }) => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 2 }}
         ref={ref2}
-        className="relative rounded-lg "
+        className="relative rounded-lg object-contain "
       >
         <Image
           width={600}
           height={600}
           src={'/' + project.image.src}
           alt="bild"
-          className=" rounded-lg object-contain"
+          className=" rounded-lg dark:border dark:border-white/10"
         />
         <div
           style={{
             backgroundColor: project.accentColor,
             inset: '-2px',
           }}
-          className={`absolute flex cursor-pointer flex-col rounded-lg bg-light-100 opacity-0 transition duration-300 ease-in-out dark:bg-dark-300 md:hover:opacity-100`}
+          className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
         >
           <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
-            <h2 className="text-2xl font-medium text-dark-200 dark:text-light-100">
+            <h2 className="text-dark-200 dark:text-light-100 text-2xl font-medium">
               {project.title}
             </h2>
             <Badges keys={project.keys} />
@@ -48,7 +51,12 @@ const Project = ({ project }) => {
   )
 }
 
-const Projects = ({ projects }) => {
+interface Props {
+  projects: ProjectDocument[]
+  currentProjects?: ProjectDocument[]
+}
+
+const Projects = ({ projects, currentProjects }: Props) => {
   const { pathname } = useRouter()
 
   const variants = {
@@ -75,113 +83,120 @@ const Projects = ({ projects }) => {
     },
   }
 
-  const [ref, inView] = useInView({
-    threshold: 1,
-    triggerOnce: false,
-  })
-
   return (
     <>
-      <Container className="mt-24 hidden md:mt-28 md:flex">
-        <div className="mx-auto max-w-xl  lg:max-w-none ">
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={variants}
-            className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2"
+      {!projects ? null : (
+        <>
+          <Container
+            className={
+              pathname == '/'
+                ? `mt-24 hidden md:mt-28 md:flex`
+                : `mt-4 hidden md:mt-10 md:flex`
+            }
           >
-            {pathname == '/'
-              ? projects.slice(0, 4).map((project, i) => (
-                  <Link key={i} href={'/projects/' + project.slug}>
-                    <div className="relative rounded-lg ">
-                      <motion.img
-                        src={'/' + project.image.src}
-                        alt="bild"
-                        className=" rounded-lg object-contain"
-                        variants={images}
-                      />
+            <div className="mx-auto max-w-xl  lg:max-w-none ">
+              <motion.div
+                initial="hidden"
+                animate="show"
+                variants={variants}
+                className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2"
+              >
+                {pathname == '/'
+                  ? projects.slice(0, 4).map((project, i) => (
+                      <Link key={i} href={'/projects/' + project.slug}>
+                        <div className="relative rounded-lg ">
+                          <motion.img
+                            src={'/' + project.image.src}
+                            alt="bild"
+                            className=" rounded-lg  object-contain  dark:border dark:border-white/10"
+                            variants={images}
+                          />
 
-                      <div
-                        style={{
-                          backgroundColor: project.accentColor,
-                          inset: '-2px',
-                        }}
-                        className={`absolute flex cursor-pointer flex-col rounded-lg bg-light-100 opacity-0 transition duration-300 ease-in-out dark:bg-dark-300 md:hover:opacity-100`}
-                      >
-                        <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
-                          <h2 className="text-2xl font-medium text-dark-200 dark:text-light-100">
-                            {project.title}
-                          </h2>
-                          <Badges keys={project.keys} />
+                          <div
+                            style={{
+                              inset: '-2px',
+                            }}
+                            className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
+                          >
+                            <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+                              <h2 className="text-dark-200 dark:text-light-100 text-2xl font-medium">
+                                {project.title}
+                              </h2>
+                              <Badges keys={project.keys} />
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              : projects.map((project, i) => (
-                  <Link key={i} href={'/projects/' + project.slug}>
-                    <div className="relative rounded-lg ">
-                      <motion.img
-                        src={'/' + project.image.src}
-                        alt="bild"
-                        className=" rounded-lg object-contain"
-                        variants={images}
-                      />
+                      </Link>
+                    ))
+                  : !currentProjects
+                  ? null
+                  : currentProjects.map((project, i) => (
+                      <Link key={i} href={'/projects/' + project.slug}>
+                        <div className="relative rounded-lg ">
+                          <motion.img
+                            src={'/' + project.image.src}
+                            alt="bild"
+                            className=" rounded-lg object-contain dark:border dark:border-white/10"
+                            variants={images}
+                          />
 
-                      <div
-                        style={{
-                          backgroundColor: project.accentColor,
-                          inset: '-2px',
-                        }}
-                        className={`absolute flex cursor-pointer flex-col rounded-lg bg-light-100 opacity-0 transition duration-300 ease-in-out dark:bg-dark-300 md:hover:opacity-100`}
-                      >
-                        <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
-                          <h2 className="text-2xl font-medium text-dark-200 dark:text-light-100">
-                            {project.title}
-                          </h2>
-                          <Badges keys={project.keys} />
+                          <div
+                            style={{
+                              inset: '-2px',
+                            }}
+                            className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
+                          >
+                            <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-8">
+                              <h2 className="text-dark-200 dark:text-light-100 text-2xl font-medium">
+                                {project.title}
+                              </h2>
+                              <Badges keys={project.keys} />
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-          </motion.div>
-          {pathname == '/' ? (
-            <Link
-              href={'/projects'}
-              className=" sm:text-md mt-10 flex w-full items-center justify-end text-sm font-semibold text-dark-200 dark:text-light-100 "
-            >
-              Go to all projects
-              <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
-            </Link>
-          ) : null}
-        </div>
-      </Container>
+                      </Link>
+                    ))}
+              </motion.div>
+              {pathname == '/' ? (
+                <Link
+                  href={'/projects'}
+                  className=" sm:text-md text-dark-200 dark:text-light-100 mt-10 flex w-full items-center justify-end text-sm font-semibold "
+                >
+                  Go to all projects
+                  <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+                </Link>
+              ) : null}
+            </div>
+          </Container>
 
-      {/* Tab and Mobile display */}
+          {/* Tab and Mobile display */}
 
-      <Container className="s mt-24 md:mt-28 md:hidden">
-        <div className="mx-auto max-w-xl  lg:max-w-none ">
-          <div className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">
-            {pathname == '/'
-              ? projects
-                  .slice(0, 4)
-                  .map((project, i) => <Project key={i} project={project} />)
-              : projects.map((project, i) => (
-                  <Project key={i} project={project} />
-                ))}
-          </div>
-          {pathname == '/' ? (
-            <Link
-              href={'/projects'}
-              className=" sm:text-md mt-10 flex w-full items-center justify-end text-sm font-semibold text-dark-200 dark:text-light-100 "
-            >
-              Go to all projects
-              <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
-            </Link>
-          ) : null}
-        </div>
-      </Container>
+          <Container className=" mt-24 md:mt-28 md:hidden">
+            <div className="mx-auto max-w-xl  lg:max-w-none ">
+              <div className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">
+                {pathname == '/'
+                  ? projects
+                      .slice(0, 4)
+                      .map((project, i) => (
+                        <Project key={i} project={project} />
+                      ))
+                  : projects.map((project, i) => (
+                      <Project key={i} project={project} />
+                    ))}
+              </div>
+              {pathname == '/' ? (
+                <Link
+                  href={'/projects'}
+                  className=" sm:text-md text-dark-200 dark:text-light-100 mt-10 flex w-full items-center justify-end text-sm font-semibold "
+                >
+                  Go to all projects
+                  <ChevronRightIcon className="ml-1 h-4 w-4 stroke-current" />
+                </Link>
+              ) : null}
+            </div>
+          </Container>
+        </>
+      )}
     </>
   )
 }

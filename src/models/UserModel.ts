@@ -4,8 +4,10 @@ const { Schema } = mongoose
 
 const UserSchema = new Schema<UserDocument>({
   username: { type: String, required: true },
-  name: { type: String, required: true },
+  firstName: { type: String, required: true },
+  lastName: { type: String, required: true },
   email: { type: String, required: true },
+  image: String,
   phone: String,
   github: String,
   linkedin: String,
@@ -16,9 +18,11 @@ const UserSchema = new Schema<UserDocument>({
 
 export interface UserDocument {
   username: string
-  name: string
+  firstName: string
+  lastName: string
   email: string
   phone: string
+  image?: string
   setPassword?: (password: string) => void
   github?: string
   linkedin?: string

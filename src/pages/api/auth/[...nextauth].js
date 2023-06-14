@@ -50,22 +50,26 @@ export const authOptions = {
       await dbConnect()
       if (user) {
         token.id = user.id
-        token.name = user.name
+        token.firstName = user.firstName
+        token.lastName = user.lastName
         token.email = user.email
         token.github = user.github
         token.linkedin = user.linkedin
         token.phone = user.phone
+        token.image = user.image
       }
       return Promise.resolve(token)
     },
     async session({ session, token }) {
       session.id = token.id
-      session.user.name = token.name
+      session.user.firstName = token.firstName
+      session.user.lastName = token.lastName
       session.user.email = token.email
       session.user.github = token.github
       session.user.linkedin = token.linkedin
       session.user.id = token.id
       session.user.phone = token.phone
+      session.user.image = token.image
 
       return session
     },

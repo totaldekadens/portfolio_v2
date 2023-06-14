@@ -1,7 +1,9 @@
 const Presentation = () => {
   return (
     <div>
-      <h1>Presentation will be fixed shortly</h1>
+      <h1 className="m-5 text-black dark:text-white">
+        Presentation will be fixed shortly
+      </h1>
     </div>
   )
 }
