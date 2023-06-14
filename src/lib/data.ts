@@ -26,13 +26,13 @@ export const meritPage: MeritProps = {
   intro: '',
   merits: [
     {
-      date: '2023-05-16',
+      date: '2023-05-17',
       title: 'Best Master Thesis in the class',
       description:
         'Angelica och Jacob har inte bara utvecklat en webbutik för smink med ett innovativt koncept utan en hel E-handelsplattform med ett egenutvecklat backend. Nästan 20 000 kodrader i bland annat Next.js och Mantine.dev resulterade i en utbyggnadsbar webbproduktion och en väldigt bra grund att stå på. Teknologierna tillsammans med MongoDB har tillämpats på bästa möjliga sätt. Angelica och Jacob demonstrerar förmågan att gå från idé till färdig produkt på kort tid.',
     },
     {
-      date: '2023-05-16',
+      date: '2023-05-17',
       title:
         'Graduated in Web development with focus on E-commerce at Medieinstitutet AB Göteborg',
       description: 'With VG in all courses',

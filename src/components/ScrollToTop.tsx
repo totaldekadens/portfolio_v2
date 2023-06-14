@@ -38,11 +38,11 @@ const ScrollToTop = () => {
         onClick={scrollToTop}
         className={classNames(
           isVisible ? 'opacity-100' : 'opacity-0',
-          'dark:text-dark-50 hover:text-light-400 text-dark-50 inline-flex items-center rounded-full  p-3 transition-opacity dark:bg-none'
+          'dark:text-dark-50 hover:text-light-400 text-dark-50 inline-flex items-center rounded-full  p-3 transition-opacity duration-300 dark:bg-none'
         )}
       >
         <ChevronUpIcon
-          className="dark:hover:text-light-400 h-12 w-12 transition"
+          className="dark:hover:text-light-400 h-12 w-12 transition "
           aria-hidden="true"
         />
       </button>
