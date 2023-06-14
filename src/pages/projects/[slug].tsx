@@ -4,7 +4,6 @@ import { Container } from '@/components/Layout/containers/Container'
 import { formatDate } from '@/lib/formatDate'
 import FadeIn from '@/components/Layout/containers/FadeIn'
 import { GitHubIcon, LinkIcon, ArrowLeftIcon } from '@/components/Icons'
-//import { LinkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import dbConnect from '@/lib/dbConnect'
 import Project, { ProjectDocument } from '@/models/ProjectModel'
@@ -29,7 +28,7 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
   )
 }
 
-function ArticleLayout({ previousPathname, project }: Props) {
+function ProjectLayout({ previousPathname, project }: Props) {
   const router = useRouter()
   return (
     <>
@@ -157,7 +156,7 @@ function ArticleLayout({ previousPathname, project }: Props) {
   )
 }
 
-export default ArticleLayout
+export default ProjectLayout
 
 export const getStaticPaths: GetStaticPaths = async () => {
   await dbConnect()

@@ -45,7 +45,7 @@ export default function Filter({ projects, setCurrentProjects }: Props) {
   const filterRef = useRef(null)
   filterRef.current = selectedFilter
 
-  // Filter products depending on what´s selected
+  // Filter projects depending on what´s selected
   useEffect(() => {
     if (filterRef.current == 'All') {
       setCurrentProjects(projects)

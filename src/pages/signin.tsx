@@ -23,7 +23,7 @@ export default function SignIn() {
   const session = useSession()
 
   const router = useRouter()
-  // Redirect user back to the previous visited page when logged in
+  // Redirect user to admin panel when logged in
   useEffect(() => {
     if (session.data) {
       router.push('/admin/setting/account')

@@ -39,12 +39,13 @@ export default function About() {
   return (
     <>
       <Head>
+        {/* Todo: Make this dynamic later */}
         <title>About - Angelica Moberg Skoglund</title>
         <meta name="description" content="I’m Angelica Moberg Skoglund." />
       </Head>
       <FadeIn>
         <Container className="mt-16 sm:mt-32 xl:mt-40">
-          <div className="lg:grid-rows-[auto_1fr] grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12">
+          <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
             <div className="flex w-full justify-center lg:pl-20 ">
               <div className="max-w-xs px-2.5 lg:max-w-none xl:max-w-lg">
                 <Image
@@ -56,6 +57,7 @@ export default function About() {
               </div>
             </div>
             <div className="lg:order-first lg:row-span-2">
+              {/* Todo: Make this dynamic later */}
               <h1 className="text-dark-200 dark:text-light-200 text-4xl font-semibold tracking-tight sm:text-5xl xl:text-6xl">
                 Hi! I’m Angelica <span className="text-light-300">:)</span>
               </h1>
@@ -83,7 +85,7 @@ export default function About() {
                 <SocialLink
                   href={`mailto:${page.email}`}
                   icon={MailIcon}
-                  className="dark:border-zinc-700/40 mt-8 border-t border-zinc-100 pt-8"
+                  className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
                 >
                   {page.email}
                 </SocialLink>

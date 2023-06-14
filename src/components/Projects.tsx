@@ -6,11 +6,17 @@ import { useRouter } from 'next/router'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
 import { ChevronRightIcon } from './Icons'
-import Filters from './Filter'
-import { useState } from 'react'
 import { ProjectDocument } from '@/models/ProjectModel'
 
-const Project = ({ project }) => {
+interface ProjectsProps {
+  projects: ProjectDocument[]
+  currentProjects?: ProjectDocument[]
+}
+interface ProjectProps {
+  project: ProjectDocument
+}
+
+const Project = ({ project }: ProjectProps) => {
   const [ref2, inView2] = useInView({
     threshold: 1,
     triggerOnce: true,
@@ -34,7 +40,6 @@ const Project = ({ project }) => {
         />
         <div
           style={{
-            backgroundColor: project.accentColor,
             inset: '-2px',
           }}
           className={`bg-light-100 dark:bg-dark-300 absolute flex cursor-pointer flex-col rounded-lg opacity-0 transition duration-300 ease-in-out md:hover:opacity-100`}
@@ -51,12 +56,7 @@ const Project = ({ project }) => {
   )
 }
 
-interface Props {
-  projects: ProjectDocument[]
-  currentProjects?: ProjectDocument[]
-}
-
-const Projects = ({ projects, currentProjects }: Props) => {
+const Projects = ({ projects, currentProjects }: ProjectsProps) => {
   const { pathname } = useRouter()
 
   const variants = {
@@ -87,6 +87,8 @@ const Projects = ({ projects, currentProjects }: Props) => {
     <>
       {!projects ? null : (
         <>
+          {/* Desktop */}
+
           <Container
             className={
               pathname == '/'

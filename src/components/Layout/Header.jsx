@@ -7,54 +7,7 @@ import clsx from 'clsx'
 import { Container } from '@/components/Layout/containers/Container'
 import avatarImage from '@/images/newlogo.png'
 import LogoutButton from '../Buttons/LogoutButton'
-import { AdminIcon } from '../Icons'
-
-function CloseIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function SunIcon(props) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      {...props}
-    >
-      <path d="M8 12.25A4.25 4.25 0 0 1 12.25 8v0a4.25 4.25 0 0 1 4.25 4.25v0a4.25 4.25 0 0 1-4.25 4.25v0A4.25 4.25 0 0 1 8 12.25v0Z" />
-      <path
-        d="M12.25 3v1.5M21.5 12.25H20M18.791 18.791l-1.06-1.06M18.791 5.709l-1.06 1.06M12.25 20v1.5M4.5 12.25H3M6.77 6.77 5.709 5.709M6.77 17.73l-1.061 1.061"
-        fill="none"
-      />
-    </svg>
-  )
-}
-
-function MoonIcon(props) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path
-        d="M17.25 16.22a6.937 6.937 0 0 1-9.47-9.47 7.451 7.451 0 1 0 9.47 9.47ZM12.75 7C17 7 17 2.75 17 2.75S17 7 21.25 7C17 7 17 11.25 17 11.25S17 7 12.75 7Z"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
+import { AdminIcon, SunIcon, MoonIcon, CloseIcon } from '../Icons'
 
 function MobileNavItem({ href, children }) {
   return (
@@ -71,9 +24,9 @@ function MobileNavigation(props) {
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full px-2 py-2 text-sm font-medium text-zinc-800   backdrop-blur dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
         <div className="space-y-2">
-          <span className="block h-0.5 w-8 animate-pulse bg-light-300"></span>
-          <span className="block h-0.5 w-4 animate-pulse bg-light-300"></span>
-          <span className="block h-0.5 w-2 animate-pulse bg-light-300"></span>
+          <span className="bg-light-300 block h-0.5 w-8 animate-pulse"></span>
+          <span className="bg-light-300 block h-0.5 w-4 animate-pulse"></span>
+          <span className="bg-light-300 block h-0.5 w-2 animate-pulse"></span>
         </div>
       </Popover.Button>
       <Transition.Root>
@@ -98,11 +51,11 @@ function MobileNavigation(props) {
         >
           <Popover.Panel
             focus
-            className="fixed inset-x-4 right-0 left-32 top-0 bottom-0 z-50 origin-top  bg-light-300 px-8 py-5 dark:bg-dark-300 "
+            className="bg-light-300 dark:bg-dark-300 fixed inset-x-4 bottom-0 left-32 right-0 top-0  z-50 origin-top px-8 py-5 "
           >
             <div className="flex flex-row-reverse items-center justify-between">
               <Popover.Button aria-label="Close menu" className="-m-1 p-1">
-                <CloseIcon className="h-10 w-10 text-light-100 dark:text-light-100" />
+                <CloseIcon className="text-light-100 dark:text-light-100 h-10 w-10" />
               </Popover.Button>
               <div className=" flex  md:hidden ">
                 <div className="pointer-events-auto">
@@ -112,7 +65,7 @@ function MobileNavigation(props) {
             </div>
 
             <nav className="mt-10 flex h-full w-full  ">
-              <ul className="-my-2 flex w-full flex-col  divide-y divide-light-50/20 text-3xl text-light-100 dark:divide-zinc-100/5 dark:text-light-200">
+              <ul className="divide-light-50/20 text-light-100 dark:text-light-200 -my-2  flex w-full flex-col divide-y text-3xl dark:divide-zinc-100/5">
                 <MobileNavItem href="/about">About</MobileNavItem>
                 <MobileNavItem href="/projects">Projects</MobileNavItem>
                 <MobileNavItem href="/tech">Tech</MobileNavItem>
@@ -152,7 +105,7 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
   return (
     <nav {...props}>
-      <ul className="flex rounded-lg px-3 text-sm font-medium text-light-300 backdrop-blur dark:text-light-100  md:text-base   ">
+      <ul className="text-light-300 dark:text-light-100 flex rounded-lg px-3 text-sm font-medium backdrop-blur  md:text-base   ">
         <NavItem href="/about">About</NavItem>
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/tech">Tech</NavItem>
@@ -190,8 +143,8 @@ function ModeToggle() {
       className="group rounded-full  px-3 py-2 shadow-lg  backdrop-blur transition  dark:ring-white/10 dark:hover:ring-white/20"
       onClick={toggleMode}
     >
-      <SunIcon className="h-6 w-6 fill-light-300   stroke-light-200   transition group-hover:fill-teal-50 group-hover:stroke-zinc-700 dark:hidden md:fill-zinc-100 md:stroke-light-300  md:group-hover:stroke-dark-300" />{' '}
-      <MoonIcon className="hidden h-6 w-6  stroke-light-200 transition dark:block [@media(prefers-color-scheme:dark)]:group-hover:stroke-light-300 [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
+      <SunIcon className="fill-light-300 stroke-light-200 md:stroke-light-300   md:group-hover:stroke-dark-300   h-6 w-6 transition group-hover:fill-teal-50 group-hover:stroke-zinc-700 dark:hidden  md:fill-zinc-100" />{' '}
+      <MoonIcon className="stroke-light-200 [@media(prefers-color-scheme:dark)]:group-hover:stroke-light-300 hidden  h-6 w-6 transition dark:block [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
     </button>
   )
 }
@@ -321,7 +274,7 @@ export function Header() {
           >
             <div className="relative flex justify-between gap-4 md:pt-12">
               <div className="flex flex-1 ">
-                <AvatarContainer >
+                <AvatarContainer>
                   <Avatar />
                 </AvatarContainer>
               </div>
@@ -335,9 +288,9 @@ export function Header() {
                   <ModeToggle />
                 </div>
               </div>
-              <div className='hidden md:flex items-center pointer-events-auto'>
-                <Link href={"/admin/settings/account"} >
-                  <AdminIcon className="hover:fill-dark-200 dark:hover:fill-light-300 fill-light-300 dark:fill-light-50 h-6 w-6 transition"  />
+              <div className="pointer-events-auto hidden items-center md:flex">
+                <Link href={'/admin/settings/account'}>
+                  <AdminIcon className="hover:fill-dark-200 dark:hover:fill-light-300 fill-light-300 dark:fill-light-50 h-6 w-6 transition" />
                 </Link>
                 <LogoutButton className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 stroke-red-600 transition dark:stroke-red-600" />
               </div>

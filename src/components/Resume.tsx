@@ -2,9 +2,10 @@ import CVButton from '@/components/Buttons/CVButton'
 import { BriefcaseIcon } from '@/components/Icons'
 import Image from 'next/image'
 import { resume } from '@/lib/data'
+
 const Resume = () => {
   return (
-    <div className="dark:border-zinc-700/40 xl:min-w-[466px] xl:max-w-[466px] rounded-2xl border border-zinc-200 p-6">
+    <div className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700/40 xl:min-w-[466px] xl:max-w-[466px]">
       <h2 className="text-dark-200 flex text-sm font-semibold dark:text-zinc-100">
         <BriefcaseIcon className="h-6 w-6 flex-none " />
         <span className="ml-3">Work</span>
@@ -12,7 +13,7 @@ const Resume = () => {
       <ol className="mt-6 space-y-4">
         {resume.map((role, i) => (
           <li key={i} className="flex gap-4">
-            <div className="dark:border-zinc-700/50 relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border  dark:ring-0">
+            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50  dark:ring-0">
               <Image
                 src={role.logoLight}
                 alt=""

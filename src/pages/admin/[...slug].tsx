@@ -4,12 +4,9 @@ import Presentation from '@/components/Admin/Settings/Presentation'
 import {
   Cog6ToothIcon,
   FolderIcon,
-  ServerIcon,
-  SignalIcon,
   DocumentDuplicateIcon,
   WindowIcon,
 } from '@heroicons/react/24/outline'
-import { GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
 
@@ -35,6 +32,7 @@ export interface Nav {
   subNavs: SubNav[]
 }
 
+// This list will be created together with DB later
 const navigation: Nav[] = [
   {
     title: 'Projects',
@@ -193,8 +191,10 @@ export default function Admin() {
   let currentNavListRef = useRef(null)
   currentNavListRef.current = currentNavList
 
+  // Gets list of slugs
   const { query } = useRouter()
 
+  // Sets the current nav and subNav that matches the slugs to "true" in the list, else "false"
   useEffect(() => {
     if (currentNavListRef.current && query && query.slug) {
       let copy: Nav[] = [...currentNavListRef.current]

@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { ArrowRight } from './Icons'
 
 interface CardProps {
   as?: keyof JSX.IntrinsicElements
@@ -47,7 +46,7 @@ export function Card({
   )
 }
 
-Card.Link = function CardLink({ children, ...props }: CardLinkProps) {
+Card.Link = function CardLink({ children }: CardLinkProps) {
   return (
     <>
       <div className="dark:bg-dark-300 absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition  group-hover:scale-100  group-hover:opacity-50 sm:-inset-x-6 sm:rounded-2xl" />
@@ -79,18 +78,7 @@ Card.Description = function CardDescription({
   )
 }
 
-Card.Cta = function CardCta({ children }: CardCtaProps) {
-  return (
-    <div
-      aria-hidden="true"
-      className="dark:text-light-300/60 text-dark-50 relative z-10 mt-4 flex w-full items-center justify-end text-sm font-medium"
-    >
-      {children}
-      <ArrowRight />
-    </div>
-  )
-}
-
+// Used for "date"
 Card.Eyebrow = function CardEyebrow({
   as: Component = 'p',
   decorate = false,

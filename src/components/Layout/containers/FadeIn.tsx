@@ -3,6 +3,8 @@ import { motion } from 'framer-motion'
 interface Props {
   children: React.ReactNode
 }
+
+// Fades in children
 const FadeIn = ({ children }: Props) => {
   return (
     <motion.div

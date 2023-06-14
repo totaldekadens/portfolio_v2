@@ -4,7 +4,6 @@ import React, {
   ForwardRefExoticComponent,
   RefAttributes,
   HTMLAttributes,
-  CSSProperties,
 } from 'react'
 import clsx from 'clsx'
 
