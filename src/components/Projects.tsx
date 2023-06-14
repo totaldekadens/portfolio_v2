@@ -171,7 +171,13 @@ const Projects = ({ projects, currentProjects }: Props) => {
 
           {/* Tab and Mobile display */}
 
-          <Container className=" mt-24 md:mt-28 md:hidden">
+          <Container
+            className={
+              pathname == '/'
+                ? `mt-24 md:mt-28 md:hidden`
+                : `mt-6 md:mt-10 md:hidden`
+            }
+          >
             <div className="mx-auto max-w-xl  lg:max-w-none ">
               <div className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">
                 {pathname == '/'
@@ -180,7 +186,9 @@ const Projects = ({ projects, currentProjects }: Props) => {
                       .map((project, i) => (
                         <Project key={i} project={project} />
                       ))
-                  : projects.map((project, i) => (
+                  : !currentProjects
+                  ? null
+                  : currentProjects.map((project, i) => (
                       <Project key={i} project={project} />
                     ))}
               </div>
