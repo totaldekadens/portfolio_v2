@@ -26,7 +26,7 @@ export default function ArticlesIndex({ projects }: Props) {
       <FadeIn>
         <SimpleLayout
           title="Projects"
-          intro="This page is under construction. Please checkout all my projects on my Github-page"
+          intro="Check out some of my projects I've done during my education and afterwards. Want to see more? Please visit my Github page."
         />
         {projects ? (
           <>
