@@ -112,11 +112,11 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
                 {pathname == '/'
                   ? projects.slice(0, 4).map((project, i) => (
                       <Link key={i} href={'/projects/' + project.slug}>
-                        <div className="relative rounded-lg ">
+                        <div className="relative h-full w-full rounded-lg ">
                           <motion.img
                             src={'/' + project.image.src}
                             alt="bild"
-                            className=" rounded-lg  object-cover  dark:border dark:border-white/10"
+                            className=" h-full w-full rounded-lg  object-cover  dark:border dark:border-white/10"
                             variants={images}
                           />
 
