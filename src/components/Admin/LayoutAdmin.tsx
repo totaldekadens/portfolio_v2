@@ -146,9 +146,12 @@ export default function LayoutAdmin({
           {/* Static sidebar for desktop */}
           <div className="hidden xl:fixed xl:inset-y-0 xl:z-50 xl:flex xl:w-72 xl:flex-col">
             {/* Sidebar component, swap this element with another sidebar if you like */}
-            <div className="bg-light-100 dark:bg-black/10 dark:ring-white/5 flex grow flex-col gap-y-5 overflow-y-auto px-6 ring-1 ring-black/5 ">
+            <div className="bg-light-100 flex grow flex-col gap-y-5 overflow-y-auto px-6 ring-1 ring-black/5 dark:bg-black/10 dark:ring-white/5 ">
               <div className="flex h-16 shrink-0 items-center">
-                <Link href="/admin/settings/account">
+                <Link
+                  aria-label="Go to admin panel"
+                  href="/admin/settings/account "
+                >
                   <AdminIcon className="dark:fill-dark-50 fill-dark-100 h-8 w-8" />
                 </Link>
               </div>
