@@ -35,8 +35,8 @@ const Project = ({ project, index }: ProjectProps) => {
       >
         <Image
           priority={index == 0 || index == 1 ? true : false}
-          width={600}
-          height={600}
+          width={580}
+          height={351}
           src={'/' + project.image.src}
           alt="bild"
           className=" rounded-lg dark:border dark:border-white/10"
