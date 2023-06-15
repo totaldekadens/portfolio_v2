@@ -22,7 +22,10 @@ function MobileNavItem({ href, children }) {
 function MobileNavigation(props) {
   return (
     <Popover {...props}>
-      <Popover.Button className="group flex items-center rounded-full px-2 py-2 text-sm font-medium text-zinc-800   backdrop-blur dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+      <Popover.Button
+        aria-label="Go to mobile menu"
+        className="group flex items-center rounded-full px-2 py-2 text-sm font-medium text-zinc-800   backdrop-blur dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+      >
         <div className="space-y-2">
           <span className="bg-light-400 dark:bg-light-200  block h-0.5 w-8 animate-pulse"></span>
           <span className="bg-light-400 dark:bg-light-200 block h-0.5 w-4 animate-pulse"></span>

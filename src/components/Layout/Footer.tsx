@@ -29,7 +29,7 @@ export function Footer() {
                     <NavLink href="/projects">Projects</NavLink>
                     <NavLink href="/tech">Tech</NavLink>
                   </div>
-                  <p className="text-dark-50 dark:text-light-300 text-sm">
+                  <p className="text-dark-100 dark:text-light-200/60 text-center text-sm">
                     &copy; {new Date().getFullYear()} Angelica Moberg Skoglund.
                     All rights reserved.
                   </p>
