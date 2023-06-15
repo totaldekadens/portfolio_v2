@@ -15,9 +15,10 @@ interface ProjectsProps {
 }
 interface ProjectProps {
   project: ProjectDocument
+  index: number
 }
 
-const Project = ({ project }: ProjectProps) => {
+const Project = ({ project, index }: ProjectProps) => {
   const [ref2, inView2] = useInView({
     threshold: 1,
     triggerOnce: true,
@@ -33,6 +34,7 @@ const Project = ({ project }: ProjectProps) => {
         className="relative rounded-lg object-cover "
       >
         <Image
+          priority={index == 0 || index == 1 ? true : false}
           width={600}
           height={600}
           src={'/' + project.image.src}
@@ -200,12 +202,12 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
                   ? projects
                       .slice(0, 4)
                       .map((project, i) => (
-                        <Project key={i} project={project} />
+                        <Project index={i} key={i} project={project} />
                       ))
                   : !currentProjects
                   ? null
                   : currentProjects.map((project, i) => (
-                      <Project key={i} project={project} />
+                      <Project index={i} key={i} project={project} />
                     ))}
               </div>
               {pathname == '/' ? (
