@@ -164,7 +164,7 @@ export default ProjectLayout
 
 export const getStaticPaths: GetStaticPaths = async () => {
   await dbConnect()
-  const projects = await Project.find({})
+  const projects = await Project.find({ hidden: false })
 
   const paths = projects.map((project) => ({ params: { slug: project.slug } }))
 

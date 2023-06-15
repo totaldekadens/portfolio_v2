@@ -77,7 +77,7 @@ export default function Home({ projects }) {
 export const getStaticProps: GetStaticProps = async () => {
   await dbConnect()
 
-  const projects = await Project.find({})
+  const projects = await Project.find({ hidden: false })
 
   const descendingProjects = projects.sort((a, b) => (a.date < b.date ? 1 : -1))
 
