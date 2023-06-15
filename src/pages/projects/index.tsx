@@ -22,6 +22,11 @@ export default function ArticlesIndex({ projects }: Props) {
           name="description"
           content="Some of my projects. Please check out my Github for more."
         />
+        <link
+          rel="canonical"
+          href="https://www.mobergskoglund.se/"
+          key="canonical"
+        />
       </Head>
       <FadeIn>
         <SimpleLayout

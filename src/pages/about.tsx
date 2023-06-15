@@ -42,6 +42,11 @@ export default function About() {
         {/* Todo: Make this dynamic later */}
         <title>About - Angelica Moberg Skoglund</title>
         <meta name="description" content="I’m Angelica Moberg Skoglund." />
+        <link
+          rel="canonical"
+          href="https://www.mobergskoglund.se/"
+          key="canonical"
+        />
       </Head>
       <FadeIn>
         <Container className="mt-16 sm:mt-32 xl:mt-40">

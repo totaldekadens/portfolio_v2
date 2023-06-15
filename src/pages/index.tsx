@@ -39,6 +39,7 @@ export default function Home({ projects }) {
               {/* Todo:  Make this dynamic later */}
               Hello there, I'm Angelica!
             </h1>
+            <h2 className="sr-only">Angelica Moberg Skoglund</h2>
             <p className="text-dark-100 dark:text-dark-50 mt-6 text-center text-base md:text-start xl:text-lg">
               I'm a web developer based in Sweden´s little Tuscany, Skene in
               Marks kommun. Let´s connect!

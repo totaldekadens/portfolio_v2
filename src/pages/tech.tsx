@@ -48,6 +48,11 @@ export default function TechPage({ page }: Props) {
           page.title ? page.title : 'Tech / Stack'
         } - Angelica Moberg Skoglund`}</title>
         <meta name="description" content="Tech and stack I use." />
+        <link
+          rel="canonical"
+          href="https://www.mobergskoglund.se/"
+          key="canonical"
+        />
       </Head>
       <FadeIn>
         <SimpleLayout title={page[0].title} intro={page[0].intro}>
