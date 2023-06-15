@@ -91,7 +91,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
                       {project.keys.map((key, i) => (
                         <div
                           key={i}
-                          className="bg-light-300/70 text-light-50 dark:bg-light-300/60 dark:text-light-200 z-20 mt-4  rounded-full px-2  py-1  text-[10px] md:py-0 md:text-xs "
+                          className="bg-light-400/70 text-light-50 dark:bg-light-300/60 dark:text-light-200 z-20 mt-4  rounded-full px-2  py-1  text-[10px] md:py-0 md:text-xs "
                         >
                           {key}
                         </div>
@@ -124,7 +124,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
                               </h3>
                             ) : null}
                             {section.description ? (
-                              <p className="text-dark-100/80 dark:text-dark-50 mb-8 text-base font-normal">
+                              <p className="text-dark-100/90 dark:text-dark-50 mb-8 text-base font-normal">
                                 {section.description}
                               </p>
                             ) : null}

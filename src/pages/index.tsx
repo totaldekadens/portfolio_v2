@@ -21,10 +21,7 @@ export default function Home({ projects }) {
     <>
       <Head>
         {/* Todo:  Make this dynamic later */}
-        <title>
-          Angelica Moberg Skoglund - Web developer, cat mom and a hobby-ish
-          carpenter.
-        </title>
+        <title>Angelica Moberg Skoglund - Hello there, I'm Angelica!</title>
         <meta
           name="description"
           content="Web developer based in Sweden´s
@@ -36,18 +33,15 @@ export default function Home({ projects }) {
         />
       </Head>
       <FadeIn>
-        <Container className={'mt-24 md:mt-44'}>
-          <div className="max-w-3xl xl:max-w-4xl ">
-            <h1 className="text-light-300 dark:text-light-300 text-4xl font-semibold tracking-tight sm:text-5xl xl:text-6xl ">
+        <Container className={'mt-24 md:mt-44 '}>
+          <div className="flex max-w-3xl flex-col items-center md:items-start xl:max-w-4xl">
+            <h1 className="text-dark-200 dark:text-light-100 text-center text-2xl font-semibold tracking-tight sm:text-4xl md:text-start md:text-5xl xl:text-6xl ">
               {/* Todo:  Make this dynamic later */}
-              <span className="text-dark-200 dark:text-light-100">
-                Web developer,{' '}
-              </span>
-              cat mom and a hobby-ish carpenter.
+              Hello there, I'm Angelica!
             </h1>
-            <p className="text-dark-100 dark:text-dark-50 mt-6 text-base xl:text-lg">
-              Hello! I’m Angelica, a newly graduated web developer based in
-              Sweden´s little Tuscany, Skene in Marks kommun.
+            <p className="text-dark-100 dark:text-dark-50 mt-6 text-center text-base md:text-start xl:text-lg">
+              I'm a web developer based in Sweden´s little Tuscany, Skene in
+              Marks kommun. Let´s connect!
             </p>
             <div className="mt-6 flex gap-6">
               <SocialLink

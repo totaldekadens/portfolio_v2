@@ -6,7 +6,7 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="transition hover:text-dark-100 dark:hover:text-light-300"
+      className="hover:text-dark-100 dark:hover:text-light-300 transition"
     >
       {children}
     </Link>
@@ -21,15 +21,15 @@ export function Footer() {
       {pathname == '/signin' ? null : (
         <footer className="mt-32">
           <Container.Outer>
-            <div className="dark:border-zinc-700/40 border-t border-zinc-100 pb-16 pt-10">
+            <div className="border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
               <Container.Inner>
                 <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-                  <div className="flex gap-6 text-sm font-medium text-light-300 dark:text-light-200">
+                  <div className="text-light-400 dark:text-light-200 flex gap-6 text-sm font-medium">
                     <NavLink href="/about">About</NavLink>
                     <NavLink href="/projects">Projects</NavLink>
                     <NavLink href="/tech">Tech</NavLink>
                   </div>
-                  <p className="text-sm text-dark-50 dark:text-light-300">
+                  <p className="text-dark-50 dark:text-light-300 text-sm">
                     &copy; {new Date().getFullYear()} Angelica Moberg Skoglund.
                     All rights reserved.
                   </p>

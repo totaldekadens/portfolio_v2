@@ -10,7 +10,7 @@ const CVButton = ({ title, href }: Props) => {
     <a
       href={href}
       target="_blank"
-      className="bg-light-300 text-light-50 hover:bg-light-400 active:text-zinc-100/70 dark:bg-light-300/60 dark:hover:bg-light-300/30 dark:active:text-zinc-100/70 mt-6 flex flex-col items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 transition active:bg-zinc-800   active:transition-none dark:active:bg-zinc-700"
+      className="bg-light-400 text-light-50 hover:bg-light-300 dark:bg-light-300/60 dark:hover:bg-light-300/30 mt-6 flex flex-col items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-semibold outline-offset-2 transition active:bg-zinc-800 active:text-zinc-100/70 active:transition-none   dark:active:bg-zinc-700 dark:active:text-zinc-100/70"
     >
       <button className="group flex w-full items-center justify-center gap-2">
         {title}

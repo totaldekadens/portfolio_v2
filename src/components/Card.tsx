@@ -72,7 +72,7 @@ Card.Description = function CardDescription({
   children,
 }: CardDescriptionProps) {
   return (
-    <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+    <p className="text-light-400/80 dark:text-light-100/80 relative z-10 mt-2 text-sm ">
       {children}
     </p>
   )
@@ -90,7 +90,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'dark:text-light-300/70 text-light-300/80 relative z-10 order-first mb-3 flex items-center text-sm',
+        'dark:text-light-200/70 text-light-400/80 relative z-10 order-first mb-3 flex items-center text-sm',
         decorate && 'pl-3.5'
       )}
       {...props}

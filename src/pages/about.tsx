@@ -58,15 +58,19 @@ export default function About() {
             </div>
             <div className="lg:order-first lg:row-span-2">
               {/* Todo: Make this dynamic later */}
-              <h1 className="text-dark-200 dark:text-light-200 text-4xl font-semibold tracking-tight sm:text-5xl xl:text-6xl">
-                Hi! I’m Angelica <span className="text-light-300">:)</span>
+              <h1 className="text-dark-200 dark:text-light-200 text-3xl font-semibold tracking-tight sm:text-4xl xl:text-5xl">
+                Hello there, I'm Angelica!
               </h1>
               <div className="text-dark-200/80 mt-6 text-base dark:text-zinc-400 xl:mt-9 ">
-                <p className="mb-8">{page.intro}</p>
+                <p className="text-light-400 dark:text-light-100/80 mb-8">
+                  {page.intro}
+                </p>
                 {page.sections.map((section) => (
                   <>
                     <b className="dark:text-light-100">{section.header}</b>
-                    <p className="mb-8">{section.text}</p>
+                    <p className="text-light-400 dark:text-light-100/80 mb-8 ">
+                      {section.text}
+                    </p>
                   </>
                 ))}
               </div>

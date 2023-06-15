@@ -15,10 +15,10 @@ module.exports = {
       colors: {
         light: {
           50: '#ffffff',
-          100: '#F4F4F5',
+          100: '#FEFEFE', //#F4F4F5
           200: '#FAF5F3',
-          300: '#D9A899',
-          400: '#BC8D7F',
+          300: '#444444', // D9A899
+          400: '#242424', // BC8D7F
         },
         dark: {
           50: '#A1A1AA',

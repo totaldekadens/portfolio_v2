@@ -24,9 +24,9 @@ function MobileNavigation(props) {
     <Popover {...props}>
       <Popover.Button className="group flex items-center rounded-full px-2 py-2 text-sm font-medium text-zinc-800   backdrop-blur dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
         <div className="space-y-2">
-          <span className="bg-light-300 block h-0.5 w-8 animate-pulse"></span>
-          <span className="bg-light-300 block h-0.5 w-4 animate-pulse"></span>
-          <span className="bg-light-300 block h-0.5 w-2 animate-pulse"></span>
+          <span className="bg-light-400 dark:bg-light-200  block h-0.5 w-8 animate-pulse"></span>
+          <span className="bg-light-400 dark:bg-light-200 block h-0.5 w-4 animate-pulse"></span>
+          <span className="bg-light-400 dark:bg-light-200 block h-0.5 w-2 animate-pulse"></span>
         </div>
       </Popover.Button>
       <Transition.Root>
@@ -51,7 +51,7 @@ function MobileNavigation(props) {
         >
           <Popover.Panel
             focus
-            className="bg-light-300 dark:bg-dark-300 fixed inset-x-4 bottom-0 left-32 right-0 top-0  z-50 origin-top px-8 py-5 "
+            className="bg-light-400 dark:bg-dark-300 fixed inset-x-4 bottom-0 left-32 right-0 top-0  z-50 origin-top px-8 py-5 "
           >
             <div className="flex flex-row-reverse items-center justify-between">
               <Popover.Button aria-label="Close menu" className="-m-1 p-1">
@@ -89,7 +89,7 @@ function NavItem({ href, children }) {
         className={clsx(
           ' relative block  px-3 py-2 transition',
           isActive
-            ? 'text-dark-100 dark:text-light-300'
+            ? 'text-dark-200 dark:text-light-100 border-b transition '
             : 'hover:text-dark-100 dark:hover:text-light-300'
         )}
       >
@@ -105,7 +105,7 @@ function NavItem({ href, children }) {
 function DesktopNavigation(props) {
   return (
     <nav {...props}>
-      <ul className="text-light-300 dark:text-light-100 flex rounded-lg px-3 text-sm font-medium backdrop-blur  md:text-base   ">
+      <ul className="text-light-400 dark:text-light-100 flex rounded-lg px-3 text-sm font-medium backdrop-blur  md:text-base   ">
         <NavItem href="/about">About</NavItem>
         <NavItem href="/projects">Projects</NavItem>
         <NavItem href="/tech">Tech</NavItem>
@@ -143,7 +143,7 @@ function ModeToggle() {
       className="group rounded-full  px-3 py-2 shadow-lg  backdrop-blur transition  dark:ring-white/10 dark:hover:ring-white/20"
       onClick={toggleMode}
     >
-      <SunIcon className="fill-light-300 stroke-light-200 md:stroke-light-300   md:group-hover:stroke-dark-300   h-6 w-6 transition group-hover:fill-teal-50 group-hover:stroke-zinc-700 dark:hidden  md:fill-zinc-100" />{' '}
+      <SunIcon className="fill-light-400 stroke-light-200 md:stroke-light-400   md:group-hover:stroke-dark-100   h-6 w-6 transition group-hover:fill-teal-50 group-hover:stroke-zinc-500 dark:hidden  md:fill-zinc-100" />{' '}
       <MoonIcon className="stroke-light-200 [@media(prefers-color-scheme:dark)]:group-hover:stroke-light-300 hidden  h-6 w-6 transition dark:block [@media_not_(prefers-color-scheme:dark)]:fill-teal-400/10 [@media_not_(prefers-color-scheme:dark)]:stroke-teal-500" />
     </button>
   )
@@ -290,7 +290,7 @@ export function Header() {
               </div>
               <div className="pointer-events-auto hidden items-center md:flex">
                 <Link href={'/admin/settings/account'}>
-                  <AdminIcon className="hover:fill-dark-200 dark:hover:fill-light-300 fill-light-300 dark:fill-light-50 h-6 w-6 transition" />
+                  <AdminIcon className="hover:fill-dark-200 dark:hover:fill-light-300 fill-light-400 dark:fill-light-50 h-6 w-6 transition" />
                 </Link>
                 <LogoutButton className="group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 stroke-red-600 transition dark:stroke-red-600" />
               </div>
