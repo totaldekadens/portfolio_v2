@@ -100,21 +100,17 @@ function ProjectLayout({ previousPathname, project }: Props) {
                     <div className="mt-8">
                       <p
                         className={
-                          /*  project.description2
-                            ? 'text-dark-200/80 dark:text-dark-50 my-7 leading-relaxed' 
-                            : */ 'text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed'
+                          'text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed'
                         }
                       >
                         {project.description}
                       </p>
-                      {/*  {project.description2 ? (
-                        <p className=" text-dark-200/80 dark:text-dark-50 mb-10 leading-relaxed">
-                          {project.description2}
-                        </p>
-                      ) : null} */}
                       {project.sections.map((section, i) => {
                         return (
-                          <div className="text-dark-200 dark:text-light-100 font-semibold">
+                          <div
+                            key={i}
+                            className="text-dark-200 dark:text-light-100 font-semibold"
+                          >
                             <h2 className="mb-4 mt-[80px]  text-2xl">
                               {section?.title}
                             </h2>
@@ -135,6 +131,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
 
                             {section.images.map((image, i) => (
                               <img
+                                key={i}
                                 className={
                                   (section.title && i == 0) ||
                                   (section.subTitle && i == 0)
