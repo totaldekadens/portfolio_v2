@@ -11,6 +11,7 @@ import { SocialLinkProps } from '../about'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React from 'react'
 import dynamic from 'next/dynamic'
+import VideoPlayer from '@/components/VideoPlayer'
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
@@ -34,6 +35,7 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
 
 function ProjectLayout({ previousPathname, project }: Props) {
   const router = useRouter()
+
   return (
     <>
       {project ? (
@@ -148,19 +150,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
                             ))}
                             {section.video && section.video.src ? (
                               <div className="rounded-lg">
-                                <ReactPlayer
-                                  url={section.video.src}
-                                  playing
-                                  loop
-                                  controls
-                                  muted
-                                  width={'100%'}
-                                  height={'100%'}
-                                  style={{
-                                    overflow: 'hidden',
-                                    borderRadius: '16px',
-                                  }}
-                                />
+                                <VideoPlayer src={section.video.src} />
                               </div>
                             ) : null}
                           </div>
