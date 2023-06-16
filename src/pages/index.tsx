@@ -29,7 +29,7 @@ export default function Home({ projects }) {
         />
         <meta
           property="og:image"
-          content="https://mobergskoglund.se/newlogo.png"
+          content="https://mobergskoglund.se/logos/Angelica_MS_dark.webp"
         />
       </Head>
       <FadeIn>

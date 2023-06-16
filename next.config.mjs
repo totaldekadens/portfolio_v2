@@ -9,6 +9,9 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  images: {
+    deviceSizes: [576, 768, 992, 1200, 1400],
+  },
 }
 
 const withMDX = nextMDX({

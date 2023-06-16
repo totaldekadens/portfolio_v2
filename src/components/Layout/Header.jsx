@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import { Container } from '@/components/Layout/containers/Container'
-import avatarImage from '@/images/newlogo.png'
+//import avatarImage from '@/images/newlogo.png'
 import LogoutButton from '../Buttons/LogoutButton'
 import { AdminIcon, SunIcon, MoonIcon, CloseIcon } from '../Icons'
 
@@ -158,31 +158,39 @@ function clamp(number, a, b) {
   return Math.min(Math.max(number, min), max)
 }
 
-function AvatarContainer({ className, ...props }) {
+function HomeContainer({ className, ...props }) {
   return (
     <div
-      className={clsx(className, 'h-10 w-10 rounded-full p-0.5 backdrop-blur ')}
+      className={clsx(className, 'rounded-lg p-0.5 backdrop-blur ')}
       {...props}
     />
   )
 }
 
-function Avatar({ large = false, className, ...props }) {
+function HomeButton({ title, className }) {
   return (
     <Link
       href="/"
       aria-label="Home"
-      className={clsx(className, 'pointer-events-auto')}
-      {...props}
+      className={clsx(
+        className,
+        'dark:text-light-100 text-light-400 hover:text-dark-100 dark:hover:text-light-300 pointer-events-auto relative whitespace-nowrap px-3  py-2 font-medium transition'
+      )}
     >
-      <Image
-        src={avatarImage}
-        alt=""
-        sizes={large ? '4rem' : '2.25rem'}
-        className={clsx('rounded-full ', large ? 'h-16 w-16' : 'h-9 w-9')}
-        priority
-      />
+      {title}
     </Link>
+  )
+}
+
+function Home({ large = false, className, ...props }) {
+  return (
+    <>
+      <HomeButton
+        title={'Angelica M S'}
+        className={'block md:hidden xl:block'}
+      />
+      <HomeButton title={'Angelica'} className={'hidden md:block xl:hidden'} />
+    </>
   )
 }
 
@@ -277,9 +285,9 @@ export function Header() {
           >
             <div className="relative flex justify-between gap-4 md:pt-12">
               <div className="flex flex-1 ">
-                <AvatarContainer>
-                  <Avatar />
-                </AvatarContainer>
+                <HomeContainer>
+                  <Home />
+                </HomeContainer>
               </div>
 
               <div className="flex flex-1 justify-end md:justify-center">
