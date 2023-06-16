@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { ChevronRightIcon } from './Icons'
 import { ProjectDocument } from '@/models/ProjectModel'
 import { formatDate } from '@/lib/formatDate'
+import clsx from 'clsx'
 
 interface ProjectsProps {
   projects: ProjectDocument[]
@@ -96,11 +97,10 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
           {/* Desktop */}
 
           <Container
-            className={
-              pathname == '/'
-                ? `mt-24 hidden md:mt-28 md:flex`
-                : `mt-4 hidden md:mt-10 md:flex`
-            }
+            className={clsx(
+              'hidden md:flex',
+              pathname == '/' ? `mt-24 md:mt-28` : `mt-4 md:mt-10`
+            )}
           >
             <div className="mx-auto max-w-xl  lg:max-w-none ">
               <motion.div
@@ -190,11 +190,10 @@ const Projects = ({ projects, currentProjects }: ProjectsProps) => {
           {/* Tab and Mobile display */}
 
           <Container
-            className={
-              pathname == '/'
-                ? `mt-24 md:mt-28 md:hidden`
-                : `mt-6 md:mt-10 md:hidden`
-            }
+            className={clsx(
+              'md:hidden',
+              pathname == '/' ? `mt-24 md:mt-28` : `mt-6 md:mt-10`
+            )}
           >
             <div className="mx-auto max-w-xl  lg:max-w-none ">
               <div className="mx-auto grid max-w-xl grid-cols-1 gap-10 lg:max-w-none lg:grid-cols-2">

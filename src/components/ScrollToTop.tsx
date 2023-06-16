@@ -1,9 +1,6 @@
+import { classNames } from '@/lib/ClassNames'
 import { ChevronUpIcon } from '@heroicons/react/24/outline'
 import { useEffect, useState } from 'react'
-
-export const classNames = (...classes: any) => {
-  return classes.filter(Boolean).join(' ')
-}
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false)

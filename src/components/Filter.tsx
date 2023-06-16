@@ -7,17 +7,10 @@ import {
   useState,
 } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
-import {
-  AdjustmentsVerticalIcon,
-  CheckIcon,
-  ChevronUpDownIcon,
-} from '@heroicons/react/20/solid'
+import { AdjustmentsVerticalIcon, CheckIcon } from '@heroicons/react/20/solid'
 import { ProjectDocument } from '@/models/ProjectModel'
 import { Container } from './Layout/containers/Container'
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
-}
+import { classNames } from '@/lib/ClassNames'
 
 interface Props {
   projects: ProjectDocument[]

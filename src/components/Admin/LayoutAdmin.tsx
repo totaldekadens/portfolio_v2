@@ -7,15 +7,12 @@ import { AdminIcon, HomeIcon } from '@/components/Icons'
 import LogoutButton from '@/components/Buttons/LogoutButton'
 import { Nav } from '@/pages/admin/[...slug]'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { classNames } from '@/lib/ClassNames'
 
 interface Props {
   navigation: Nav[]
   currentNav: Nav
   children: React.ReactNode
-}
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ')
 }
 
 export default function LayoutAdmin({
