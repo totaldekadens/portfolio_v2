@@ -11,7 +11,7 @@ import { GetStaticProps } from 'next'
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link href={props.href} className="group -m-1 p-1" {...props}>
-      <Icon className="fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-6 w-6 transition dark:fill-zinc-400" />
+      <Icon className="fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 transition dark:fill-zinc-400  md:h-6 md:w-6" />
     </Link>
   )
 }
