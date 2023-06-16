@@ -9,6 +9,10 @@ import dbConnect from '@/lib/dbConnect'
 import Project, { ProjectDocument } from '@/models/ProjectModel'
 import { SocialLinkProps } from '../about'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import React from 'react'
+import dynamic from 'next/dynamic'
+
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 interface Props {
   previousPathname: string
@@ -129,7 +133,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
                               </p>
                             ) : null}
 
-                            {section.images.map((image, i) => (
+                            {section.images?.map((image, i) => (
                               <img
                                 key={i}
                                 className={
@@ -142,6 +146,23 @@ function ProjectLayout({ previousPathname, project }: Props) {
                                 alt={image.alt}
                               />
                             ))}
+                            {section.video && section.video.src ? (
+                              <div className="rounded-lg">
+                                <ReactPlayer
+                                  url={section.video.src}
+                                  playing
+                                  loop
+                                  controls
+                                  muted
+                                  width={'100%'}
+                                  height={'100%'}
+                                  style={{
+                                    overflow: 'hidden',
+                                    borderRadius: '16px',
+                                  }}
+                                />
+                              </div>
+                            ) : null}
                           </div>
                         )
                       })}
