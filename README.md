@@ -20,8 +20,9 @@ npm run dev
 
 ### Admin panel (ongoing atm)
 
-![login](https://github.com/totaldekadens/portfolio_v2/assets/90898648/55b45325-bcae-44c0-8fdf-94b8a0d0ec3d)
-![a-dark1](https://github.com/totaldekadens/portfolio_v2/assets/90898648/5dd4d76d-d33d-4b2b-b6c8-15ce109b182e)
-![a-dark2](https://github.com/totaldekadens/portfolio_v2/assets/90898648/d5de6387-aa89-4ce0-a928-9e4263c39ebb)
-![a-light1](https://github.com/totaldekadens/portfolio_v2/assets/90898648/023bc251-669f-40dd-8d2a-a1f8b39ba732)
-![a-light2](https://github.com/totaldekadens/portfolio_v2/assets/90898648/59a03835-ec95-40e0-af1e-fa4c7f3828b4)
+
+<img width="1434" alt="bild1" src="https://github.com/totaldekadens/portfolio_v2/assets/90898648/ffd49c09-a118-42a8-a959-f96db6833e66">
+
+![bild2](https://github.com/totaldekadens/portfolio_v2/assets/90898648/39786546-d954-4dbc-bc69-914d3e601c23)
+
+![bild3](https://github.com/totaldekadens/portfolio_v2/assets/90898648/e3624fc4-8d44-4a0b-a85e-c9f85ac3489f)
