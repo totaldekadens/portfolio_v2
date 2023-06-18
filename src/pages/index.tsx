@@ -11,7 +11,7 @@ import { GetStaticProps } from 'next'
 function SocialLink({ icon: Icon, ...props }) {
   return (
     <Link href={props.href} className="group -m-1 p-1" {...props}>
-      <Icon className="fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 transition dark:fill-zinc-400  md:h-6 md:w-6" />
+      <Icon className="fill-dark-50 group-hover:fill-light-300 dark:group-hover:fill-light-300 h-8 w-8 transition dark:fill-zinc-400 " />
     </Link>
   )
 }
@@ -33,8 +33,10 @@ export default function Home({ projects }) {
         />
       </Head>
       <FadeIn>
-        <Container className={'mt-24 md:mt-44 '}>
-          <div className="flex max-w-3xl flex-col items-center md:items-start xl:max-w-4xl">
+        <Container className={'mt-24 w-full md:mt-56 '}>
+          <div className="mb-36 flex flex-col items-center sm:mb-44 md:mb-56">
+            {' '}
+            {/* md:items-start  */}
             <h1 className="text-dark-200 dark:text-light-100 text-center text-2xl font-semibold tracking-tight sm:text-4xl md:text-start md:text-5xl xl:text-6xl ">
               {/* Todo:  Make this dynamic later */}
               Hello there, I'm Angelica!
