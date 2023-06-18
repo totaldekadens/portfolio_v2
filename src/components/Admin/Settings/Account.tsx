@@ -1,4 +1,6 @@
 import { useSession } from 'next-auth/react'
+import React from 'react'
+import Button from '@/components/Buttons/Button'
 
 const Account = () => {
   const { data: session } = useSession()
@@ -25,12 +27,7 @@ const Account = () => {
                 className="h-24 w-24 flex-none rounded-lg bg-gray-800 object-cover"
               />
               <div>
-                <button
-                  type="button"
-                  className="bg-light-300/60 dark:text-light-50 text-dark-100 hover:bg-light-300/80 rounded-md px-3 py-2 text-sm font-semibold shadow-sm dark:bg-white/10 dark:hover:bg-white/20 "
-                >
-                  Change profile picture
-                </button>
+                <Button variant="modest" title="Change profile picture" />
                 <p className="mt-2 text-xs leading-5 text-gray-400">
                   JPG, GIF or PNG. 1MB max.
                 </p>
@@ -171,12 +168,7 @@ const Account = () => {
           </div>
 
           <div className="mt-8 flex">
-            <button
-              type="submit"
-              className="bg-light-400 dark:text-light-50 text-light-50 hover:bg-light-400/60 focus-visible:outline-dark-50 rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-            >
-              Save
-            </button>
+            <Button variant="positive" title="Save" type="submit" />
           </div>
         </form>
       </div>
@@ -249,12 +241,7 @@ const Account = () => {
           </div>
 
           <div className="mt-8 flex">
-            <button
-              type="submit"
-              className="bg-light-400 dark:text-light-50 text-light-50 hover:bg-light-400/60 focus-visible:outline-dark-50 rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-            >
-              Save
-            </button>
+            <Button variant="positive" title="Save" type="submit" />
           </div>
         </form>
       </div>
@@ -269,14 +256,12 @@ const Account = () => {
             information related to this account will be deleted permanently.
           </p>
         </div>
-
         <form className="flex items-start md:col-span-2">
-          <button
+          <Button
+            variant="danger"
+            title="Yes, delete my account"
             type="submit"
-            className="dark:text-light-50 text-dark-200 rounded-md bg-red-600 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-red-400"
-          >
-            Yes, delete my account
-          </button>
+          />
         </form>
       </div>
     </div>

@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import { useFormik } from 'formik'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Button from '@/components/Buttons/Button'
 
 // Yup schema to validate the form
 const schema = Yup.object().shape({
@@ -137,12 +138,12 @@ export default function SignIn() {
                 </div>
 
                 <div>
-                  <button
+                  <Button
+                    variant="positive"
+                    title="Sign in"
+                    className="flex w-full justify-center"
                     type="submit"
-                    className="bg-light-300 hover:bg-light-400 focus-visible:outline-light-300 flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                  >
-                    Sign in
-                  </button>
+                  />
                 </div>
               </form>
             </>

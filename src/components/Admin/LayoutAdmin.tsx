@@ -198,7 +198,7 @@ export default function LayoutAdmin({
           </div>
 
           <div className="xl:pl-72">
-            {/* Sticky search header */}
+            {/* Sticky header */}
             <div className="bg-light-200 dark:bg-dark-300 sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between gap-x-6 border-b border-white/5 px-4 shadow-sm sm:px-6 lg:px-8 xl:justify-end">
               <button
                 type="button"
@@ -237,7 +237,7 @@ export default function LayoutAdmin({
                               href={'/admin' + item.path}
                               className={
                                 item.current
-                                  ? 'text-light-400 border-b-light-300 dark:text-light-300 border border-x-0 border-t-0'
+                                  ? 'text-light-400 border-b-light-300 dark:border-b-light-100  dark:text-light-100 border border-x-0 border-t-0'
                                   : ''
                               }
                             >
