@@ -93,7 +93,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
                       </time>
                     </header>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="'text-dark-200/80 dark:text-dark-50 leading-relaxed'  my-7 mb-20 flex flex-wrap gap-2">
                       {project.keys.map((key, i) => (
                         <div
                           key={i}
@@ -104,13 +104,23 @@ function ProjectLayout({ previousPathname, project }: Props) {
                       ))}
                     </div>
                     <div className="mt-8">
-                      <p
-                        className={
-                          'text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed'
-                        }
-                      >
-                        {project.description}
-                      </p>
+                      {project.description.charAt(0) == '<' ? (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: project.description,
+                            /*    '<p>Hej det här är en rad</p> <br/> <p>Här kommer nästa rad.</p> <br/>   <p>Och här kommer nästa</p> ', */
+                          }}
+                        />
+                      ) : (
+                        <p
+                          className={
+                            'text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed'
+                          }
+                        >
+                          {project.description}
+                        </p>
+                      )}
+
                       {project.sections.map((section, i) => {
                         return (
                           <div
