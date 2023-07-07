@@ -106,9 +106,9 @@ function ProjectLayout({ previousPathname, project }: Props) {
                     <div className="mt-8">
                       {project.description.charAt(0) == '<' ? (
                         <div
+                          className="text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed"
                           dangerouslySetInnerHTML={{
                             __html: project.description,
-                            /*    '<p>Hej det här är en rad</p> <br/> <p>Här kommer nästa rad.</p> <br/>   <p>Och här kommer nästa</p> ', */
                           }}
                         />
                       ) : (
