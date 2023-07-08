@@ -151,8 +151,8 @@ function ProjectLayout({ previousPathname, project }: Props) {
                                 className={
                                   (section.title && i == 0) ||
                                   (section.subTitle && i == 0)
-                                    ? 'my-1 rounded-2xl border border-black/5 dark:border-white/5 sm:dark:border-white/10'
-                                    : 'my-9 rounded-2xl border border-black/5 dark:border-white/5 sm:dark:border-white/10'
+                                    ? 'my-1 w-full rounded-2xl border border-black/5 dark:border-white/5 sm:dark:border-white/10'
+                                    : 'my-9 w-full rounded-2xl border border-black/5 dark:border-white/5 sm:dark:border-white/10'
                                 }
                                 src={'/' + image.src}
                                 alt={image.alt}
