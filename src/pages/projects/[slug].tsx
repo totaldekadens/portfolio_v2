@@ -36,13 +36,17 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
 function ProjectLayout({ previousPathname, project }: Props) {
   const router = useRouter()
 
+  // Removes all html tags
+  const regex = /(<([^>]+)>)/gi
+  const result = project.description.replace(regex, '')
+
   return (
     <>
       {project ? (
         <>
           <Head>
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
-            <meta name="description" content={project.description} />
+            <meta name="description" content={result} />
           </Head>
           <FadeIn>
             <Container className="mt-16 md:mt-28 lg:mt-32">
