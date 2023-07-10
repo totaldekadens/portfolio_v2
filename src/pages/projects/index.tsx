@@ -27,6 +27,10 @@ export default function ArticlesIndex({ projects }: Props) {
           href="https://www.mobergskoglund.se/"
           key="canonical"
         />
+        <meta
+          property="og:image"
+          content="https://mobergskoglund.se/logos/Angelica_MS_dark.webp"
+        />
       </Head>
       <FadeIn>
         <SimpleLayout
