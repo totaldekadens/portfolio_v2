@@ -32,19 +32,6 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
 
 function ProjectLayout({ previousPathname, project }: Props) {
   const router = useRouter()
-  const [desc, setDesc] = useState(
-    project.description ? project.description : ''
-  )
-
-  useEffect(() => {
-    if (project.description) {
-      // Removes all html tags
-      const regex = /(<([^>]+)>)/gi
-      const result = project.description.replace(regex, '')
-
-      setDesc(result)
-    }
-  }, [])
 
   return (
     <>
@@ -52,8 +39,6 @@ function ProjectLayout({ previousPathname, project }: Props) {
         <>
           <Head>
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
-            <meta name="description" content={desc} />
-            <meta property="og:description" content={desc} />
             <meta
               property="og:image"
               content={`https://mobergskoglund.se/${project.image.src}`}
