@@ -51,6 +51,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
           <Head>
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
             <meta name="description" content={desc} />
+            <meta property="og:description" content={desc} />
             <meta
               property="og:image"
               content={`https://mobergskoglund.se/${project.image.src}`}
