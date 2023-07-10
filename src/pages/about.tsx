@@ -47,6 +47,10 @@ export default function About() {
           href="https://www.mobergskoglund.se/"
           key="canonical"
         />
+        <meta
+          property="og:image"
+          content="https://mobergskoglund.se/logos/Angelica_MS_dark.webp"
+        />
       </Head>
       <FadeIn>
         <Container className="mt-16 sm:mt-32 xl:mt-40">

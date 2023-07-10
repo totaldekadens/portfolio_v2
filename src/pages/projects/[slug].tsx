@@ -51,6 +51,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
           <Head>
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
             <meta name="description" content={desc} />
+            <meta property="og:image" content={`/${project.image.src}`} />
           </Head>
           <FadeIn>
             <Container className="mt-16 md:mt-28 lg:mt-32">

@@ -53,6 +53,10 @@ export default function TechPage({ page }: Props) {
           href="https://www.mobergskoglund.se/"
           key="canonical"
         />
+        <meta
+          property="og:image"
+          content="https://mobergskoglund.se/logos/Angelica_MS_dark.webp"
+        />
       </Head>
       <FadeIn>
         <SimpleLayout title={page[0].title} intro={page[0].intro}>

@@ -63,6 +63,10 @@ export default function SignIn() {
     <>
       <Head>
         <title>Sign in - Angelica Moberg Skoglund</title>
+        <meta
+          property="og:image"
+          content="https://mobergskoglund.se/logos/Angelica_MS_dark.webp"
+        />
       </Head>
       <div className="flex min-h-full flex-1 items-center justify-center px-4 py-12 sm:px-6 md:mt-20 lg:px-8">
         <div className="w-full max-w-sm space-y-10">

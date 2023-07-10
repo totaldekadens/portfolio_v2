@@ -42,6 +42,10 @@ export default function Merits() {
       <Head>
         <title>{`${page.title} - Angelica Moberg Skoglund`}</title>
         <meta name="description" content="Some of my merits." />
+        <meta
+          property="og:image"
+          content="https://mobergskoglund.se/logos/Angelica_MS_dark.webp"
+        />
       </Head>
       <FadeIn>
         <SimpleLayout title={page.title} intro={page.intro}>
