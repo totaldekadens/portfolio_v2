@@ -38,7 +38,9 @@ function ProjectLayout({ previousPathname, project }: Props) {
 
   // Removes all html tags
   const regex = /(<([^>]+)>)/gi
-  const result = project.description.replace(regex, '')
+  const result = project.description
+    ? project.description.replace(regex, '')
+    : ''
 
   return (
     <>
