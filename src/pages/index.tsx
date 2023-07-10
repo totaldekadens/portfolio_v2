@@ -42,9 +42,12 @@ export default function Home({ projects }) {
               Hello there, I'm Angelica!
             </h1>
             <p className="text-dark-100 dark:text-dark-50 mt-6 text-center text-base md:text-start xl:text-lg">
-              I'm a web developer based in Sweden´s little Tuscany, Skene in
-              Marks kommun. Let´s connect!
-            </p>
+              A web developer based in Sweden´s little Tuscany, Skene in Marks
+              kommun.
+            </p>{' '}
+            <span className="text-dark-100 dark:text-dark-50 mt-6 text-center text-base md:text-start xl:text-lg">
+              Let´s connect!
+            </span>
             <div className="mt-6 flex gap-6">
               <SocialLink
                 href="https://github.com/totaldekadens"
