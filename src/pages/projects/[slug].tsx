@@ -110,7 +110,9 @@ function ProjectLayout({ previousPathname, project }: Props) {
                       ))}
                     </div>
                     <div className="mt-8">
-                      {project.description.charAt(0) == '<' ? (
+                      {!project.description ? null : project.description.charAt(
+                          0
+                        ) == '<' ? (
                         <div
                           className="text-dark-200/80 dark:text-dark-50 my-7 mb-20 leading-relaxed"
                           dangerouslySetInnerHTML={{
