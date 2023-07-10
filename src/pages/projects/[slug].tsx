@@ -93,7 +93,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
                       </time>
                     </header>
 
-                    <div className="'text-dark-200/80 dark:text-dark-50 leading-relaxed'  my-7 mb-20 flex flex-wrap gap-2">
+                    <div className="'text-dark-200/80 dark:text-dark-50 leading-relaxed'  my-7 mb-10 flex flex-wrap gap-2 md:mb-14">
                       {project.keys.map((key, i) => (
                         <div
                           key={i}
