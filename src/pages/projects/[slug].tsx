@@ -9,7 +9,7 @@ import dbConnect from '@/lib/dbConnect'
 import Project, { ProjectDocument } from '@/models/ProjectModel'
 import { SocialLinkProps } from '../about'
 import { GetStaticPaths, GetStaticProps } from 'next'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import VideoPlayer from '@/components/VideoPlayer'
 
@@ -35,12 +35,17 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
 
 function ProjectLayout({ previousPathname, project }: Props) {
   const router = useRouter()
+  const [desc, setDesc] = useState('')
 
-  // Removes all html tags
-  const regex = /(<([^>]+)>)/gi
-  const result = project.description
-    ? project.description.replace(regex, '')
-    : ''
+  useEffect(() => {
+    if (project.description) {
+      // Removes all html tags
+      const regex = /(<([^>]+)>)/gi
+      const result = project.description.replace(regex, '')
+
+      setDesc(result)
+    }
+  }, [])
 
   return (
     <>
@@ -48,7 +53,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
         <>
           <Head>
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
-            <meta name="description" content={result ? result : ''} />
+            <meta name="description" content={desc} />
           </Head>
           <FadeIn>
             <Container className="mt-16 md:mt-28 lg:mt-32">
