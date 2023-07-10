@@ -46,7 +46,7 @@ function ProjectLayout({ previousPathname, project }: Props) {
         <>
           <Head>
             <title>{`${project.title} - Angelica Moberg Skoglund`}</title>
-            <meta name="description" content={result} />
+            <meta name="description" content={result ? result : ''} />
           </Head>
           <FadeIn>
             <Container className="mt-16 md:mt-28 lg:mt-32">
