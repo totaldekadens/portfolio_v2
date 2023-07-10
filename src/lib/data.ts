@@ -79,15 +79,19 @@ export const aboutPage = {
   slug: 'about',
   title: 'Hi! I’m Angelica :)',
   intro:
-    'Something I´ve always liked since I was a kid is problem solving. Not like how it is with a Rubik´s cube, more like: "Oh crap, this happened and we need to fix it!" And with the odds against us, ofc. I guess I got that from my soccer years. My coach always told us. "It´s not over until it´s over, and a lot can happen if you want to." Some people quit, I don´t. Challenges motivates me. I´m stubborn and positive. :)',
+    'Something I´ve always liked since I was a kid is problem solving. Not like how it is with a Rubik´s cube, more like: "Oh crap, this happened and we need to fix it!"  or  ”We want to be able to do that, can you fix it?”. I think I like it because I need to be creative with my mind and that is rewarding for my brain.',
   sections: [
     {
       header: 'My nish?',
-      text: 'This one is so hard, because I’m right between frontend and backend at the moment. I know I like to work with functionality and problem solving (as mentioned), so I’ve been drawn to eg admin pages within projects in school and been the one ending up with creating the API’s.',
+      text: 'This one is so hard, because I’m right between frontend and backend at the moment. Meaning I still enjoy being part of the whole process.',
+    },
+    {
+      header: '',
+      text: 'I know I like to work with functionality and problem solving (as mentioned), so I’ve been drawn to eg admin pages within projects in school and been the one ending up with creating the API’s. But my interest for UX/UI is growing.',
     },
     {
       header: 'How I work?',
-      text: 'When I go back and look at how it was at my previous workplaces, I notice a pattern. I get a task or responsibility and I end up being really good at it (Maybe not so Swedish of me to say). I always want to get a good understanding of why I do things and not just how to do it. It is very important to me. As a co-worker I think I am perceived as very driven and ambitious. I have also heard that I´m comfortable to be around with. If someone wants a hug, I´m always there.',
+      text: 'When I go back and look at how it was at my previous workplaces, I notice a pattern. I like knowing things! So when I’m new at something I study hard and have no problem trying things out and ask questions. Because I know I’m the only one responsible for my own knowledge, no one else. So as a co-worker I think I am perceived as very driven and ambitious. But I have also heard that I´m comfortable to be around with. :)  If someone wants a hug, I´m always there.',
     },
     {
       header: 'Teamwork?',
