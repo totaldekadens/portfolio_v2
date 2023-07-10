@@ -35,7 +35,6 @@ const VideoPlayer = memo(({ src }: Props) => {
           playsinline={true}
           muted={true}
           fallback={<p>Loading</p>}
-          on
         />
       </div>
     </Waypoint>

@@ -10,10 +10,7 @@ import Project, { ProjectDocument } from '@/models/ProjectModel'
 import { SocialLinkProps } from '../about'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React, { useEffect, useState } from 'react'
-import dynamic from 'next/dynamic'
 import VideoPlayer from '@/components/VideoPlayer'
-
-const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 interface Props {
   previousPathname: string
