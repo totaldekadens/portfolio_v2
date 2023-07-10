@@ -63,8 +63,10 @@ export default function TechPage({ page }: Props) {
             {page
               ? page[0].categories.map((category: TechCategory, i: number) => (
                   <ToolsSection key={i} title={category.title}>
-                    {category.tech.map((object) => (
-                      <Tool title={object.title}>{object.description}</Tool>
+                    {category.tech.map((object, i) => (
+                      <Tool key={i} title={object.title}>
+                        {object.description}
+                      </Tool>
                     ))}
                   </ToolsSection>
                 ))
