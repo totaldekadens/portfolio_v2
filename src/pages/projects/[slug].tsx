@@ -32,7 +32,9 @@ function SocialLink({ icon: Icon, href, ...props }: SocialLinkProps) {
 
 function ProjectLayout({ previousPathname, project }: Props) {
   const router = useRouter()
-  const [desc, setDesc] = useState(project.description)
+  const [desc, setDesc] = useState(
+    project.description ? project.description : ''
+  )
 
   useEffect(() => {
     if (project.description) {
