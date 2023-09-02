@@ -32,7 +32,7 @@ const Resume = () => {
               </dd>
               <dt className="sr-only">Date</dt>
               <dd
-                className="text-dark-50 ml-auto text-xs dark:text-zinc-500"
+                className="text-dark-50 ml-auto min-w-[81px] text-xs dark:text-zinc-500"
                 aria-label={`${role.start ?? role.start} until ${
                   role.end ?? role.end
                 }`}

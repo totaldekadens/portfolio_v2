@@ -3,6 +3,7 @@ import logoH5 from '@/images/logos/h5.png'
 import logoWallmander from '@/images/logos/wallmander.png'
 import logoWallmanderWhite from '@/images/logos/logo-white-transparant.png'
 import logoIngram from '@/images/logos/ingram.png'
+import logoVGR from '@/images/logos/vglogo.png'
 import { GitHubIcon, LinkedInIcon } from '@/components/Icons'
 
 // Will be moved to MongoDB eventually
@@ -42,8 +43,16 @@ export const meritPage: MeritProps = {
 
 export const resume = [
   {
+    company: 'Västra Götalandsregionen',
+    title: 'System Developer',
+    logoDark: logoVGR,
+    logoLight: logoVGR,
+    start: '2023',
+    end: '',
+  },
+  {
     company: 'Wallmander & Co',
-    title: 'Web developer - Internship',
+    title: 'Web Developer - Internship',
     logoDark: logoWallmanderWhite,
     logoLight: logoWallmander,
     start: '2023',
@@ -51,7 +60,7 @@ export const resume = [
   },
   {
     company: 'H5 Förnyelsebyrå AB',
-    title: 'Web developer - Internship',
+    title: 'Web Developer - Internship',
     logoDark: logoH5,
     logoLight: logoH5,
     start: '2022',
