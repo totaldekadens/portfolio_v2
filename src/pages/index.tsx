@@ -42,12 +42,15 @@ export default function Home({ projects }) {
               Hello there, I'm Angelica!
             </h1>
             <p className="text-dark-100 dark:text-dark-50 mt-6 text-center text-base md:text-start xl:text-lg">
-              A web developer based in Sweden´s little Tuscany, Skene in Marks
-              kommun.
+              A web developer based in Sweden´s little Tuscany, Skene in Mark's
+              municipality.
             </p>{' '}
-            <span className="text-dark-100 dark:text-dark-50 mt-6 text-center text-base md:text-start xl:text-lg">
-              Let´s connect!
-            </span>
+            <p className="text-dark-100 dark:text-dark-50 mt-6 text-center text-sm italic xl:text-base">
+              This was previously my portfolio site that I used while searching
+              for my first job as a developer. Although it will no longer be
+              updated, I am keeping the site as a cherished memory to look back
+              on.
+            </p>{' '}
             <div className="mt-6 flex gap-6">
               <SocialLink
                 href="https://github.com/totaldekadens"
