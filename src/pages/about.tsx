@@ -68,7 +68,7 @@ export default function About() {
             <div className="lg:order-first lg:row-span-2">
               {/* Todo: Make this dynamic later */}
               <h1 className="text-dark-200 dark:text-light-200 text-3xl font-semibold tracking-tight sm:text-4xl xl:text-5xl">
-                Hello there, I'm Angelica!
+                Hello hello! :)
               </h1>
               <div className="text-dark-200/80 mt-6 text-base dark:text-zinc-400 xl:mt-9 ">
                 <p className="text-light-400 dark:text-light-100/80 mb-8">

@@ -86,28 +86,16 @@ export const resume = [
 
 export const aboutPage = {
   slug: 'about',
-  title: 'Hi! I’m Angelica :)',
+  title: 'Hello hello! :)',
   intro:
-    'Something I´ve always liked since I was a kid is problem solving. Not like how it is with a Rubik´s cube, more like: "Oh crap, this happened and we need to fix it!"  or  ”We want to be able to do that, can you fix it?”. I think I like it because I need to be creative with my mind and that is rewarding for my brain.',
+    'Welcome to my old profile! If you got here before you landed at my start page I need to inform you  that this was previously my portfolio site that I used while searching for my first job as a developer. Although it will no longer be updated, I am keeping the site as a cherished memory to look back on. If you got here through my start page,  sorry you needed to read that again :) ',
   sections: [
     {
-      header: 'My nish?',
-      text: 'This one is so hard, because I’m right between frontend and backend at the moment. Meaning I still enjoy being part of the whole process.',
+      header: 'Teamwork and leadership',
+      text: 'I played soccer until I turned 23 so I’m a team player in the root. We do it together and complement each other, that’s my mindset and how I like to work.',
     },
     {
       header: '',
-      text: 'I know I like to work with functionality and problem solving (as mentioned), so I’ve been drawn to eg admin pages within projects in school and been the one ending up with creating the API’s. But my interest for UX/UI is growing.',
-    },
-    {
-      header: 'How I work?',
-      text: 'When I go back and look at how it was at my previous workplaces, I notice a pattern. I like knowing things! So when I’m new at something I study hard and have no problem trying things out and ask questions. Because I know I’m the only one responsible for my own knowledge, no one else. So as a co-worker I think I am perceived as very driven and ambitious. But I have also heard that I´m comfortable to be around with. :)  If someone wants a hug, I´m always there.',
-    },
-    {
-      header: 'Teamwork?',
-      text: 'I played soccer until I turned 23 so I’m a team player in the root. I have no problem helping out if someone is in need of help or brainstorming. Asking for help is neither a problem for me. We do it together and we complement each other, that’s my mindset.',
-    },
-    {
-      header: 'Leadership?',
       text: 'In total I have had a leadership role in almost 7 years. I love being there for people and help them grow. My ambition is not to be a leader again, but I think it’s a good thing to mention about my past.',
     },
   ],
