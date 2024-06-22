@@ -88,7 +88,7 @@ export const aboutPage = {
   slug: 'about',
   title: 'Hello hello! :)',
   intro:
-    'Welcome to my profile! This was previously my portfolio site that I used while searching for my first job as a developer. Although it will no longer be updated.',
+    'Welcome to my profile! This was previously my portfolio site that I used while searching for my first job as a developer. Please note that this site will no longer be updated.',
   sections: [
     {
       header: 'Teamwork and leadership',
