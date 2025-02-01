@@ -11,6 +11,7 @@ import { SocialLinkProps } from '../about'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import React, { useEffect, useState } from 'react'
 import VideoPlayer from '@/components/VideoPlayer'
+import { SimpleLayout } from '@/components/Layout/containers/SimpleLayout'
 
 interface Props {
   previousPathname: string
@@ -44,8 +45,12 @@ function ProjectLayout({ previousPathname, project }: Props) {
               content={`https://mobergskoglund.se/${project.image.src}`}
             />
           </Head>
-          <FadeIn>
-            <Container className="mt-16 md:mt-28 lg:mt-32">
+          <SimpleLayout
+            title="Project page"
+            intro="This previous project no longer reflect my current skills. Want to see what I’m working on now? Check out my GitHub!"
+          />
+          {/* <FadeIn>
+           <Container className="mt-16 md:mt-28 lg:mt-32">
               <div className="xl:relative">
                 <div className="mx-auto max-w-7xl">
                   {previousPathname && (
@@ -172,8 +177,8 @@ function ProjectLayout({ previousPathname, project }: Props) {
                   </article>
                 </div>
               </div>
-            </Container>
-          </FadeIn>
+            </Container> 
+          </FadeIn>*/}
         </>
       ) : null}
     </>
