@@ -35,9 +35,9 @@ export default function ArticlesIndex({ projects }: Props) {
       <FadeIn>
         <SimpleLayout
           title="Projects"
-          intro="Check out some of my projects I've done during my education and afterwards. Want to see more? Please visit my Github page."
+          intro="My previous projects no longer reflect my current skills. Want to see what I’m working on now? Check out my GitHub!"
         />
-        {projects ? (
+        {/*  {projects ? (
           <>
             <Filters
               projects={projects}
@@ -45,7 +45,7 @@ export default function ArticlesIndex({ projects }: Props) {
             />
             <Projects projects={projects} currentProjects={currentProjects} />
           </>
-        ) : null}
+        ) : null} */}
       </FadeIn>
     </>
   )
