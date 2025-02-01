@@ -13,6 +13,18 @@ function NavLink({ href, children }) {
   )
 }
 
+function ExtLink({ href, children }) {
+  return (
+    <Link
+      href={href}
+      className="hover:text-dark-100 dark:hover:text-light-300 transition"
+      target="_blank"
+    >
+      {children}
+    </Link>
+  )
+}
+
 export function Footer() {
   const { pathname } = useRouter()
 
@@ -28,6 +40,9 @@ export function Footer() {
                     <NavLink href="/about">About</NavLink>
                     <NavLink href="/projects">Projects</NavLink>
                     <NavLink href="/tech">Tech</NavLink>
+                    <ExtLink href="https://github.com/totaldekadens">
+                      Github
+                    </ExtLink>
                   </div>
                   <p className="text-dark-100 dark:text-light-200/60 text-center text-sm">
                     &copy; {new Date().getFullYear()} Angelica Moberg Skoglund.
