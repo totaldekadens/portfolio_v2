@@ -30,7 +30,7 @@ export const meritPage: MeritProps = {
       date: '2023-05-17',
       title: 'Best Master Thesis in the class',
       description:
-        'Angelica och Jacob har inte bara utvecklat en webbutik för smink med ett innovativt koncept utan en hel E-handelsplattform med ett egenutvecklat backend. Nästan 20 000 kodrader i bland annat Next.js och Mantine.dev resulterade i en utbyggnadsbar webbproduktion och en väldigt bra grund att stå på. Teknologierna tillsammans med MongoDB har tillämpats på bästa möjliga sätt. Angelica och Jacob demonstrerar förmågan att gå från idé till färdig produkt på kort tid.',
+        'Angelica and Jacob have not only developed an online makeup store with an innovative concept, but an entire E-commerce platform with an in-house developed backend. Almost 20,000 lines of code in, among other things, Next.js and Mantine.dev resulted in an expandable web production and a very good foundation to stand on. The technologies along with MongoDB have been applied in the best possible way. Angelica and Jacob demonstrate the ability to go from idea to finished product in a short time.',
     },
     {
       date: '2023-05-17',
